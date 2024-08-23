@@ -5,17 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smiley Nails</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Custom styles to ensure proper display */
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
     <div class="bg-white">
         <!-- Header -->
-        <header class="bg-red-600 p-4 shadow-md">
+        <header class="bg-red-600 p-4 shadow-md relative">
             <nav class="flex items-center justify-between lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1 items-center">
                     <a href="#" class="-m-1.5 p-1.5">
@@ -23,15 +17,15 @@
                         <img class="h-32 w-auto" src="https://i.ibb.co/BTC3Lqk/smiley-nails.png" alt="Smiley Nails Logo">
                     </a>
                 </div>
-                <div class="hidden lg:flex lg:gap-x-12 ml-12 text-white">
-                    <a href="#" class="text-sm font-semibold leading-6">Home</a>
-                    <a href="#" class="text-sm font-semibold leading-6">Our Works</a>
-                    <a href="#" class="text-sm font-semibold leading-6">Pricing</a>
-                    <a href="#" class="text-sm font-semibold leading-6">Gifting</a>
-                    <a href="#" class="text-sm font-semibold leading-6">Contact</a>
-                </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center">
+                    <!-- Back Button -->
+                    <a href="https://websitespractice.vercel.app/SmileyNails.html" class="bg-white text-red-600 font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-gray-100 transition duration-300 flex items-center">
+                        <!-- Back Arrow Icon -->
+                        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back
+                    </a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="lg:hidden">
@@ -45,14 +39,10 @@
 
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden lg:hidden mt-4 bg-red-600">
-                <a href="#" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Home</a>
-                <a href="#" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Our Works</a>
-                <a href="#" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Pricing</a>
-                <a href="#" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Gifting</a>
-                <a href="#" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Contact</a>
-                <a href="#" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Log in</a>
+                <a href="https://websitespractice.vercel.app/SmileyNails.html" class="block px-4 py-2 text-white text-lg font-semibold leading-6">Back</a>
             </div>
         </header>
+
 
         <!-- Main Content Area -->
         <main>
@@ -214,7 +204,7 @@
             <!-- Call to Action Section -->
             <section class="text-center mt-10 mb-12">
                 <a href="https://websitespractice.vercel.app/SmileyNails.html" class="bg-red-600 text-white py-4 px-12 rounded-full text-lg font-semibold hover:bg-red-700 transition duration-300 shadow-lg">
-                    Back to Gallery
+                    Back to Homepage
                 </a>
             </section>
         </main>
