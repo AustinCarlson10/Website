@@ -1,1 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boise Bright</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .service-image {
+            object-fit: cover;
+            height: auto;
+            width: 100%;
+            aspect-ratio: 16/9; /* Adjust the aspect ratio as needed */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Hero Section -->
+    <div class="bg-blue-900 relative">
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav class="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
+                <div class="flex lg:hidden">
+                    <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">Home</a>
+                    <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
+                    <a href="#about" class="text-sm font-semibold leading-6 text-white">About Us</a>
+                    <a href="#gallery" class="text-sm font-semibold leading-6 text-white">Gallery</a>
+                    <a href="#team" class="text-sm font-semibold leading-6 text-white">Our Team</a>
+                    <a href="#pricing" class="text-sm font-semibold leading-6 text-white">Pricing</a>
+                    <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact</a>
+                </div>
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+                <div class="fixed inset-0 z-50"></div>
+                <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-blue-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+                    <div class="flex items-center justify-between">
+                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" id="mobile-menu-close-button">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/25">
+                            <div class="space-y-2 py-6">
+                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Home</a>
+                                <a href="#services" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Services</a>
+                                <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">About Us</a>
+                                <a href="#gallery" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Gallery</a>
+                                <a href="#team" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Our Team</a>
+                                <a href="#pricing" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Pricing</a>
+                                <a href="#contact" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="relative isolate overflow-hidden pt-14 z-10">
+            <img src="https://i.imghippo.com/files/kCqor1724732410.png" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#1e40af] to-[#3b82f6] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+            </div>
+            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative z-10">
+                <div class="text-center px-4">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl"></h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">       </p>
+ <p class="mt-6 text-lg leading-8 text-gray-300">       </p>
+                </div>
+            </div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#1e40af] to-[#3b82f6] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Main Content -->
+    <main>
+        <!-- Services Section -->
+        <section id="services" class="bg-gray-50 py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Our Premium Services</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">Discover our range of services designed to bring a new level of shine and clarity to your windows. Each service is tailored to meet your specific needs with attention to detail and professional care.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16 lg:grid-cols-3">
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="flex items-center justify-center text-center text-lg font-semibold leading-8 text-blue-900">
+                            <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Residential Cleaning" class="service-image">
+                        </div>
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Residential Window Cleaning</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Transform your home’s exterior with our detailed residential window cleaning. We ensure every pane shines brightly, enhancing the overall look and feel of your living space.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="flex items-center justify-center text-center text-lg font-semibold leading-8 text-blue-900">
+                            <img src="https://images.unsplash.com/photo-1611805681455-4a1c30a760e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Commercial Cleaning" class="service-image">
+                        </div>
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Commercial Window Cleaning</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Our commercial window cleaning services cater to businesses of all sizes. We provide efficient and thorough cleaning solutions to ensure your workplace always looks professional and welcoming.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="flex items-center justify-center text-center text-lg font-semibold leading-8 text-blue-900">
+                            <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Specialty Cleaning" class="service-image">
+                        </div>
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Specialty Window Cleaning</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">For those hard-to-reach windows or unique situations, our specialty cleaning services provide tailored solutions. We handle everything with precision to deliver optimal results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <!-- About Us Section -->
+<section id="about" class="bg-blue-900 text-white py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold leading-8">About Us</h2>
+            <p class="mt-2 text-lg leading-8">At Boise Bright, we are committed to providing top-notch window cleaning services with a focus on quality and customer satisfaction. Our team of experienced professionals uses state-of-the-art equipment and techniques to ensure that your windows are spotless and gleaming.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-2 lg:gap-x-12 justify-center">
+            <div class="flex justify-center">
+                <img src="https://i.imghippo.com/files/5zBc71723061421.jpg" alt="About Us Image 1" class="w-full h-80 object-cover">
+            </div>
+            <div class="flex justify-center">
+                <img src="https://i.postimg.cc/MTmbRTq8/download.jpg" alt="About Us Image 2" class="w-full h-80 object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="bg-gray-50 py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Our Gallery</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">Explore our gallery to see examples of our exceptional window cleaning work. Each image showcases the clarity and brilliance we bring to every project.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <img src="https://windowscleaningservices.net/wp-content/uploads/2018/02/window-cleaning-before-after1-400x284.png" class="w-full h-80 object-cover">
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 2" class="w-full h-80 object-cover">
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <img src="https://th.bing.com/th/id/OIP.yXnFuKyPC8TKTqE4ZheEZgAAAA?rs=1&pid=ImgDetMain&adlt=strict" alt="Gallery Image 3" class="w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <!-- Our Team Section -->
+<section id="team" class="bg-blue-900 text-white py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold leading-8">Meet Our Team</h2>
+            <p class="mt-2 text-lg leading-8">Get to know the dedicated professionals behind this family owned busi2009ness Boise Bright. Each team member brings expertise, enthusiasm, and a commitment to delivering outstanding results.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Team Member 1" class="w-full h-80 object-cover">
+                <div class="relative flex-auto">
+                    <h3 class="text-base font-semibold leading-6">Coleton Clark</h3>
+                    <p class="mt-2 text-base leading-6">Coleton is our lead window cleaning technician with years of experience in the industry. His meticulous approach ensures every job is completed to perfection.</p>
+                </div>
+            </div>
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Team Member 2" class="w-full h-80 object-cover">
+                <div class="relative flex-auto">
+                    <h3 class="text-base font-semibold leading-6">Ray Clark</h3>
+                    <p class="mt-2 text-base leading-6">Ray brings a wealth of knowledge to our team. His expertise in handling complex cleaning tasks makes him a valuable asset to our company.</p>
+                </div>
+            </div>
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Team Member 3" class="w-full h-80 object-cover">
+                <div class="relative flex-auto">
+                    <h3 class="text-base font-semibold leading-6">Jaymond Clark</h3>
+                    <p class="mt-2 text-base leading-6">Jaymond is known for his attention to detail and dedication to customer service. He ensures every client receives a personalized experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="bg-gray-50 py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Our Pricing</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">We offer transparent pricing for all our services. Our rates are designed to provide you with exceptional value without compromising on quality.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Standard Package</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Includes basic window cleaning for standard residential or commercial windows. Ideal for regular maintenance.</p>
+                            <p class="mt-4 text-lg font-bold text-gray-900">$100 per visit</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Premium Package</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">A comprehensive cleaning service that includes detailed work and specialty tools for a spotless finish.</p>
+                            <p class="mt-4 text-lg font-bold text-gray-900">$200 per visit</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Custom Package</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Tailored to your specific needs. Contact us to create a personalized package that fits your unique requirements.</p>
+                            <p class="mt-4 text-lg font-bold text-gray-900">Contact for pricing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<div class="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
+    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Contact Us</h2>
+    <p class="mt-2 text-lg leading-8 text-gray-600">Feel free to ask questions, share concerns, or schedule an appointment with us here!</p>
+  </div>
+  <form action="#" method="POST" class="mx-auto mt-16 max-w-xl sm:mt-20">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <div>
+        <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
+        <div class="mt-2.5">
+          <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div>
+        <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
+        <div class="mt-2.5">
+          <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">Company</label>
+        <div class="mt-2.5">
+          <input type="text" name="company" id="company" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
+        <div class="mt-2.5">
+          <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="phone-number" class="block text-sm font-semibold leading-6 text-gray-900">Phone number</label>
+        <div class="relative mt-2.5">
+          <div class="absolute inset-y-0 left-0 flex items-center">
+            <label for="country" class="sr-only">Country</label>
+            <select id="country" name="country" class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+              <option>US</option>
+              <option>CA</option>
+              <option>EU</option>
+            </select>
+            <svg class="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-900 sm:text-sm sm:leading-6">
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
+        <div class="mt-2.5">
+          <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+        </div>
+      </div>
+      <div class="flex gap-x-4 sm:col-span-2">
+        <div class="flex h-6 items-center">
+          <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
+          <button type="button" class="flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" role="switch" aria-checked="false" aria-labelledby="switch-1-label">
+            <span class="sr-only">Agree to policies</span>
+            <!-- Enabled: "translate-x-3.5", Not Enabled: "translate-x-0" -->
+            <span aria-hidden="true" class="h-4 w-4 translate-x-0 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out"></span>
+          </button>
+        </div>
+        <label class="text-sm leading-6 text-gray-600" id="switch-1-label">
+          By selecting this, you agree to our
+          <a href="#" class="font-semibold text-blue-900">privacy&nbsp;policy</a>.
+        </label>
+      </div>
+    </div>
+    <div class="mt-10">
+      <button type="submit" class="block w-full rounded-md bg-blue-900 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Let's talk</button>
+    </div>
+  </form>
+</div>
+
+
+
+      <!-- Footer -->
+<footer class="bg-blue-900 text-white">
+  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+    <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+      <div class="pb-6">
+        <a href="#" class="text-sm leading-6 hover:text-gray-300">About</a>
+      </div>
+      <div class="pb-6">
+        <a href="#" class="text-sm leading-6 hover:text-gray-300">Blog</a>
+      </div>
+      <div class="pb-6">
+        <a href="#" class="text-sm leading-6 hover:text-gray-300">Jobs</a>
+      </div>
+      <div class="pb-6">
+        <a href="#" class="text-sm leading-6 hover:text-gray-300">Press</a>
+      </div>
+      <div class="pb-6">
+        <a href="#" class="text-sm leading-6 hover:text-gray-300">Accessibility</a>
+      </div>
+      <div class="pb-6">
+        <a href="#" class="text-sm leading-6 hover:text-gray-300">Partners</a>
+      </div>
+    </nav>
+    <div class="mt-10 flex justify-center space-x-10">
+      <a href="#" class="text-white hover:text-gray-300">
+        <span class="sr-only">Facebook</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="#" class="text-white hover:text-gray-300">
+        <span class="sr-only">Instagram</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="#" class="text-white hover:text-gray-300">
+        <span class="sr-only">X</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
+        </svg>
+      </a>
+      <a href="#" class="text-white hover:text-gray-300">
+        <span class="sr-only">GitHub</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="#" class="text-white hover:text-gray-300">
+        <span class="sr-only">YouTube</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+    <p class="mt-10 text-center text-xs leading-5 text-gray-400">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+  </div>
+</footer>
