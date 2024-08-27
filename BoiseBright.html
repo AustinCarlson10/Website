@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squeegee Kings</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .service-image {
+            object-fit: cover;
+            height: auto;
+            width: 100%;
+            aspect-ratio: 16/9; /* Adjust the aspect ratio as needed */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- Hero Section -->
+    <div class="bg-blue-900 relative">
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav class="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
+                <div class="flex lg:hidden">
+                    <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="#" class="text-sm font-semibold leading-6 text-white">Home</a>
+                    <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
+                    <a href="#about" class="text-sm font-semibold leading-6 text-white">About Us</a>
+                    <a href="#gallery" class="text-sm font-semibold leading-6 text-white">Gallery</a>
+                    <a href="#team" class="text-sm font-semibold leading-6 text-white">Our Team</a>
+                    <a href="#pricing" class="text-sm font-semibold leading-6 text-white">Pricing</a>
+                    <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact</a>
+                </div>
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+                <div class="fixed inset-0 z-50"></div>
+                <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-blue-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+                    <div class="flex items-center justify-between">
+                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" id="mobile-menu-close-button">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/25">
+                            <div class="space-y-2 py-6">
+                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Home</a>
+                                <a href="#services" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Services</a>
+                                <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">About Us</a>
+                                <a href="#gallery" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Gallery</a>
+                                <a href="#team" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Our Team</a>
+                                <a href="#pricing" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Pricing</a>
+                                <a href="#contact" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="relative isolate overflow-hidden pt-14 z-10">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+            <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#1e40af] to-[#3b82f6] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+            </div>
+            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative z-10">
+                <div class="text-center px-4">
+                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Squeegee Kings</h1>
+                    <p class="mt-6 text-lg leading-8 text-gray-300">Experience unparalleled window cleaning with a touch of royalty. Let us brighten up your view with precision and care.</p>
+                </div>
+            </div>
+            <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#1e40af] to-[#3b82f6] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Services Section -->
+        <section id="services" class="bg-gray-50 py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Our Premium Services</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">Discover our range of services designed to bring a new level of shine and clarity to your windows. Each service is tailored to meet your specific needs with attention to detail and professional care.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-12 md:gap-y-16 lg:grid-cols-3">
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="flex items-center justify-center text-center text-lg font-semibold leading-8 text-blue-900">
+                            <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Residential Cleaning" class="service-image">
+                        </div>
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Residential Window Cleaning</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Transform your home’s exterior with our detailed residential window cleaning. We ensure every pane shines brightly, enhancing the overall look and feel of your living space.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="flex items-center justify-center text-center text-lg font-semibold leading-8 text-blue-900">
+                            <img src="https://images.unsplash.com/photo-1611805681455-4a1c30a760e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Commercial Cleaning" class="service-image">
+                        </div>
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Commercial Window Cleaning</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Our commercial window cleaning services cater to businesses of all sizes. We provide efficient and thorough cleaning solutions to ensure your workplace always looks professional and welcoming.</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="flex items-center justify-center text-center text-lg font-semibold leading-8 text-blue-900">
+                            <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Specialty Cleaning" class="service-image">
+                        </div>
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Specialty Window Cleaning</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">For those hard-to-reach windows or unique situations, our specialty cleaning services provide tailored solutions. We handle everything with precision to deliver optimal results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <!-- About Us Section -->
+<section id="about" class="bg-blue-900 text-white py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold leading-8">About Us</h2>
+            <p class="mt-2 text-lg leading-8">At Squeegee Kings, we are committed to providing top-notch window cleaning services with a focus on quality and customer satisfaction. Our team of experienced professionals uses state-of-the-art equipment and techniques to ensure that your windows are spotless and gleaming.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://i.imghippo.com/files/5zBc71723061421.jpg" alt="About Us Image 1" class="w-full h-80 object-cover">
+            </div>
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://i.postimg.cc/MTmbRTq8/download.jpg" alt="About Us Image 2" class="w-full h-80 object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="bg-gray-50 py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Our Gallery</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">Explore our gallery to see examples of our exceptional window cleaning work. Each image showcases the clarity and brilliance we bring to every project.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <img src="https://windowscleaningservices.net/wp-content/uploads/2018/02/window-cleaning-before-after1-400x284.png" class="w-full h-80 object-cover">
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 2" class="w-full h-80 object-cover">
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <img src="https://th.bing.com/th/id/OIP.yXnFuKyPC8TKTqE4ZheEZgAAAA?rs=1&pid=ImgDetMain&adlt=strict" alt="Gallery Image 3" class="w-full h-80 object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+     <!-- Our Team Section -->
+<section id="team" class="bg-blue-900 text-white py-20">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold leading-8">Meet Our Team</h2>
+            <p class="mt-2 text-lg leading-8">Get to know the dedicated professionals behind this family owned busi2009ness Boise Bright. Each team member brings expertise, enthusiasm, and a commitment to delivering outstanding results.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Team Member 1" class="w-full h-80 object-cover">
+                <div class="relative flex-auto">
+                    <h3 class="text-base font-semibold leading-6">Coleton Clark</h3>
+                    <p class="mt-2 text-base leading-6">Coleton is our lead window cleaning technician with years of experience in the industry. His meticulous approach ensures every job is completed to perfection.</p>
+                </div>
+            </div>
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Team Member 2" class="w-full h-80 object-cover">
+                <div class="relative flex-auto">
+                    <h3 class="text-base font-semibold leading-6">Ray Clark</h3>
+                    <p class="mt-2 text-base leading-6">Ray brings a wealth of knowledge to our team. His expertise in handling complex cleaning tasks makes him a valuable asset to our company.</p>
+                </div>
+            </div>
+            <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                <img src="https://images.unsplash.com/photo-1604154185798-1fa45e90580e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="Team Member 3" class="w-full h-80 object-cover">
+                <div class="relative flex-auto">
+                    <h3 class="text-base font-semibold leading-6">Jaymond Clark</h3>
+                    <p class="mt-2 text-base leading-6">Jaymond is known for his attention to detail and dedication to customer service. He ensures every client receives a personalized experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="bg-gray-50 py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Our Pricing</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">We offer transparent pricing for all our services. Our rates are designed to provide you with exceptional value without compromising on quality.</p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 gap-y-16 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Standard Package</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Includes basic window cleaning for standard residential or commercial windows. Ideal for regular maintenance.</p>
+                            <p class="mt-4 text-lg font-bold text-gray-900">$100 per visit</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Premium Package</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">A comprehensive cleaning service that includes detailed work and specialty tools for a spotless finish.</p>
+                            <p class="mt-4 text-lg font-bold text-gray-900">$200 per visit</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col gap-6 sm:flex-row lg:flex-col lg:justify-between">
+                        <div class="relative flex-auto">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900">Custom Package</h3>
+                            <p class="mt-2 text-base leading-6 text-gray-600">Tailored to your specific needs. Contact us to create a personalized package that fits your unique requirements.</p>
+                            <p class="mt-4 text-lg font-bold text-gray-900">Contact for pricing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold leading-8 text-gray-900">Get in Touch</h2>
+                    <p class="mt-2 text-lg leading-8 text-gray-600">Have questions or want to book our services? Reach out to us, and our friendly team will assist you promptly.</p>
+                </div>
+                <div class="mt-16 flex flex-col items-center gap-8">
+                    <form action="#" method="POST" class="w-full max-w-lg">
+                        <div class="flex flex-col gap-y-4">
+                            <label for="name" class="text-base font-semibold text-gray-900">Name</label>
+                            <input type="text" id="name" name="name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" required>
+                            
+                            <label for="email" class="text-base font-semibold text-gray-900">Email</label>
+                            <input type="email" id="email" name="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" required>
+                            
+                            <label for="message" class="text-base font-semibold text-gray-900">Message</label>
+                            <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" required></textarea>
+                            
+                            <button type="submit" class="inline-block rounded-md bg-blue-900 px-4 py-2 text-base font-semibold text-white shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-blue-900 text-white py-10">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="text-center">
+                    <p class="text-base leading-6">© 2024 Squeegee Kings. All rights reserved.</p>
+                    <div class="mt-4 text-sm leading-6">
+                        <a href="#privacy" class="text-white underline">Privacy Policy</a> | 
+                        <a href="#terms" class="text-white underline">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
