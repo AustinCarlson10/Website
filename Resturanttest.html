@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="text-2xl font-bold text-green-600">Delicious Bites</div>
+            <nav class="space-x-4">
+                <a href="#home" class="text-gray-700 hover:text-green-600">Home</a>
+                <a href="#menu" class="text-gray-700 hover:text-green-600">Menu</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-cover bg-center h-screen" style="background-image: url('https://source.unsplash.com/1600x900/?restaurant,food');">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+            <div class="text-center text-white">
+                <h1 class="text-5xl font-bold mb-4">Welcome to Delicious Bites</h1>
+                <p class="text-xl mb-8">Serving you the best flavors from around the world</p>
+                <a href="#menu" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full">Explore Our Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8">Our Menu</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <img src="https://source.unsplash.com/400x300/?pasta" alt="Dish" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-2xl font-bold my-4">Pasta Primavera</h3>
+                    <p class="text-gray-600">$12.99</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <img src="https://source.unsplash.com/400x300/?steak" alt="Dish" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-2xl font-bold my-4">Grilled Steak</h3>
+                    <p class="text-gray-600">$19.99</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <img src="https://source.unsplash.com/400x300/?dessert" alt="Dish" class="w-full h-48 object-cover rounded-t-lg">
+                    <h3 class="text-2xl font-bold my-4">Chocolate Cake</h3>
+                    <p class="text-gray-600">$6.99</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+                <p class="text-gray-600 mb-4">At Delicious Bites, we believe in bringing the best of global cuisines to your plate. Our chefs use the freshest ingredients to create dishes that are not just visually stunning but also burst with flavor.</p>
+                <p class="text-gray-600">Join us for a dining experience like no other, where every bite tells a story of culinary mastery and passion.</p>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://source.unsplash.com/600x400/?restaurant,kitchen" alt="About Us" class="rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8">Contact Us</h2>
+            <form class="max-w-xl mx-auto">
+                <div class="mb-4">
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300" placeholder="Your Name">
+                </div>
+                <div class="mb-4">
+                    <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300" placeholder="Your Email">
+                </div>
+                <div class="mb-4">
+                    <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-green-300" placeholder="Your Message"></textarea>
+                </div>
+                <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024 Delicious Bites. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
