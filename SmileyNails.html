@@ -10,115 +10,147 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
   <div class="bg-white">
-    <!-- Header -->
-    <header x-data="{ open: false }" class="bg-red-600 p-4 shadow-md">
-      <nav class="flex items-center justify-between lg:px-8" aria-label="Global">
-        <!-- Logo -->
-        <div class="flex items-center">
-          <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Smiley Nails</span>
-            <img class="h-16 w-auto" src="https://i.ibb.co/BTC3Lqk/smiley-nails.png" alt="Smiley Nails Logo">
-          </a>
-        </div>
-        <!-- Mobile menu button -->
-        <div class="flex lg:hidden">
-          <button @click="open = !open" type="button" class="text-white hover:text-gray-300 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!-- Icon when menu is closed. -->
-            <svg class="h-6 w-6" x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            <!-- Icon when menu is open. -->
-            <svg class="h-6 w-6" x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-        <!-- Navigation Links -->
-        <div class="hidden lg:flex flex-1 justify-center space-x-8 text-white">
-          <a href="#" class="text-base font-semibold hover:text-gray-200">Home</a>
-          <a href="#" class="text-base font-semibold hover:text-gray-200">Our Works</a>
-          <a href="#" class="text-base font-semibold hover:text-gray-200">Pricing</a>
-          <a href="#" class="text-base font-semibold hover:text-gray-200">Gifting</a>
-          <a href="#" class="text-base font-semibold hover:text-gray-200">Contact</a>
-        </div>
-      </nav>
-      <!-- Mobile Menu -->
-      <div class="lg:hidden" id="mobile-menu" x-show="open">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Home</a>
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Our Works</a>
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Pricing</a>
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Gifting</a>
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Contact</a>
-        </div>
-      </div>
-    </header>
+   <!-- Header -->
+<header x-data="{ open: false }" class="bg-red-600 p-4 shadow-md">
+  <nav class="flex items-center justify-between lg:px-8" aria-label="Global">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="#" class="-m-1.5 p-1.5">
+        <span class="sr-only">Smiley Nails</span>
+        <img class="h-16 w-auto" src="https://i.ibb.co/BTC3Lqk/smiley-nails.png" alt="Smiley Nails Logo">
+      </a>
+    </div>
+    <!-- Mobile menu button -->
+    <div class="flex lg:hidden">
+      <button @click="open = !open" type="button" class="text-white hover:text-gray-300 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <!-- Icon when menu is closed. -->
+        <svg class="h-6 w-6" x-show="!open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <!-- Icon when menu is open. -->
+        <svg class="h-6 w-6" x-show="open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <!-- Navigation Links -->
+    <div class="hidden lg:flex flex-1 justify-center space-x-8 text-white">
+      <a href="#" class="text-base font-semibold hover:text-gray-200">Home</a>
+      <a href="#" class="text-base font-semibold hover:text-gray-200">Our Works</a>
+      <a href="#" class="text-base font-semibold hover:text-gray-200">Pricing</a>
+      <a href="#" class="text-base font-semibold hover:text-gray-200">Gifting</a>
+      <a href="#" class="text-base font-semibold hover:text-gray-200">Contact</a>
+    </div>
+  </nav>
+  <!-- Mobile Menu -->
+  <div class="lg:hidden" id="mobile-menu" x-show="open">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Home</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Our Works</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Pricing</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Gifting</a>
+      <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-red-500">Contact</a>
+    </div>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <div class="relative isolate px-6 pt-16 md:pt-24 lg:px-8">
-      <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-        <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ffc107] to-[#f57c00] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-      </div>
-      <div class="mx-auto max-w-screen-md py-20 sm:py-32 lg:py-40">
-        <div class="text-center">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Welcome to Smiley Nails</h1>
-          <p class="mt-5 text-lg leading-8 text-gray-600">Where beauty and luxury meet</p>
-          <div class="mt-10">
-            <a href="#" class="inline-block bg-red-600 text-white py-3 px-8 rounded-md text-lg font-semibold shadow-lg hover:bg-red-500 transition duration-300">View Nails Menu</a>
-          </div>
-        </div>
+<!-- Hero Section -->
+<div class="relative isolate px-6 pt-8 md:pt-12 lg:px-8">
+  <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ffc107] to-[#f57c00] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="mx-auto max-w-screen-md py-10 sm:py-16 lg:py-20">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Welcome to Smiley Nails</h1>
+      <p class="mt-5 text-lg leading-8 text-gray-600">Where beauty and luxury meet</p>
+      <div class="mt-8">
+        <a href="#" class="inline-block bg-red-600 text-white py-3 px-8 rounded-md text-lg font-semibold shadow-lg hover:bg-red-500 transition duration-300">View Nails Menu</a>
       </div>
     </div>
   </div>
-
-  <!-- Why Choose Us? Section -->
-  <div class="bg-gray-800 px-6 py-16 sm:py-24 lg:px-8">
-    <div class="max-w-screen-md mx-auto flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2 mb-8 md:mb-0">
-        <div class="bg-white p-4 rounded-lg shadow-lg">
-          <img src="https://i.imghippo.com/files/gdQSD1723143861.png" alt="Why Choose Us? Photo" class="w-full h-auto rounded-lg">
-        </div>
-      </div>
-      <div class="md:w-1/2 text-center md:text-center md:pl-8">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">Why Choose Us?</h2>
-        <p class="mt-6 text-base md:text-lg leading-7 md:leading-8 text-gray-300">At Smiley Nails, we offer a serene and luxurious environment designed for your relaxation and enjoyment. Our top-quality nail services, including manicures, pedicures, acrylics, and dipping powder, are performed in a pristine setting with state-of-the-art ventilation. We prioritize your safety with sterilized tools and treat every client like royalty. Whether you’re in Meridian or Eagle, Idaho, experience the difference with us. Host your special events with group discounts available—call today to arrange your celebration!</p>
+</div>
+   <!-- Why Choose Us? Section -->
+<div class="bg-gray-800 px-6 py-16 sm:py-24 lg:px-8">
+  <div class="max-w-screen-lg mx-auto flex flex-col md:flex-row items-center">
+    <div class="md:w-2/5 mb-8 md:mb-0">
+      <div class="bg-white p-4 rounded-lg shadow-lg">
+        <img src="https://i.imghippo.com/files/gdQSD1723143861.png" alt="Why Choose Us? Photo" class="w-full h-auto rounded-lg">
       </div>
     </div>
+    <div class="md:w-3/5 text-left md:pl-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">Why Choose Us?</h2>
+      <p class="mt-6 text-base md:text-lg leading-7 text-gray-300">
+        At Smiley Nails, we provide a serene and luxurious environment designed for your relaxation and enjoyment. Our top-quality nail services—including manicures, pedicures, acrylics, and dipping powder—are performed in a pristine setting with state-of-the-art ventilation. We prioritize your safety with sterilized tools and treat every client like royalty. Experience the difference with us. Host your special events with group discounts available—call today to arrange your celebration!
+      </p>
+    </div>
   </div>
+</div>
 
+ <!-- Full-Width Gray Background Wrapper -->
+<div class="bg-gray-100">
   <!-- Services Section -->
-  <section class="py-16 bg-gray-100">
-    <div class="max-w-screen-md mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-12 text-gray-900">Our Services</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <a href="#" class="service-item bg-white p-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">Manicure</h3>
-          <p class="text-gray-600">A perfect manicure to keep your hands looking beautiful.</p>
-        </a>
-        <a href="#" class="service-item bg-white p-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">Pedicure</h3>
-          <p class="text-gray-600">Relax and enjoy a soothing pedicure for beautiful feet.</p>
-        </a>
-        <a href="#" class="service-item bg-white p-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">Acrylics</h3>
-          <p class="text-gray-600">Stunning acrylic nails for a long-lasting, flawless look.</p>
-        </a>
-        <a href="#" class="service-item bg-white p-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">Dipping Powder</h3>
-          <p class="text-gray-600">Durable and beautiful dipping powder nails.</p>
-        </a>
-        <a href="#" class="service-item bg-white p-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">Nail Art</h3>
-          <p class="text-gray-600">Creative and personalized nail art designs.</p>
-        </a>
-        <a href="#" class="service-item bg-white p-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-          <h3 class="text-2xl font-semibold mb-4 text-gray-900">Gel Polish</h3>
-          <p class="text-gray-600">Long-lasting and vibrant gel polish.</p>
-        </a>
-      </div>
-    </div>
+  <section class="mt-12 py-12">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">Our Services</h2>
+      <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+        At Smiley Nails, we offer a wide range of luxurious nail services tailored to your style and needs. Our professional team is dedicated to providing exceptional care to make you look and feel your best. Explore our services below.
+      
+  
   </section>
+
+  <!-- Services Grid -->
+  <section class="container mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Manicure -->
+    <a href="#" class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-100">
+      <img src="https://source.unsplash.com/featured/?manicure" alt="Manicure" class="w-full h-48 object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Manicure</h3>
+        <p class="text-gray-600 group-hover:text-gray-500 mt-2">A perfect manicure to keep your hands looking beautiful and healthy.</p>
+      </div>
+    </a>
+    <!-- Pedicure -->
+    <a href="#" class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-100">
+      <img src="https://source.unsplash.com/featured/?pedicure" alt="Pedicure" class="w-full h-48 object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Pedicure</h3>
+        <p class="text-gray-600 group-hover:text-gray-500 mt-2">Relax and enjoy a soothing pedicure for beautiful, refreshed feet.</p>
+      </div>
+    </a>
+    <!-- Acrylics -->
+    <a href="#" class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-100">
+      <img src="https://source.unsplash.com/featured/?acrylic+nails" alt="Acrylics" class="w-full h-48 object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Acrylics</h3>
+        <p class="text-gray-600 group-hover:text-gray-500 mt-2">Stunning acrylic nails for a long-lasting, flawless look.</p>
+      </div>
+    </a>
+    <!-- Dipping Powder -->
+    <a href="#" class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-100">
+      <img src="https://source.unsplash.com/featured/?dipping+powder+nails" alt="Dipping Powder" class="w-full h-48 object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Dipping Powder</h3>
+        <p class="text-gray-600 group-hover:text-gray-500 mt-2">Durable and beautiful dipping powder nails in a variety of colors.</p>
+      </div>
+    </a>
+    <!-- Nail Art -->
+    <a href="#" class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-100">
+      <img src="https://source.unsplash.com/featured/?nail+art" alt="Nail Art" class="w-full h-48 object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Nail Art</h3>
+        <p class="text-gray-600 group-hover:text-gray-500 mt-2">Creative and personalized nail art designs for every occasion.</p>
+      </div>
+    </a>
+    <!-- Gel Polish -->
+    <a href="#" class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-100">
+      <img src="https://source.unsplash.com/featured/?gel+polish" alt="Gel Polish" class="w-full h-48 object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Gel Polish</h3>
+        <p class="text-gray-600 group-hover:text-gray-500 mt-2">Long-lasting and vibrant gel polish in your favorite shades.</p>
+      </div>
+    </a>
+  </section>
+</div>
 
   <!-- Photos Section -->
   <section class="py-16 bg-gray-50">
@@ -232,6 +264,7 @@
         <a href="#" class="text-gray-400 hover:text-white">Blog</a>
         <a href="#" class="text-gray-400 hover:text-white">Jobs</a>
         <a href="#" class="text-gray-400 hover:text-white">Press</a>
+
         <a href="#" class="text-gray-400 hover:text-white">Accessibility</a>
         <a href="#" class="text-gray-400 hover:text-white">Partners</a>
       </nav>
