@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ClearView Window Cleaning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
     <style>
         .service-image {
             object-fit: cover;
@@ -16,20 +18,23 @@
 </head>
 <body class="bg-gray-100 text-gray-900">
     <!-- Hero Section -->
-    <div class="bg-blue-900 relative">
+    <div id="home" class="bg-blue-900 relative">
+        <!-- Header -->
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:hidden">
                     <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400" id="mobile-menu-button">
                         <span class="sr-only">Open main menu</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <!-- Hamburger Icon -->
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
                 </div>
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Home</a>
+                    <a href="#home" class="text-sm font-semibold leading-6 text-white">Home</a>
                     <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
+                    <a href="#why" class="text-sm font-semibold leading-6 text-white">Our Why</a>
                     <a href="#about" class="text-sm font-semibold leading-6 text-white">About</a>
                     <a href="#gallery" class="text-sm font-semibold leading-6 text-white">Gallery</a>
                     <a href="#team" class="text-sm font-semibold leading-6 text-white">Team</a>
@@ -37,14 +42,15 @@
                     <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact</a>
                 </div>
             </nav>
-            <!-- Mobile menu, show/hide based on menu open state. -->
+            <!-- Mobile menu -->
             <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
                 <div class="fixed inset-0 z-50"></div>
                 <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-blue-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                     <div class="flex items-center justify-between">
                         <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" id="mobile-menu-close-button">
                             <span class="sr-only">Close menu</span>
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <!-- Close Icon -->
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -52,8 +58,9 @@
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-gray-500/25">
                             <div class="space-y-2 py-6">
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Home</a>
+                                <a href="#home" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Home</a>
                                 <a href="#services" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Services</a>
+                                <a href="#why" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Our Why</a>
                                 <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">About</a>
                                 <a href="#gallery" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Gallery</a>
                                 <a href="#team" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Team</a>
@@ -65,10 +72,11 @@
                 </div>
             </div>
         </header>
+        <!-- Hero Content -->
         <div class="relative isolate overflow-hidden pt-14 z-10">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
             <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3b82f6] to-[#60a5fa] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+                <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3b82f6] to-[#60a5fa] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74% 44%,100% 62%,97% 27%,85% 0%,80% 2%,72% 33%,60% 62%,52% 68%,48% 58%,45% 35%,28% 77%,0% 65%,18% 100%,28% 77%,76% 98%,74% 44%);"></div>
             </div>
             <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative z-10">
                 <div class="text-center px-4">
@@ -77,11 +85,12 @@
                 </div>
             </div>
             <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#3b82f6] to-[#60a5fa] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+                <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#3b82f6] to-[#60a5fa] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74% 44%,100% 62%,97% 27%,85% 0%,80% 2%,72% 33%,60% 62%,52% 68%,48% 58%,45% 35%,28% 77%,0% 65%,18% 100%,28% 77%,76% 98%,74% 44%);"></div>
             </div>
         </div>
     </div>
 
+    <!-- Mobile Menu Script -->
     <script>
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -91,9 +100,6 @@
             document.getElementById('mobile-menu').classList.add('hidden');
         });
     </script>
-</body>
-</html>
-
 
     <!-- Services Section -->
     <section id="services" class="py-12 bg-gray-100">
@@ -103,7 +109,7 @@
                 <div class="bg-white p-6 rounded shadow w-full md:w-1/3">
                     <img src="https://www.epichomeideas.com/wp-content/uploads/2016/08/shutterstock_248278276.jpg" alt="Residential Window Cleaning" class="service-image rounded mb-4">
                     <h3 class="text-xl font-bold mb-4 text-blue-900">Residential Window Cleaning</h3>
-                    <p>We provide top-notch window cleaning services for your home. Our team ensures that your windows are spotless and streak-free; If you dont love your windows we will do them again for free.</p>
+                    <p>We provide top-notch window cleaning services for your home. Our team ensures that your windows are spotless and streak-free; If you don't love your windows we will do them again for free.</p>
                 </div>
                 <div class="bg-white p-6 rounded shadow w-full md:w-1/3">
                     <img src="https://th.bing.com/th/id/R.725170fdda9c8c42b4898c07aeb7a491?rik=EAJcR7X4Zcz%2b9w&pid=ImgRaw&r=0&adlt=strict" alt="Commercial Window Cleaning" class="service-image rounded mb-4">
@@ -114,11 +120,11 @@
         </div>
     </section>
 
-    <!-- Why Section -->
-    <div class="bg-blue-900 px-6 py-24 sm:py-32 lg:px-8">
+    <!-- Our Why Section -->
+    <div id="why" class="bg-blue-900 px-6 py-24 sm:py-32 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
             <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Our Why?</h2>
-            <p class="mt-6 text-lg leading-8 text-gray-300">We started Clearview Window Cleaning because we love the satisfaction of cleaning our customers windows. One of our goals is to make money for college to set us up for success in life and make lifelong friends.</p>
+            <p class="mt-6 text-lg leading-8 text-gray-300">We started Clearview Window Cleaning because we love the satisfaction of cleaning our customers' windows. One of our goals is to make money for college to set us up for success in life and make lifelong friends.</p>
         </div>
     </div>
 
@@ -179,7 +185,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Us Section -->
     <section id="about" class="bg-gray-200 py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">About Us</h2>
@@ -200,7 +206,7 @@
     </section>
 
     <!-- Our Team Section -->
-    <div class="bg-white py-24 sm:py-32">
+    <div id="team" class="bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Team</h2>
@@ -208,36 +214,38 @@
             </div>
             <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
                 <li>
-                    <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="Austin Carlson">
+                    <img class="aspect-[2/3] w-full rounded-2xl object-cover" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="Austin Carlson">
                     <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Austin Carlson</h3>
                     <p class="text-base leading-7 text-gray-600">Owner</p>
                 </li>
                 <li>
-                    <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://i.imghippo.com/files/vHSkz1723068480.jpg" alt="Ethan Froggley">
+                    <img class="aspect-[2/3] w-full rounded-2xl object-cover" src="https://i.imghippo.com/files/vHSkz1723068480.jpg" alt="Ethan Froggley">
                     <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Ethan Froggley</h3>
                     <p class="text-base leading-7 text-gray-600">Owner</p>
                 </li>
                 <li>
-                    <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://i.postimg.cc/qMHsM2TZ/IMG-2883.jpg" alt="Van Kelson">
+                    <img class="aspect-[2/3] w-full rounded-2xl object-cover" src="https://i.postimg.cc/qMHsM2TZ/IMG-2883.jpg" alt="Van Kelson">
                     <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Van Kelson</h3>
                     <p class="text-base leading-7 text-gray-600">Owner</p>
                 </li>
                 <li>
-                    <img class="aspect-[3/2] w-full rounded-2xl object-cover" src="https://i.imghippo.com/files/CxuZj1723068224.jpg" alt="Landen Thomas">
+                    <img class="aspect-[2/3] w-full rounded-2xl object-cover" src="https://i.imghippo.com/files/CxuZj1723068224.jpg" alt="Landen Thomas">
                     <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Landen Thomas</h3>
                     <p class="text-base leading-7 text-gray-600">Owner</p>
                 </li>
-                <!-- More people... -->
             </ul>
         </div>
     </div>
 
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Window Cost Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Calculator Script -->
     <script>
         function calculateCost() {
             const numWindows = parseInt(document.getElementById('windowInput').value, 10);
@@ -246,100 +254,47 @@
                 return;
             }
             const cost = Math.ceil(numWindows * 2.8) + 25;
-            document.getElementById('result').textContent = `Estimated Cost: $${cost}`;
+            // Ensure minimum service charge of $100
+            const finalCost = cost < 100 ? 100 : cost;
+            document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
         }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
-    <div class="min-h-screen flex flex-col items-center">
-        <div class="bg-blue-50 w-full py-8" style="background-image: url('https://redhousecustombuilding.com/wp-content/uploads/2020/09/fixed.jpg'); background-size: cover; background-position: center;">
-            <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
-                <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
-                <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
-                <input 
-                    type="number" 
-                    id="windowInput" 
-                    class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" 
-                    placeholder="e.g., 10">
-                <button 
-                    onclick="calculateCost()" 
-                    class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-                    Calculate
-                </button>
-                <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
-            </div>
-            <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto mt-6">
-                <h2 class="text-lg font-bold mb-2 text-center">Important Information</h2>
-                <p class="text-center">We have a minimum service charge of $100 to ensure the best value and quality for our clients.</p>
-                <p class="mt-2 text-center">Please note: For safety reasons and to maintain our high standards, we do not clean third-story windows. This policy helps us protect our workers and ensure the quality of our work.</p>
-                <p class="mt-2 text-center">Additionally, a $25 travel fee is included in every estimate to cover transportation costs. With these considerations, we aim to provide reliable, top-notch service at a great value.</p>
-            </div>
+    <!-- Background Image Covering Entire Background -->
+    <div class="min-h-screen flex flex-col justify-center items-center bg-fixed bg-cover bg-center" style="background-image: url('https://redhousecustombuilding.com/wp-content/uploads/2020/09/fixed.jpg');">
+        <!-- Spacer Above -->
+        <div class="mt-16"></div>
+        <!-- Calculator Container -->
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+            <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
+            <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
+            <input 
+                type="number" 
+                id="windowInput" 
+                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+                placeholder="e.g., 10">
+            <button 
+                onclick="calculateCost()" 
+                class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                Calculate
+            </button>
+            <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
         </div>
+        <!-- Spacer Between Boxes -->
+        <div class="my-8"></div>
+        <!-- Important Information Container -->
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+            <h2 class="text-lg font-bold mb-2 text-center">Important Information</h2>
+            <p class="text-center">We have a minimum service charge of $100 to ensure the best value and quality for our clients.</p>
+            <p class="mt-2 text-center">Please note: For safety reasons and to maintain our high standards, we do not clean third-story windows. This policy helps us protect our workers and ensure the quality of our work.</p>
+            <p class="mt-2 text-center">Additionally, a $25 travel fee is included in every estimate to cover transportation costs. With these considerations, we aim to provide reliable, top-notch service at a great value.</p>
+        </div>
+        <!-- Spacer Below -->
+        <div class="mb-16"></div>
     </div>
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window Cost Estimator</title>
-    <script>
-        function calculateCost() {
-            const numWindows = parseInt(document.getElementById('windowInput').value, 10);
-            if (isNaN(numWindows) || numWindows < 0) {
-                document.getElementById('result').textContent = "Please enter a valid number of windows.";
-                return;
-            }
-            const cost = Math.ceil(numWindows * 3.2) + 25;
-            document.getElementById('result').textContent = `Estimated Cost: $${cost}`;
-        }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-white py-24 sm:py-32">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto max-w-2xl text-center">
-                <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Support Center</h2>
-                <p class="mt-6 text-lg leading-8 text-gray-600">Have questions or need assistance? Contact our support center, and we will be happy to help. Our team is dedicated to providing you with the best customer service experience possible.</p>
-                <div class="mt-8">
-                    <form action="#" method="POST" class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-                        <div>
-                            <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                            <div class="mt-1">
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                            <div class="mt-1">
-                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                            </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <div class="mt-1">
-                                <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
-                            </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <div class="mt-1">
-                                <textarea id="message" name="message" rows="4" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"></textarea>
-                            </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ Section -->
     <div class="bg-gray-100">
@@ -347,7 +302,7 @@
             <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div class="lg:col-span-5">
                     <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently Asked Questions</h2>
-                    <p class="mt-4 text-base leading-7 text-gray-600">Can’t find the answer you’re looking for? Reach out to our <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">customer support</a> team.</p>
+                    <p class="mt-4 text-base leading-7 text-gray-600">Can’t find the answer you’re looking for? Reach out to our <a href="#contact" class="font-semibold text-indigo-600 hover:text-indigo-500">customer support</a> team.</p>
                 </div>
                 <div class="mt-10 lg:col-span-7 lg:mt-0">
                     <dl class="space-y-10">
@@ -372,6 +327,29 @@
             </div>
         </div>
     </div>
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClearView Window Cleaning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.tailwindcss.com/2.2.19" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        .service-image {
+            object-fit: cover;
+            height: auto;
+            width: 100%;
+            aspect-ratio: 16/9; /* Adjust the aspect ratio as needed */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <!-- [Your existing page content goes here, including all sections] -->
+    <!-- ... -->
+
 <footer class="bg-blue-900">
   <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
     <nav class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6" aria-label="Footer">
