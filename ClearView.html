@@ -203,8 +203,11 @@
                 </div>
             </div>
         </div>
-    </section>
-<div class="min-h-screen flex flex-col justify-center items-center" style="background-image: url('https://redhousecustombuilding.com/wp-content/uploads/2020/09/fixed.jpg'); background-size: cover; background-position: center; background-attachment: scroll;">
+<!-- Light Grey Spacer -->
+<div class="bg-gray-200 h-8"></div>
+
+   <!-- Window Calculator Section -->
+<section id="calculator" class="min-h-screen flex flex-col justify-center items-center bg-cover bg-center" style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');">
     <!-- Spacer Above -->
     <div class="mt-16"></div>
     <!-- Calculator Container -->
@@ -222,11 +225,18 @@
             Calculate
         </button>
         <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
+        <!-- Paragraph Under the Calculator Inside the Same Box -->
+        <div class="mt-6 text-gray-700">
+            <p>
+                Use our calculator to estimate the cost of cleaning your windows. Simply enter the number of windows, and we'll provide an instant estimate. Please note that there is a minimum service charge of $100.
+            </p>
+        </div>
     </div>
     <!-- Spacer Below -->
     <div class="mb-16"></div>
-</div>
+</section>
 
+<!-- JavaScript Function -->
 <script>
     function calculateCost() {
         const numWindows = parseInt(document.getElementById('windowInput').value, 10);
