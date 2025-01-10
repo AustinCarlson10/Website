@@ -206,12 +206,16 @@
 <!-- Light Grey Spacer -->
 <div class="bg-gray-200 h-8"></div>
 
-   <!-- Window Calculator Section -->
-<section id="calculator" class="min-h-screen flex flex-col justify-center items-center bg-cover bg-center" style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');">
+  <!-- Window Calculator Section with Parallax -->
+<section id="calculator" class="min-h-screen flex flex-col justify-center items-center" 
+    style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg'); 
+           background-attachment: fixed; 
+           background-size: cover; 
+           background-position: center;">
     <!-- Spacer Above -->
     <div class="mt-16"></div>
     <!-- Calculator Container -->
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+    <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
         <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
         <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
         <input 
@@ -236,52 +240,30 @@
     <div class="mb-16"></div>
 </section>
 
-<!-- JavaScript Function -->
-<script>
-    function calculateCost() {
-        const numWindows = parseInt(document.getElementById('windowInput').value, 10);
-        if (isNaN(numWindows) || numWindows < 0) {
-            document.getElementById('result').textContent = "Please enter a valid number of windows.";
-            return;
-        }
-        const cost = Math.ceil(numWindows * 2.8) + 25;
-        const finalCost = cost < 100 ? 100 : cost; // Minimum service charge of $100
-        document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
-    }
-</script>
-
-
-    <!-- FAQ Section -->
-    <div class="bg-gray-100">
-        <div class="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-                <div class="lg:col-span-5">
-                    <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">Frequently Asked Questions</h2>
-                    <p class="mt-4 text-base leading-7 text-gray-600">Can’t find the answer you’re looking for? Reach out to our <a href="#contact" class="font-semibold text-indigo-600 hover:text-indigo-500">customer support</a> team.</p>
+       <!-- FAQ Section -->
+    <section id="faq" class="py-12 bg-gray-100">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Frequently Asked Questions</h2>
+            <dl class="space-y-6">
+                <div>
+                    <dt class="font-semibold text-blue-900">What areas do you serve?</dt>
+                    <dd class="mt-2 text-gray-700">We serve the entire Meridian, Idaho area and surrounding suburbs. Contact us to see if we cover your area.</dd>
                 </div>
-                <div class="mt-10 lg:col-span-7 lg:mt-0">
-                    <dl class="space-y-10">
-                        <div>
-                            <dt class="text-base font-semibold leading-7 text-gray-900">What areas do you serve?</dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">We serve the entire metropolitan area and surrounding suburbs. Contact us to see if we cover your area.</dd>
-                        </div>
-                        <div>
-                            <dt class="text-base font-semibold leading-7 text-gray-900">What are your operating hours?</dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">We operate Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment.</dd>
-                        </div>
-                        <div>
-                            <dt class="text-base font-semibold leading-7 text-gray-900">Do you offer any guarantees?</dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">Yes, we offer a streak-free guarantee. If you're not satisfied with our service, we'll come back and make it right.</dd>
-                        </div>
-                        <div>
-                            <dt class="text-base font-semibold leading-7 text-gray-900">Are your cleaning products safe?</dt>
-                            <dd class="mt-2 text-base leading-7 text-gray-600">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family and pets.</dd>
-                        </div>
-                    </dl>
+                <div>
+                    <dt class="font-semibold text-blue-900">What are your operating hours?</dt>
+                    <dd class="mt-2 text-gray-700">We operate Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment.</dd>
                 </div>
-            </div>
+                <div>
+                    <dt class="font-semibold text-blue-900">Do you offer any guarantees?</dt>
+                    <dd class="mt-2 text-gray-700">Yes, we offer a streak-free guarantee. If you're not satisfied with our service, we'll come back and make it right.</dd>
+                </div>
+                <div>
+                    <dt class="font-semibold text-blue-900">Are your cleaning products safe?</dt>
+                    <dd class="mt-2 text-gray-700">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family and pets.</dd>
+                </div>
+            </dl>
         </div>
-    </div>
+    </section>
 
 
 
