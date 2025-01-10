@@ -185,40 +185,37 @@
         </div>
     </section>
 
-
-
-<!-- About Us Section -->
-<section id="about" class="bg-gray-200 py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-            <h2 class="text-4xl font-bold text-blue-900">About Us</h2>
-        </div>
-        <div class="flex flex-col md:flex-row items-center">
-            <!-- Images Section -->
-            <div class="md:w-1/2 flex flex-wrap p-4">
-                <div class="w-1/2 p-2">
-                    <img src="https://i.imghippo.com/files/5zBc71723061421.jpg" alt="About Us 1" class="rounded-lg shadow">
+    <!-- About Us Section -->
+    <section id="about" class="bg-gray-200 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">About Us</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 flex flex-wrap p-4 bg-white rounded-lg">
+                    <div class="w-1/2 p-2">
+                        <img src="https://i.imghippo.com/files/5zBc71723061421.jpg" alt="About Us 1" class="rounded shadow">
+                    </div>
+                    <div class="w-1/2 p-2">
+                        <img src="https://i.postimg.cc/MTmbRTq8/download.jpg" alt="About Us 2" class="rounded shadow">
+                    </div>
                 </div>
-                <div class="w-1/2 p-2">
-                    <img src="https://i.postimg.cc/MTmbRTq8/download.jpg" alt="About Us 2" class="rounded-lg shadow">
+                <div class="md:w-1/2 p-4">
+                    <p>ClearView Window Cleaning has been providing professional window cleaning services for so many satisfied customers. We are committed to delivering excellent service and ensuring customer satisfaction. Our experienced team uses the latest techniques and equipment to ensure your windows are spotless and streak-free.</p>
                 </div>
             </div>
-            <!-- Text Section -->
-            <div class="md:w-1/2 p-4">
-                <p class="text-gray-700 text-lg leading-8">
-                    ClearView Window Cleaning has been providing professional window cleaning services for so many satisfied customers. We are committed to delivering excellent service and ensuring customer satisfaction. Our experienced team uses the latest techniques and equipment to ensure your windows are spotless and streak-free.
-                </p>
-            </div>
         </div>
-    </div>
-</section>
+<!-- Light Grey Spacer -->
+<div class="bg-gray-200 h-8"></div>
 
-   <!-- Window Calculator Section -->
-<section id="calculator" class="min-h-screen flex flex-col justify-center items-center bg-cover bg-center" style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');">
+  <!-- Window Calculator Section with Parallax -->
+<section id="calculator" class="min-h-screen flex flex-col justify-center items-center" 
+    style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg'); 
+           background-attachment: fixed; 
+           background-size: cover; 
+           background-position: center;">
     <!-- Spacer Above -->
     <div class="mt-16"></div>
     <!-- Calculator Container -->
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+    <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
         <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
         <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
         <input 
@@ -242,21 +239,6 @@
     <!-- Spacer Below -->
     <div class="mb-16"></div>
 </section>
-
-<!-- JavaScript Function -->
-<script>
-    function calculateCost() {
-        const numWindows = parseInt(document.getElementById('windowInput').value, 10);
-        if (isNaN(numWindows) || numWindows < 0) {
-            document.getElementById('result').textContent = "Please enter a valid number of windows.";
-            return;
-        }
-        const cost = Math.ceil(numWindows * 2.8) + 25;
-        const finalCost = cost < 100 ? 100 : cost; // Minimum service charge of $100
-        document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
-    }
-</script>
-
 
        <!-- FAQ Section -->
     <section id="faq" class="py-12 bg-gray-100">
