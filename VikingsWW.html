@@ -7,63 +7,35 @@
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Change the hero image height here */
-        :root {
-            --hero-photo-height: 500px; /* Adjust this value to set the image height */
+        /* Default hero section styles */
+        .hero-section {
+            background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
         }
 
-        .hero-container {
-            height: var(--hero-photo-height); /* Set the height of the container */
-            display: flex;
-            align-items: center; /* Center the image vertically */
-            justify-content: center;
-            overflow: hidden; /* Hide any part of the image exceeding the container */
-        }
-
-        .hero-image {
-            width: 100%; /* Full width from side to side */
-            height: auto; /* Maintain aspect ratio */
-            object-fit: cover; /* Ensure it covers the container evenly */
+        /* Mobile-specific adjustments */
+        @media (max-width: 767px) {
+            .hero-section {
+                background-position: center center; /* Center the image */
+                background-size: cover; /* Ensure it covers the screen */
+                height: 400px; /* Adjust the height for mobile */
+            }
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body>
     <!-- Hero Section -->
-    <div id="home" class="bg-gray-900 relative">
-        <!-- Header -->
-        <header class="absolute inset-x-0 top-0 z-50">
-            <nav class="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
-                <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact Us</a>
-                    <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
-                    <a href="#why" class="text-sm font-semibold leading-6 text-white">Our Why</a>
-                    <a href="#about" class="text-sm font-semibold leading-6 text-white">About</a>
-                    <a href="#gallery" class="text-sm font-semibold leading-6 text-white">Gallery</a>
-                    <a href="#testimonials" class="text-sm font-semibold leading-6 text-white">Testimonials</a>
-                    <a href="#pricing" class="text-sm font-semibold leading-6 text-white">Pricing</a>
-                    <a href="#faq" class="text-sm font-semibold leading-6 text-white">FAQ</a>
-                </div>
-            </nav>
-        </header>
-        
-        <!-- Hero Content -->
-        <div class="relative isolate overflow-hidden pt-14 z-10 hero-container">
-            <img 
-                id="heroImage" 
-                src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/e1739939-6b10-40d8-9be3-df3752f2fbfe/Leonardo_Phoenix_09_Create_a_logo_for_Viking_Window_Washing_Co_1.jpg" 
-                alt="Hero" 
-                class="hero-image"
-            >
-            <div class="absolute inset-0 flex items-center justify-center text-center z-10">
-                <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl"></h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-300"></p>
-                </div>
-            </div>
+    <section id="hero" class="hero-section flex items-center justify-center text-center text-white">
+        <div class="p-6">
+            <h1 class="text-4xl font-bold mb-4">Welcome to Our Website</h1>
+            <p class="text-lg">We provide excellent services tailored to your needs.</p>
         </div>
-    </div>
+    </section>
 </body>
 </html>
+
 
 
     <!-- Services Section -->
