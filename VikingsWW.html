@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hero Section</title>
+    <title>Responsive Hero Section</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -19,22 +19,70 @@
         @media (max-width: 767px) {
             .hero-section {
                 background-position: center center; /* Center the image */
-                background-size: cover; /* Ensure it covers the screen */
-                height: 400px; /* Adjust the height for mobile */
+                height: 400px; /* Adjust height for mobile */
+            }
+            .hero-content {
+                display: none; /* Hide text content on mobile */
             }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <section id="hero" class="hero-section flex items-center justify-center text-center text-white">
-        <div class="p-6">
-            <h1 class="text-4xl font-bold mb-4">Welcome to Our Website</h1>
-            <p class="text-lg">We provide excellent services tailored to your needs.</p>
+    <section id="hero" class="hero-section flex flex-col justify-between text-white relative">
+        <!-- Header -->
+        <header class="absolute inset-x-0 top-0 z-50">
+            <nav class="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
+                <div class="hidden lg:flex lg:gap-x-12">
+                    <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact Us</a>
+                    <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
+                    <a href="#why" class="text-sm font-semibold leading-6 text-white">Our Why</a>
+                    <a href="#about" class="text-sm font-semibold leading-6 text-white">About</a>
+                    <a href="#gallery" class="text-sm font-semibold leading-6 text-white">Gallery</a>
+                    <a href="#testimonials" class="text-sm font-semibold leading-6 text-white">Testimonials</a>
+                    <a href="#pricing" class="text-sm font-semibold leading-6 text-white">Pricing</a>
+                    <a href="#faq" class="text-sm font-semibold leading-6 text-white">FAQ</a>
+                </div>
+                <button type="button" id="mobile-menu-button" class="lg:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden bg-gray-900 text-white p-4">
+                <a href="#contact" class="block py-2">Contact Us</a>
+                <a href="#services" class="block py-2">Services</a>
+                <a href="#why" class="block py-2">Our Why</a>
+                <a href="#about" class="block py-2">About</a>
+                <a href="#gallery" class="block py-2">Gallery</a>
+                <a href="#testimonials" class="block py-2">Testimonials</a>
+                <a href="#pricing" class="block py-2">Pricing</a>
+                <a href="#faq" class="block py-2">FAQ</a>
+            </div>
+        </header>
+
+        <!-- Hero Content (Hidden on Mobile) -->
+        <div class="hero-content text-center absolute inset-0 flex items-center justify-center">
+            <div class="p-6">
+                <h1 class="text-4xl font-bold mb-4">Welcome to Our Website</h1>
+                <p class="text-lg">We provide excellent services tailored to your needs.</p>
+            </div>
         </div>
     </section>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
+
 
 
 
