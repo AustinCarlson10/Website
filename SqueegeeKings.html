@@ -2,42 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>  </title>
+    <title>Hero Section</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Custom Styles -->
     <style>
-        .service-image {
-            object-fit: cover;
-            height: auto;
-            width: 100%;
-            aspect-ratio: 16/9;
+        /* Change the hero image height here */
+        :root {
+            --hero-photo-height: 800px; /* Adjust this value to set the image height */
         }
-        /* Parallax effect */
-        .parallax {
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+
+        .hero-container {
+            height: var(--hero-photo-height); /* Set the height of the container */
+            display: flex;
+            align-items: center; /* Center the image vertically */
+            justify-content: center;
+            overflow: hidden; /* Hide any part of the image exceeding the container */
         }
-        /* Hide parallax on mobile for contact section */
-        @media (max-width: 767px) {
-            .contact-section {
-                flex-direction: column;
-                height: auto;
-            }
-            .contact-section .contact-info {
-                width: 100%;
-            }
-            .contact-section .contact-image {
-                display: none;
-            }
-        }
-        /* Remove extra white space under contact section on mobile */
-        @media (max-width: 767px) {
-            .contact-section {
-                height: auto;
-            }
+
+        .hero-image {
+            width: 100%; /* Full width from side to side */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Ensure it covers the container evenly */
         }
     </style>
 </head>
@@ -47,15 +33,6 @@
         <!-- Header -->
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-center p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:hidden">
-                    <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400" id="mobile-menu-button">
-                        <span class="sr-only">Open main menu</span>
-                        <!-- Hamburger Icon -->
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </button>
-                </div>
                 <div class="hidden lg:flex lg:gap-x-12">
                     <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact Us</a>
                     <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
@@ -67,58 +44,27 @@
                     <a href="#faq" class="text-sm font-semibold leading-6 text-white">FAQ</a>
                 </div>
             </nav>
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
-                <div class="fixed inset-0 z-50"></div>
-                <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
-                    <div class="flex items-center justify-between">
-                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" id="mobile-menu-close-button">
-                            <span class="sr-only">Close menu</span>
-                            <!-- Close Icon -->
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/25">
-                            <div class="space-y-2 py-6">
-                                <a href="#contact" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Contact Us</a>
-                                <a href="#services" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Services</a>
-                                <a href="#why" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Our Why</a>
-                                <a href="#about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">About</a>
-                                <a href="#gallery" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Gallery</a>
-                                <a href="#testimonials" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Testimonials</a>
-                                <a href="#pricing" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">Pricing</a>
-                                <a href="#faq" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800">FAQ</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </header>
+        
         <!-- Hero Content -->
-        <div class="relative isolate overflow-hidden pt-14 z-10">
-            <img src="https://i.imghippo.com/files/VhBF2891SPY.jpeg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover">
-            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative z-10">
-                <div class="text-center px-4">
+        <div class="relative isolate overflow-hidden pt-14 z-10 hero-container">
+            <img 
+                id="heroImage" 
+                src="https://i.imghippo.com/files/VhBF2891SPY.jpeg" 
+                alt="Hero" 
+                class="hero-image"
+            >
+            <div class="absolute inset-0 flex items-center justify-center text-center z-10">
+                <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
                     <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl"></h1>
                     <p class="mt-6 text-lg leading-8 text-gray-300"></p>
                 </div>
             </div>
         </div>
     </div>
+</body>
+</html>
 
-    <!-- Mobile Menu Script -->
-    <script>
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        document.getElementById('mobile-menu-close-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.add('hidden');
-        });
-    </script>
 
     <!-- Services Section -->
     <section id="services" class="py-12 bg-gray-100">
@@ -144,29 +90,40 @@
         <div class="mx-auto max-w-2xl text-center">
             <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Our Why?</h2>
             <p class="mt-6 text-lg leading-8 text-gray-300">
-                We started Clearview Window Cleaning because we love the satisfaction of cleaning our customers' windows. 
+                We started (INSERT HERE) Window Cleaning because we love the satisfaction of cleaning our customers' windows. 
                 One of our goals is to make money for college to set us up for success in life and make lifelong friends.
             </p>
         </div>
     </div>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-12 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-center mb-8 text-gray-900">Gallery</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="h-64 overflow-hidden">
-                    <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 1" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
-                </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://i.imghippo.com/files/k8gXG1723065129.jpg" alt="Gallery Image 2" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
-                </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://kelsonorthodontics.com/wp-content/uploads/2017/08/KO_HQ-1.jpg" alt="Gallery Image 3" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
-                </div>
+<!-- Gallery Section -->
+<section id="gallery" class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-center mb-8 text-gray-900">Gallery</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Existing Gallery Images -->
+            <div class="h-64 overflow-hidden">
+                <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 1" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+            </div>
+            <div class="h-64 overflow-hidden">
+                <img src="https://i.imghippo.com/files/k8gXG1723065129.jpg" alt="Gallery Image 2" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+            </div>
+            <div class="h-64 overflow-hidden">
+                <img src="https://kelsonorthodontics.com/wp-content/uploads/2017/08/KO_HQ-1.jpg" alt="Gallery Image 3" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+            </div>
+            <!-- New Gallery Images -->
+            <div class="h-64 overflow-hidden">
+                <img src="https://www.clean-serv.co.uk/uploads/website/traditional-window-cleaning.jpg" alt="Gallery Image 4" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+            </div>
+            <div class="h-64 overflow-hidden">
+                <img src="https://th.bing.com/th/id/OIP.9NDZBWpZ5YvMhIu_SgZviQHaEK?rs=1&pid=ImgDetMain&adlt=strict" alt="Gallery Image 5" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+            </div>
+            <div class="h-64 overflow-hidden">
+                <img src="https://th.bing.com/th/id/OIP.ogAYQ8V1XzvodM3Jua9t_gHaFj?rs=1&pid=ImgDetMain&adlt=strict" alt="Gallery Image 6" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Contact Us Section -->
     <div id="contact" class="relative flex flex-wrap w-full contact-section">
@@ -196,7 +153,7 @@
                 <div class="flex flex-col pb-6 sm:pb-8 lg:pb-0 lg:pr-8 xl:pr-20">
                     <figure class="mt-6 flex flex-auto flex-col justify-between">
                         <blockquote class="text-lg leading-8 text-white">
-                            <p>“ClearView did an amazing job on our windows! The team was professional, and the windows have never looked better!”</p>
+                            <p>“(INSERT HERE) did an amazing job on our windows! The team was professional, and the windows have never looked better!”</p>
                         </blockquote>
                         <figcaption class="mt-6 flex items-center gap-x-6">
                             <img class="h-14 w-14 rounded-full bg-gray-800" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="Austin Carlson">
@@ -210,7 +167,7 @@
                 <div class="flex flex-col border-t border-white/10 pt-6 sm:pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
                     <figure class="mt-6 flex flex-auto flex-col justify-between">
                         <blockquote class="text-lg leading-8 text-white">
-                            <p>“We hired ClearView for our Orthodontist, and we couldn't be happier. Their attention to detail is impeccable!”</p>
+                            <p>“We hired them for our Orthodontist, and we couldn't be happier. Their attention to detail is impeccable!”</p>
                         </blockquote>
                         <figcaption class="mt-6 flex items-center gap-x-6">
                             <img class="h-14 w-14 rounded-full bg-gray-800" src="https://tse3.mm.bing.net/th?id=OIP.WWjY-M9d4bPmaKDCZAVYyAHaHa&rs=1&pid=ImgDetMain&adlt=strict" alt="Khris Johnson">
@@ -239,52 +196,94 @@
                     </div>
                 </div>
                 <div class="md:w-1/2 p-4">
-                    <p>ClearView Window Cleaning has been providing professional window cleaning services for so many satisfied customers. We are committed to delivering excellent service and ensuring customer satisfaction. Our experienced team uses the latest techniques and equipment to ensure your windows are spotless and streak-free.</p>
+                    <p>We have been providing professional window cleaning services for so many satisfied customers. We are committed to delivering excellent service and ensuring customer satisfaction. Our experienced team uses the latest techniques and equipment to ensure your windows are spotless and streak-free.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Window Calculator Section with Parallax -->
-    <section id="pricing" class="parallax flex items-center justify-center py-16"
-        style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');">
-        <!-- Calculator Container -->
-        <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
-            <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
-            <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
-            <input 
-                type="number" 
-                id="windowInput" 
-                class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:outline-none" 
-                placeholder="e.g., 10">
-            <button 
-                onclick="calculateCost()" 
-                class="mt-4 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
-                Calculate
-            </button>
-            <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
-            <!-- Paragraph Under the Calculator Inside the Same Box -->
-            <div class="mt-6 text-gray-700">
-                <p>
-                    Use our calculator to estimate the cost of cleaning your windows. Simply enter the number of windows, and we'll provide an instant estimate. Please note that there is a minimum service charge of $100.
-                </p>
-            </div>
+  <!-- Window Calculator Section with Parallax -->
+<section id="pricing" class="parallax flex items-center justify-center py-16"
+    style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg'); background-size: cover; background-position: center;">
+    <!-- Calculator Container -->
+    <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+        <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
+        <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
+        <input 
+            type="number" 
+            id="windowInput" 
+            class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:outline-none" 
+            placeholder="e.g., 10">
+        <button 
+            onclick="calculateCost()" 
+            class="mt-4 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+            Calculate
+        </button>
+        <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
+        <!-- Paragraph Under the Calculator Inside the Same Box -->
+        <div class="mt-6 text-gray-700">
+            <p>
+                Use our calculator to estimate the cost of cleaning your windows. Simply enter the number of windows, and we'll provide an instant estimate. Please note that there is a minimum service charge of $100.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- JavaScript Function -->
-    <script>
-        function calculateCost() {
-            const numWindows = parseInt(document.getElementById('windowInput').value, 10);
-            if (isNaN(numWindows) || numWindows < 0) {
-                document.getElementById('result').textContent = "Please enter a valid number of windows.";
-                return;
-            }
-            const cost = Math.ceil(numWindows * 2.8) + 25;
-            const finalCost = cost < 100 ? 100 : cost; // Minimum service charge of $100
-            document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+<!-- FAQ Section -->
+<section id="faq" class="py-12 bg-gray-100">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Frequently Asked Questions</h2>
+        <dl class="space-y-6">
+            <div>
+                <dt class="font-semibold text-gray-900">What areas do you serve?</dt>
+                <dd class="mt-2 text-gray-700">We serve the entire Meridian, Idaho area and surrounding suburbs. Contact us to see if we cover your area.</dd>
+            </div>
+            <div>
+                <dt class="font-semibold text-gray-900">What are your operating hours?</dt>
+                <dd class="mt-2 text-gray-700">We operate Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment.</dd>
+            </div>
+            <div>
+                <dt class="font-semibold text-gray-900">Do you offer any guarantees?</dt>
+                <dd class="mt-2 text-gray-700">Yes, we offer a streak-free guarantee. If you're not satisfied with our service, we'll come back and make it right.</dd>
+            </div>
+            <div>
+                <dt class="font-semibold text-gray-900">Are your cleaning products safe?</dt>
+                <dd class="mt-2 text-gray-700">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family and pets.</dd>
+            </div>
+        </dl>
+    </div>
+</section>
+
+<!-- JavaScript Function -->
+<script>
+    function calculateCost() {
+        const numWindows = parseInt(document.getElementById('windowInput').value, 10);
+        if (isNaN(numWindows) || numWindows < 0) {
+            document.getElementById('result').textContent = "Please enter a valid number of windows.";
+            return;
         }
-    </script>
+        const cost = Math.ceil(numWindows * 2.8) + 25;
+        const finalCost = cost < 100 ? 100 : cost; // Minimum service charge of $100
+        document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+    }
+</script>
+
+<style>
+    /* Hide parallax on mobile and make the calculator full width */
+    @media (max-width: 767px) {
+        #pricing {
+            background-image: none !important;
+            padding: 2rem;
+        }
+
+        #pricing .bg-white {
+            width: 100%;
+            max-width: none;
+            box-shadow: none;
+        }
+    }
+</style>
+
 
     <!-- FAQ Section -->
     <section id="faq" class="py-12 bg-gray-100">
@@ -365,7 +364,7 @@
             </svg>
           </a>
         </div>
-        <p class="mt-10 text-center text-sm text-gray-400">&copy; 2024 ClearView Window Cleaning. All rights reserved.</p>
+        <p class="mt-10 text-center text-sm text-gray-400">&copy; 2024 (INSERT HERE) Window Cleaning. All rights reserved.</p>
       </div>
     </footer>
 </body>
