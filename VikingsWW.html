@@ -237,9 +237,9 @@
         </div>
     </section>
 
-  <!-- Window Calculator Section with Parallax -->
+ <!-- Window Calculator Section with Parallax -->
 <section id="pricing" class="parallax flex items-center justify-center py-16"
-    style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg'); background-size: cover; background-position: center;">
+    style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg'); background-attachment: fixed; background-size: cover; background-position: center;">
     <!-- Calculator Container -->
     <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
         <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
@@ -264,8 +264,6 @@
     </div>
 </section>
 
-
-
 <!-- JavaScript Function -->
 <script>
     function calculateCost() {
@@ -281,17 +279,28 @@
 </script>
 
 <style>
-    /* Hide parallax on mobile and make the calculator full width */
+    /* Default styles for parallax on desktop */
+    .parallax {
+        background-attachment: fixed; /* Enable parallax scrolling */
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Remove parallax and background image on mobile */
     @media (max-width: 767px) {
+        .parallax {
+            background-attachment: scroll; /* Disable parallax effect */
+            background-image: none; /* Remove the background image */
+        }
+
         #pricing {
-            background-image: none !important;
-            padding: 2rem;
+            padding: 2rem; /* Adjust padding for better spacing on mobile */
         }
 
         #pricing .bg-white {
-            width: 100%;
+            width: 100%; /* Full-width calculator box */
             max-width: none;
-            box-shadow: none;
+            box-shadow: none; /* Simplify the design */
         }
     }
 </style>
