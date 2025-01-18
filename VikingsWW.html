@@ -453,5 +453,60 @@
 </body>
 </html>
     </footer>
+
+    <!-- JavaScript for Sticky Header -->
+    <script>
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down: hide the header
+                header.classList.remove('visible');
+            } else {
+                // Scrolling up: show the header
+                header.classList.add('visible');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative values
+        });
+
+        // Initialize the header as visible
+        header.classList.add('visible');
+
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        // Toggle mobile menu visibility
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling adjustment for links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent the default jump behavior
+                const targetId = this.getAttribute('href').substring(1); // Get target ID
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    // Scroll to the target position with a 20px offset
+                    const offset = 20; // Adjust as needed
+                    const targetPosition = targetElement.offsetTop - offset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth', // Smooth scrolling effect
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
 </body>
 </html>
