@@ -237,7 +237,7 @@
         </div>
     </section>
 
- <!-- Window Calculator Section with Parallax -->
+<!-- Window Calculator Section with Parallax -->
 <section id="pricing" class="parallax flex items-center justify-center py-16"
     style="background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg'); background-attachment: fixed; background-size: cover; background-position: center;">
     <!-- Calculator Container -->
@@ -286,11 +286,11 @@
         background-position: center;
     }
 
-    /* Remove parallax and background image on mobile */
+    /* Mobile-specific styles: remove background image completely */
     @media (max-width: 767px) {
         .parallax {
-            background-attachment: scroll; /* Disable parallax effect */
             background-image: none; /* Remove the background image */
+            background-color: #f3f4f6; /* Add a neutral background color */
         }
 
         #pricing {
