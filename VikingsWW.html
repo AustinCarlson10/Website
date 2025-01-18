@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +19,36 @@
         /* Mobile-specific adjustments */
         @media (max-width: 767px) {
             .hero-section {
-                background-position: center center; /* Center the image */
-                height: 400px; /* Adjust height for mobile */
+                background-position: center center;
+                height: 400px;
             }
             .hero-content {
-                display: none; /* Hide text content on mobile */
+                display: none; /* Remove content on mobile */
             }
+        }
+
+        /* Hamburger menu styles */
+        .hamburger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .hamburger-line {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Centering adjustments for header */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -32,23 +57,12 @@
     <section id="hero" class="hero-section flex flex-col justify-between text-white relative">
         <!-- Header -->
         <header class="absolute inset-x-0 top-0 z-50">
-            <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="#contact" class="text-sm font-semibold leading-6 text-white">Contact Us</a>
-                    <a href="#services" class="text-sm font-semibold leading-6 text-white">Services</a>
-                    <a href="#why" class="text-sm font-semibold leading-6 text-white">Our Why</a>
-                    <a href="#about" class="text-sm font-semibold leading-6 text-white">About</a>
-                    <a href="#gallery" class="text-sm font-semibold leading-6 text-white">Gallery</a>
-                    <a href="#testimonials" class="text-sm font-semibold leading-6 text-white">Testimonials</a>
-                    <a href="#pricing" class="text-sm font-semibold leading-6 text-white">Pricing</a>
-                    <a href="#faq" class="text-sm font-semibold leading-6 text-white">FAQ</a>
-                </div>
+            <nav class="p-6">
                 <!-- Mobile Menu Button -->
-                <button type="button" id="mobile-menu-button" class="lg:hidden text-white">
-                    <svg class="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
+                <button type="button" id="mobile-menu-button" class="hamburger-icon lg:hidden">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
                 </button>
             </nav>
             <!-- Mobile Menu -->
@@ -63,14 +77,6 @@
                 <a href="#faq" class="block py-2 menu-link">FAQ</a>
             </div>
         </header>
-
-        <!-- Hero Content (Hidden on Mobile) -->
-        <div class="hero-content text-center absolute inset-0 flex items-center justify-center">
-            <div class="p-6">
-                <h1 class="text-4xl font-bold mb-4">Welcome to Our Website</h1>
-                <p class="text-lg">We provide excellent services tailored to your needs.</p>
-            </div>
-        </div>
     </section>
 
     <!-- JavaScript for Mobile Menu -->
@@ -93,6 +99,7 @@
     </script>
 </body>
 </html>
+
 
 
 
@@ -236,6 +243,78 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+<!-- Window Calculator Section with Parallax -->
+<section id="pricing" class="parallax flex items-center justify-center py-16">
+    <!-- Calculator Container -->
+    <div class="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+        <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
+        <label for="windowInput" class="block text-sm font-medium text-gray-700 mb-2">Enter the number of windows:</label>
+        <input 
+            type="number" 
+            id="windowInput" 
+            class="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-500 focus:outline-none" 
+            placeholder="e.g., 10">
+        <button 
+            onclick="calculateCost()" 
+            class="mt-4 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+            Calculate
+        </button>
+        <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
+        <!-- Paragraph Under the Calculator Inside the Same Box -->
+        <div class="mt-6 text-gray-700">
+            <p>
+                Use our calculator to estimate the cost of cleaning your windows. Simply enter the number of windows, and we'll provide an instant estimate. Please note that there is a minimum service charge of $100.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript Function -->
+<script>
+    function calculateCost() {
+        const numWindows = parseInt(document.getElementById('windowInput').value, 10);
+        if (isNaN(numWindows) || numWindows < 0) {
+            document.getElementById('result').textContent = "Please enter a valid number of windows.";
+            return;
+        }
+        const cost = Math.ceil(numWindows * 2.8) + 25;
+        const finalCost = cost < 100 ? 100 : cost; // Minimum service charge of $100
+        document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+    }
+</script>
+
+<style>
+    /* Default styles for parallax and background photo */
+    .parallax {
+        background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Mobile-specific styles: remove background photo */
+    @media (max-width: 767px) {
+        .parallax {
+            background-image: none !important; /* Remove the background photo */
+            background-color: #f3f4f6; /* Neutral background color for mobile */
+        }
+
+        #pricing {
+            padding: 2rem; /* Add spacing for mobile layout */
+        }
+
+        #pricing .bg-white {
+            width: 100%; /* Full-width calculator box */
+            max-width: none;
+            box-shadow: none; /* Remove shadow for simplicity */
+        }
+    }
+</style>
 
 
 
