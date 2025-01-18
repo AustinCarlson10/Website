@@ -2,11 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Responsive Sticky Header</title>
+    <title>Responsive Fixed Header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        /* Header background with specified photo */
+        .hero-section {
+            background-image: url('https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/e1739939-6b10-40d8-9be3-df3752f2fbfe/Leonardo_Phoenix_09_Create_a_logo_for_Viking_Window_Washing_Co_1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 767px) {
+            .hero-section {
+                height: 400px; /* Adjust height for mobile */
+            }
+        }
+
         /* Hamburger menu styles */
         .hamburger-icon {
             display: flex;
@@ -39,9 +54,9 @@
 </head>
 <body class="bg-white text-gray-900">
     <!-- Hero Section -->
-    <section id="hero" class="flex items-center justify-center h-[600px] bg-white">
+    <section id="hero" class="hero-section flex items-center justify-center">
         <!-- Header -->
-        <header class="sticky top-0 bg-white shadow-md z-50">
+        <header class="fixed inset-x-0 top-0 bg-white shadow-md z-50">
             <nav class="flex items-center justify-between p-6">
                 <!-- Logo -->
                 <div class="flex items-center">
@@ -99,54 +114,6 @@
     </script>
 </body>
 </html>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section flex flex-col justify-between text-white relative">
-        <!-- Header -->
-        <header class="absolute inset-x-0 top-0 z-50">
-            <nav class="p-6">
-                <!-- Mobile Menu Button -->
-                <button type="button" id="mobile-menu-button" class="hamburger-icon lg:hidden">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </nav>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden bg-gray-900 text-white p-4 absolute inset-x-0 top-14 z-40">
-                <a href="#contact" class="block py-2 menu-link">Contact Us</a>
-                <a href="#services" class="block py-2 menu-link">Services</a>
-                <a href="#why" class="block py-2 menu-link">Our Why</a>
-                <a href="#about" class="block py-2 menu-link">About</a>
-                <a href="#gallery" class="block py-2 menu-link">Gallery</a>
-                <a href="#testimonials" class="block py-2 menu-link">Testimonials</a>
-                <a href="#pricing" class="block py-2 menu-link">Pricing</a>
-                <a href="#faq" class="block py-2 menu-link">FAQ</a>
-            </div>
-        </header>
-    </section>
-
-    <!-- JavaScript for Mobile Menu -->
-    <script>
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuLinks = document.querySelectorAll('.menu-link');
-
-        // Toggle mobile menu visibility
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close the menu when a link is clicked
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
-</body>
-</html>
-
 
 
 
