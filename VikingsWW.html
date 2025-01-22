@@ -7,15 +7,6 @@
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-
-#mobile-menu {
-    z-index: 50; /* Ensure it's above other elements */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-}
-
         /* Hero Section Background */
         .hero-section {
             background-image: url('https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/e1739939-6b10-40d8-9be3-df3752f2fbfe/Leonardo_Phoenix_09_Create_a_logo_for_Viking_Window_Washing_Co_1.jpg');
@@ -100,21 +91,7 @@
             <a href="#faq" class="text-sm font-semibold leading-6">FAQ</a>
         </div>
     </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 p-6">
-        <nav class="flex flex-col gap-4">
-            <a href="#contact" class="block text-lg font-semibold">Contact Us</a>
-            <a href="#services" class="block text-lg font-semibold">Services</a>
-            <a href="#why" class="block text-lg font-semibold">Our Why</a>
-            <a href="#about" class="block text-lg font-semibold">About</a>
-            <a href="#gallery" class="block text-lg font-semibold">Gallery</a>
-            <a href="#testimonials" class="block text-lg font-semibold">Testimonials</a>
-            <a href="#pricing" class="block text-lg font-semibold">Pricing</a>
-            <a href="#faq" class="block text-lg font-semibold">FAQ</a>
-        </nav>
-    </div>
 </header>
-
 
     </section>
 
@@ -520,24 +497,6 @@
     </script>
 </body>
 </html>
-<script>
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    // Toggle mobile menu visibility
-    menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Close mobile menu when clicking a link
-    const menuLinks = document.querySelectorAll('#mobile-menu a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    });
-</script>
-
 
 </body>
 </html>
