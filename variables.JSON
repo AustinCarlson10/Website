@@ -2,10 +2,10 @@
   "theme": {
     "fontFamily": "'Lato', sans-serif",
     "colors": {
-      "primary": "#FFA500",   /* Orange */
-      "secondary": "#000000", /* Black */
-      "accent": "#A52A2A",    /* Brown */
-      "neutral": "#FFFFFF",   /* White */
+      "primary": "#FFA500",
+      "secondary": "#000000",
+      "accent": "#A52A2A",   
+      "neutral": "#FFFFFF",  
       "headingText": "#000000",
       "sectionBackground": "#FFFFFF"
     }
