@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlassGlow Window Cleaning</title>
-    
+
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Using 'Montserrat' font family -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Custom Styles -->
     <style>
         /* Apply the custom font to the body */
@@ -41,7 +41,7 @@
                 padding-bottom: 2rem;
             }
             .hero-text h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             .hero-text p {
                 font-size: 1rem;
@@ -86,10 +86,6 @@
         /* Mobile Menu */
         #mobile-menu {
             display: none;
-        }
-
-        #mobile-menu.active {
-            display: block;
         }
 
         /* Contact Section */
@@ -155,7 +151,7 @@
                 </button>
             </nav>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="lg:hidden">
+            <div id="mobile-menu" class="lg:hidden hidden">
                 <nav class="flex flex-col gap-4 p-6 bg-white shadow-lg">
                     <a href="#contact" class="text-lg font-medium">Contact Us</a>
                     <a href="#services" class="text-lg font-medium">Services</a>
@@ -199,6 +195,7 @@
 
         <!-- Services Grid -->
         <section id="services" class="container mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Service Cards -->
             <!-- Screen Repair -->
             <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
                 <img src="https://static.wixstatic.com/media/ca93cc_e727db1d4cd442fba50c0cfe25e0385f~mv2.jpg/v1/crop/x_401,y_0,w_2199,h_2000/fill/w_465,h_423,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Close%20up%20image%20of%20torn%20window%20screen_%20Anti%20mosquito%20net%20damaged%20by%20birds%20and%20frequent%20usag.jpg" alt="Screen Repair" class="w-full h-48 object-cover rounded-t-lg">
@@ -280,7 +277,6 @@
                 <div class="h-64 overflow-hidden">
                     <img src="https://static.wixstatic.com/media/ca93cc_fafd3c7a6c2d455e8c584e7457e35faa~mv2.jpg/v1/fill/w_809,h_1160,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca93cc_fafd3c7a6c2d455e8c584e7457e35faa~mv2.jpg" alt="Gallery Image 3" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
                 </div>
-                <!-- New Gallery Images -->
                 <div class="h-64 overflow-hidden">
                     <img src="https://www.clean-serv.co.uk/uploads/website/traditional-window-cleaning.jpg" alt="Gallery Image 4" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
                 </div>
@@ -321,12 +317,10 @@
                 <div class="flex flex-col pb-6 sm:pb-8 lg:pb-0 lg:pr-8 xl:pr-20">
                     <figure class="mt-6 flex flex-auto flex-col justify-between">
                         <blockquote class="text-lg leading-8 text-white">
-                            <p>“It's been over a week and my windows still are spotless 
-
-”</p>
+                            <p>“It's been over a week and my windows still are spotless.”</p>
                         </blockquote>
                         <figcaption class="mt-6 flex items-center gap-x-6">
-                            <img class="h-14 w-14 rounded-full bg-gray-800" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="-Nick P.">
+                            <img class="h-14 w-14 rounded-full bg-gray-800" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="Austin Carlson">
                             <div class="text-base">
                                 <div class="font-semibold text-white">Austin Carlson</div>
                                 <div class="mt-1 text-gray-400">Proud Homeowner</div>
@@ -338,7 +332,7 @@
                 <div class="flex flex-col border-t border-white/10 pt-6 sm:pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:pl-20">
                     <figure class="mt-6 flex flex-auto flex-col justify-between">
                         <blockquote class="text-lg leading-8 text-white">
-                            <p>“We Have hired them a few times and always do a great job! Very friendly and efficient! Will definitely use them again!”</p>
+                            <p>“We have hired them a few times and they always do a great job! Very friendly and efficient! Will definitely use them again!”</p>
                         </blockquote>
                         <figcaption class="mt-6 flex items-center gap-x-6">
                             <img class="h-14 w-14 rounded-full bg-gray-800" src="https://tse3.mm.bing.net/th?id=OIP.WWjY-M9d4bPmaKDCZAVYyAHaHa&rs=1&pid=ImgDetMain&adlt=strict" alt="Khris Johnson">
