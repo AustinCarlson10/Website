@@ -7,10 +7,21 @@
     <title>Responsive Sticky Header</title>
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Replace 'Montserrat' with your chosen font family -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom Styles -->
     <style>
+        /* Apply the custom font to the body */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
         /* Hero Section Background */
         .hero-section {
+            position: relative;
             background-image: url('https://www.usualhouse.com/wp-content/uploads/2020/01/modern-home-with-many-windows-2-story.jpg');
             background-size: cover;
             background-position: center;
@@ -21,6 +32,24 @@
             .hero-section {
                 height: 400px;
             }
+        }
+
+        /* Overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 30, 30, 0.5); /* Semi-transparent dark gray */
+        }
+
+        /* Hero Text */
+        .hero-text {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 0 1rem;
         }
 
         /* Sticky Header */
@@ -47,44 +76,35 @@
         #mobile-menu.active {
             display: block;
         }
-
-        /* Parallax Background */
-        .parallax {
-            background-image: url('https://i.pinimg.com/originals/cb/84/0b/cb840be832447de2c69e84368c4cf97d.jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Remove Parallax Background on Mobile */
-        @media (max-width: 767px) {
-            .parallax {
-                background-image: none;
-                background-color: #f3f4f6;
-            }
-        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
     <!-- Hero Section -->
-    <section id="hero" class="hero-section">
+    <section id="hero" class="hero-section flex items-center">
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
+
         <!-- Header -->
         <header id="header" class="header">
-            <nav class="flex items-center justify-between p-6">
+            <nav class="flex items-center justify-between px-4 py-6">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <img src="https://i.imghippo.com/files/aHBY6585es.png" alt="Logo" class="w-16 h-auto">
                 </div>
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex gap-x-8">
-                    <a href="#contact" class="text-sm font-semibold leading-6">Contact Us</a>
-                    <a href="#services" class="text-sm font-semibold leading-6">Services</a>
-                    <a href="#why" class="text-sm font-semibold leading-6">Our Why</a>
-                    <a href="#about" class="text-sm font-semibold leading-6">About</a>
-                    <a href="#gallery" class="text-sm font-semibold leading-6">Gallery</a>
-                    <a href="#testimonials" class="text-sm font-semibold leading-6">Testimonials</a>
-                    <a href="#pricing" class="text-sm font-semibold leading-6">Pricing</a>
-                    <a href="#faq" class="text-sm font-semibold leading-6">FAQ</a>
+                <div class="hidden lg:flex items-center gap-x-6">
+                    <a href="#contact" class="text-sm font-medium leading-6 hover:text-blue-600">Contact Us</a>
+                    <a href="#services" class="text-sm font-medium leading-6 hover:text-blue-600">Services</a>
+                    <a href="#why" class="text-sm font-medium leading-6 hover:text-blue-600">Our Why</a>
+                    <a href="#about" class="text-sm font-medium leading-6 hover:text-blue-600">About</a>
+                    <a href="#gallery" class="text-sm font-medium leading-6 hover:text-blue-600">Gallery</a>
+                    <a href="#testimonials" class="text-sm font-medium leading-6 hover:text-blue-600">Testimonials</a>
+                    <a href="#pricing" class="text-sm font-medium leading-6 hover:text-blue-600">Pricing</a>
+                    <a href="#faq" class="text-sm font-medium leading-6 hover:text-blue-600">FAQ</a>
+                    <!-- Get in Touch Button -->
+                    <a href="#contact" class="ml-4 inline-block bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded hover:bg-blue-700">
+                        Get in Touch
+                    </a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="lg:hidden flex flex-col items-center justify-center gap-1">
@@ -96,20 +116,35 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="lg:hidden">
                 <nav class="flex flex-col gap-4 p-6 bg-white shadow-lg">
-                    <a href="#contact" class="text-lg font-semibold">Contact Us</a>
-                    <a href="#services" class="text-lg font-semibold">Services</a>
-                    <a href="#why" class="text-lg font-semibold">Our Why</a>
-                    <a href="#about" class="text-lg font-semibold">About</a>
-                    <a href="#gallery" class="text-lg font-semibold">Gallery</a>
-                    <a href="#testimonials" class="text-lg font-semibold">Testimonials</a>
-                    <a href="#pricing" class="text-lg font-semibold">Pricing</a>
-                    <a href="#faq" class="text-lg font-semibold">FAQ</a>
+                    <a href="#contact" class="text-lg font-medium">Contact Us</a>
+                    <a href="#services" class="text-lg font-medium">Services</a>
+                    <a href="#why" class="text-lg font-medium">Our Why</a>
+                    <a href="#about" class="text-lg font-medium">About</a>
+                    <a href="#gallery" class="text-lg font-medium">Gallery</a>
+                    <a href="#testimonials" class="text-lg font-medium">Testimonials</a>
+                    <a href="#pricing" class="text-lg font-medium">Pricing</a>
+                    <a href="#faq" class="text-lg font-medium">FAQ</a>
+                    <!-- Get in Touch Button in Mobile Menu -->
+                    <a href="#contact" class="mt-4 inline-block bg-blue-600 text-white text-lg font-medium py-2 px-4 rounded hover:bg-blue-700">
+                        Get in Touch
+                    </a>
                 </nav>
             </div>
         </header>
+
+        <!-- Hero Text Content -->
+        <div class="hero-text mx-auto">
+            <h1 class="text-5xl font-bold text-white mb-4">Welcome to (INSERT HERE) Window Cleaning</h1>
+            <p class="text-xl text-gray-200 leading-8">
+                Providing professional window cleaning services to make your windows sparkle and shine.
+            </p>
+            <a href="#contact" class="mt-8 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded hover:bg-blue-700">
+                Get in Touch
+            </a>
+        </div>
     </section>
 
-    <!-- JavaScript for Sticky Header and Mobile Menu -->
+    <!-- Smooth Scrolling Script -->
     <script>
         const header = document.getElementById('header');
         const menuButton = document.getElementById('mobile-menu-button');
@@ -145,7 +180,28 @@
                 mobileMenu.classList.remove('active');
             });
         });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    const offset = 80; // Adjust for header height
+                    const elementPosition = targetElement.offsetTop - offset;
+
+                    window.scrollTo({
+                        top: elementPosition,
+                        behavior: 'smooth',
+                    });
+                }
+            });
+        });
     </script>
+</body>
+</html>
 
     <!-- Services Section -->
     <section id="services" class="py-12 bg-gray-100">
