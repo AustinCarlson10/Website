@@ -1,190 +1,222 @@
 {
+  "theme": {
+    "fontFamily": "'Lato', sans-serif",
+    "colors": {
+      "backgroundDark": "bg-black",
+      "textLight": "text-white",
+      "buttonPrimary": "bg-orange-600",
+      "buttonPrimaryHover": "hover:bg-orange-700",
+      "headingText": "text-stone-800",
+      "heroOverlay": "bg-black bg-opacity-40",
+      "sectionGradient": "bg-gradient-to-r from-orange-50 to-white"
+    }
+  },
   "headerData": {
-    "logoSrc": "https://static.wixstatic.com/media/ca93cc_5fd358454b6c4a2ca3a509b8f33ca09c~mv2.jpg/v1/crop/x_84,y_92,w_331,h_321/fill/w_196,h_190,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca93cc_5fd358454b6c4a2ca3a509b8f33ca09c~mv2.jpg",
-    "logoAlt": "Glass Glow Idaho logo",
+    "logoSrc": "https://placehold.co/150x80/000/FFF?text=Viking+Window+Washing",
+    "logoAlt": "Minimal placeholder logo for Viking Window Washing",
     "menuLinks": [
-      {
-        "href": "#main-content",
-        "label": "Skip to Main Content"
-      },
-      {
-        "href": "tel:208-718-1207",
-        "label": "Text Us (PRESENTS!) For a Secret Gift!"
-      },
-      {
-        "href": "#services",
-        "label": "Services"
-      },
-      {
-        "href": "#contact",
-        "label": "Contact"
-      },
-      {
-        "href": "#about",
-        "label": "About"
-      },
-      {
-        "href": "https://www.instagram.com/glass.glow.id/",
-        "label": "Instagram"
-      },
-      {
-        "href": "https://www.facebook.com/profile.php?id=100094137826360",
-        "label": "Facebook"
-      },
-      {
-        "href": "#testimonials",
-        "label": "Testimonials"
-      }
+      { "href": "#hero", "label": "Home" },
+      { "href": "#services", "label": "Services" },
+      { "href": "#why", "label": "Our Why" },
+      { "href": "#about", "label": "About" },
+      { "href": "#gallery", "label": "Gallery" },
+      { "href": "#testimonials", "label": "Testimonials" },
+      { "href": "#pricing", "label": "Pricing" },
+      { "href": "#faq", "label": "FAQ" },
+      { "href": "#contact-us", "label": "Contact Us" }
     ]
   },
   "heroData": {
-    "backgroundImage": "https://static.wixstatic.com/media/ca93cc_cc16a9c46327448796f0e11719b95e1c~mv2.jpeg/v1/fill/w_1078,h_1546,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca93cc_cc16a9c46327448796f0e11719b95e1c~mv2.jpeg",
-    "heading": "Brighten Your View with Glass Glow Idaho",
-    "subheading": "We are fully insured, and all services come with a full satisfaction guarantee.",
-    "buttonText": "Call for a Free Quote",
-    "buttonLink": "tel:208-718-1207"
+    "backgroundImage": "https://placehold.co/1920x1080/bbb/000?text=Scenic+Hero+Background",
+    "heading": "Pristine Window Brilliance",
+    "subheading": "Enjoy windows so crystal-clear, you’ll never tire of the view!",
+    "buttonText": "Request a Free Estimate",
+    "buttonLink": "#contact-us"
   },
   "servicesData": [
     {
-      "imgSrc": "https://static.wixstatic.com/media/ca93cc_516d479773be4144a100e71ad1bcac9f~mv2.jpeg/v1/crop/x_1,y_7,w_3023,h_2753/fill/w_620,h_564,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_7515.jpeg",
-      "imgAlt": "Exterior window being cleaned",
-      "title": "Exterior Window Cleaning",
-      "description": "Keep your home's exterior shining and spotless.",
+      "imgSrc": "https://placehold.co/600x400/4863A0/FFFFFF?text=Residential+Window+Cleaning",
+      "imgAlt": "Service technician cleaning a large residential window using top-grade tools",
+      "title": "Residential Excellence",
+      "description": "Our experts promise a streak-free shine every time. Not satisfied? We’ll happily reclean at no cost!",
       "buttonText": "Learn More"
     },
     {
-      "imgSrc": "https://static.wixstatic.com/media/ca93cc_97f1c296abb449ca8bb54305c13652ba~mv2.jpg/v1/fill/w_620,h_564,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_7551_edited.jpg",
-      "imgAlt": "Interior window being cleaned",
-      "title": "Interior Window Cleaning",
-      "description": "Let the sunshine in with pristine, streak-free glass.",
+      "imgSrc": "https://placehold.co/600x400/5B6290/FFFFFF?text=Commercial+Window+Cleaning",
+      "imgAlt": "Neatly washed storefront windows reflecting a bright sky",
+      "title": "Commercial Care",
+      "description": "Impress customers with spotless glass for buildings up to two stories. A professional look, guaranteed.",
       "buttonText": "Learn More"
     },
     {
-      "imgSrc": "https://static.wixstatic.com/media/ca93cc_e727db1d4cd442fba50c0cfe25e0385f~mv2.jpg/v1/crop/x_401,y_0,w_2199,h_2000/fill/w_620,h_564,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Close%20up%20image%20of%20torn%20window%20screen_%20Anti%20mosquito%20net%20damaged%20by%20birds%20and%20frequent%20usag.jpg",
-      "imgAlt": "Window screen repair",
-      "title": "Screen Repair",
-      "description": "Say goodbye to torn screens. We fix them quickly!",
-      "buttonText": "Learn More"
-    },
-    {
-      "imgSrc": "https://static.wixstatic.com/media/ca93cc_112ec0f2275a4e4bb3b16f2ba994ca59~mv2.jpeg/v1/fill/w_528,h_480,al_c,lg_1,q_80,enc_avif,quality_auto/How-To-Remove-Water-Spots-From-Windows.jpeg",
-      "imgAlt": "Hard water stain removal",
-      "title": "Hard Water Removal",
-      "description": "Eliminate stubborn water spots and restore clarity.",
+      "imgSrc": "https://placehold.co/600x400/6E6C92/FFFFFF?text=Specialty+Services",
+      "imgAlt": "A professional carefully cleaning a uniquely shaped stained-glass window",
+      "title": "Specialty Solutions",
+      "description": "Post-construction projects, unique window designs—no challenge is too big or too small for our team.",
       "buttonText": "Learn More"
     }
   ],
-  "testimonialsData": {
-    "heading": "Testimonials",
-    "testimonials": [
-      {
-        "text": "Great young men. Very polite and professional & windows looked excellent! Highly recommend",
-        "name": "Mark E."
-      },
-      {
-        "text": "Excellent service! Windows looked absolutely beautiful!",
-        "name": "Dolores K."
-      },
-      {
-        "text": "We have used them a few times and always do a great job! Very friendly and efficient! Will definitely use them again",
-        "name": "Susan G."
-      },
-      {
-        "text": "It's been over a week and my windows still are spotless",
-        "name": "Nick P."
-      },
-      {
-        "text": "Alex and Drew were both super friendly and reasonable",
-        "name": "Lynda W."
-      },
-      {
-        "text": "These guys patched up all my screens in less than 15 minutes",
-        "name": "Danny S."
-      }
-    ],
-    "buttonText": "View More"
-  },
-  "contactData": {
-    "heading": "Contact Us",
-    "description": "Text or call us at (208) 718-1207 for a free quote, or fill out the form below to get in touch.",
-    "formFields": [
-      {
-        "label": "Name",
-        "placeholder": "Your Name"
-      },
-      {
-        "label": "Email",
-        "placeholder": "Your Email"
-      },
-      {
-        "label": "Phone",
-        "placeholder": "Your Phone Number"
-      },
-      {
-        "label": "Address",
-        "placeholder": "Street, City, ZIP"
-      },
-      {
-        "label": "Subject",
-        "placeholder": "Subject"
-      },
-      {
-        "label": "Message",
-        "placeholder": "How can we help you?"
-      }
-    ],
-    "buttonText": "Submit"
+  "whyData": {
+    "heading": "Our Mission",
+    "description": "We founded Viking Window Washing out of a passion for immaculate windows and a desire to support our educational goals. Above all, we aim to build lasting relationships with clients by infusing every job with care, integrity, and expertise.",
+    "backgroundColor": "backgroundDark",
+    "textColor": "textLight"
   },
   "aboutData": {
-    "heading": "Our Story",
+    "heading": "Who We Are",
     "images": [
       {
-        "src": "https://static.wixstatic.com/media/ca93cc_0ab2bb45fd66459eba211ff6906f4769~mv2.jpg/v1/fill/w_1548,h_1550,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ca93cc_0ab2bb45fd66459eba211ff6906f4769~mv2.jpg",
-        "alt": "Alex and Drew, the two owners of Glass Glow Idaho"
+        "src": "https://placehold.co/300x300/9ca3af/FFFFFF?text=Team+Member+Cleaning+Windows",
+        "alt": "Close-up of our technician using a squeegee on a window"
+      },
+      {
+        "src": "https://placehold.co/300x300/737373/FFFFFF?text=Team+Collaboration",
+        "alt": "Two professionals collaborating to clean large panes"
       }
     ],
     "paragraphs": [
-      "We are two lifelong friends who graduated from Rocky Mountain High School and are currently pursuing degrees at Boise State University. We turned our shared passion for cleanliness and sparkling windows into a thriving business.",
-      "Our commitment to providing exceptional service, attention to detail, and friendly customer care has earned us a solid reputation in the Treasure Valley. We take great pride in transforming dull, smudged windows into clear, breathtaking views that bring joy and brightness into our clients’ lives.",
-      "Whether it's residential or commercial, no job is too big or too small. Let us bring a touch of clarity and brilliance to your world."
+      "At Viking Window Washing, we have proudly served numerous homeowners and businesses, delivering consistently streak-free results. Our trained staff utilizes modern tools and proven methods to restore brightness and clarity to every window.",
+      "From expansive residences to cozy condominiums, our commitment remains the same—exceptional care for each window and unwavering respect for our clients’ property."
     ]
+  },
+  "galleryData": {
+    "heading": "Our Work in Pictures",
+    "images": [
+      {
+        "src": "https://placehold.co/600x400/AAAAAA/FFFFFF?text=Gallery1+-+Sparkling+Reflection",
+        "alt": "A large window reflecting the sky after a thorough cleaning"
+      },
+      {
+        "src": "https://placehold.co/600x400/BBBBBB/FFFFFF?text=Gallery2+-+Living+Room+Windows",
+        "alt": "Close-up shot of spotless living room windows with crisp reflections"
+      },
+      {
+        "src": "https://placehold.co/600x400/CCCCCC/FFFFFF?text=Gallery3+-+Commercial+Facade",
+        "alt": "Commercial glass facade shining after a detailed cleaning"
+      },
+      {
+        "src": "https://placehold.co/600x400/DDDDDD/000000?text=Gallery4+-+Architectural+Design",
+        "alt": "Modern, architecturally shaped window gleaming in the sunlight"
+      },
+      {
+        "src": "https://placehold.co/600x400/999999/FFFFFF?text=Gallery5+-+Sliding+Doors",
+        "alt": "Multiple sliding glass doors with clear reflections following service"
+      },
+      {
+        "src": "https://placehold.co/600x400/777777/FFFFFF?text=Gallery6+-+Upper+Story",
+        "alt": "Windows on a second-story level, completely free of stains or smudges"
+      },
+      {
+        "src": "https://placehold.co/600x400/EEEEEE/333333?text=Gallery7+-+Office+Skyline",
+        "alt": "Panoramic office window with a crisp reflection of the cityscape"
+      },
+      {
+        "src": "https://placehold.co/600x400/888888/FFFFFF?text=Gallery8+-+Before+After+SideBySide",
+        "alt": "Side-by-side comparison showing the difference before and after cleaning"
+      },
+      {
+        "src": "https://placehold.co/600x400/444444/FFFFFF?text=Gallery9+-+Panoramic+View",
+        "alt": "A floor-to-ceiling window providing an unobstructed outdoor view"
+      }
+    ]
+  },
+  "testimonialsData": {
+    "heading": "Customer Feedback",
+    "testimonials": [
+      {
+        "text": "“Viking Window Washing transformed our dingy windows into crystal-clear panes. The difference is incredible!”",
+        "imageSrc": "https://placehold.co/96x96/444444/FFFFFF?text=Austin",
+        "imageAlt": "Austin's headshot praising the top-notch window cleaning service",
+        "name": "Austin Carlson",
+        "role": "Satisfied Homeowner"
+      },
+      {
+        "text": "“They arrived on time and finished quickly. Our office windows have never looked better!”",
+        "imageSrc": "https://placehold.co/96x96/2c2c2c/FFFFFF?text=Khris",
+        "imageAlt": "Khris from Johnson Orthodontics noting the exceptional service",
+        "name": "Khris Johnson",
+        "role": "Johnson Orthodontics"
+      },
+      {
+        "text": "“We loved how friendly and professional the team was. Neighbors came by just to ask about the amazing results!”",
+        "imageSrc": "https://placehold.co/96x96/333333/FFFFFF?text=Taylor",
+        "imageAlt": "Taylor's portrait smiling about spotless windows at home",
+        "name": "Taylor Smith",
+        "role": "Local Resident"
+      },
+      {
+        "text": "“Our café’s post-renovation cleanup was a breeze. Viking handled the dusty mess and left our glass surfaces shining!”",
+        "imageSrc": "https://placehold.co/96x96/555555/FFFFFF?text=Jordan",
+        "imageAlt": "Jordan Love from a local café expressing gratitude for thorough cleaning",
+        "name": "Jordan Love",
+        "role": "Café Owner"
+      }
+    ]
+  },
+  "pricingData": {
+    "backgroundImage": "https://placehold.co/1920x800/12345/FFF?text=Sparkling+Glass+Parallax+Background",
+    "heading": "Window Cost Calculator",
+    "labelText": "How many windows need cleaning?",
+    "placeholder": "e.g., 10",
+    "buttonText": "Calculate",
+    "minimumFeeNote": "Use our quick estimator to get an approximate cost based on window count. Keep in mind our minimum service fee is always $100."
+  },
+  "faqData": {
+    "heading": "Common Questions",
+    "items": [
+      {
+        "question": "Which regions do you service?",
+        "answer": "We serve Meridian, Idaho, as well as nearby suburbs. Not sure if we can reach you? Just ask!"
+      },
+      {
+        "question": "What times are you available?",
+        "answer": "We operate from 8 AM to 6 PM on weekdays, with weekend appointments by arrangement."
+      },
+      {
+        "question": "Do you guarantee streak-free windows?",
+        "answer": "We do! If you notice any streaks or spots after we leave, let us know and we'll come back to fix them."
+      },
+      {
+        "question": "Are your cleaning supplies eco-friendly?",
+        "answer": "Yes, we use non-toxic, environmentally conscious products that are safe for your family and pets."
+      },
+      {
+        "question": "Is there a minimum size for a job?",
+        "answer": "All jobs are welcome, but note our minimum service fee of $100."
+      },
+      {
+        "question": "How far in advance should I schedule?",
+        "answer": "One to two weeks’ notice is ideal, but we do our best to fit in last-minute requests when possible."
+      }
+    ]
+  },
+  "contactData": {
+    "heading": "Reach Out to Us",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email Address",
+    "messageLabel": "Your Message",
+    "placeholderName": "Jane Doe",
+    "placeholderEmail": "jane.doe@example.com",
+    "placeholderMessage": "How can we help you?",
+    "buttonText": "Submit"
   },
   "footerData": {
     "links": [
-      {
-        "label": "Services",
-        "href": "#services"
-      },
-      {
-        "label": "Contact",
-        "href": "#contact"
-      },
-      {
-        "label": "About",
-        "href": "#about"
-      },
-      {
-        "label": "Testimonials",
-        "href": "#testimonials"
-      }
+      { "label": "About", "href": "#about" },
+      { "label": "Services", "href": "#services" },
+      { "label": "Testimonials", "href": "#testimonials" },
+      { "label": "Pricing", "href": "#pricing" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Gallery", "href": "#gallery" },
+      { "label": "Contact", "href": "#contact-us" }
     ],
     "social": [
-      {
-        "iconClass": "fab fa-instagram",
-        "label": "Instagram",
-        "href": "https://www.instagram.com/glass.glow.id/"
-      },
-      {
-        "iconClass": "fab fa-facebook-f",
-        "label": "Facebook",
-        "href": "https://www.facebook.com/profile.php?id=100094137826360"
-      }
+      { "iconClass": "fab fa-facebook-f", "label": "Facebook", "href": "#" },
+      { "iconClass": "fab fa-instagram", "label": "Instagram", "href": "#" },
+      { "iconClass": "fab fa-twitter", "label": "X (Twitter)", "href": "#" },
+      { "iconClass": "fab fa-github", "label": "GitHub", "href": "#" },
+      { "iconClass": "fab fa-youtube", "label": "YouTube", "href": "#" }
     ],
-    "contactInfo": [
-      "Glass Glow Idaho",
-      "glassglowidaho@gmail.com",
-      "208-718-1207"
-    ],
-    "copyright": "© 2025 Glass Glow Idaho. All rights reserved."
+    "copyright": "© 2024 Viking Window Washing Company. All rights reserved."
   }
 }
