@@ -1,0 +1,211 @@
+{
+  "headerData": {
+    "logoSrc": "https://placehold.co/150x80/000/FFF?text=Viking+Window+Washing",
+    "logoAlt": "Minimal placeholder logo for Viking Window Washing",
+    "menuLinks": [
+      { "href": "#hero", "label": "Home" },
+      { "href": "#services", "label": "Services" },
+      { "href": "#why", "label": "Our Why" },
+      { "href": "#about", "label": "About" },
+      { "href": "#gallery", "label": "Gallery" },
+      { "href": "#testimonials", "label": "Testimonials" },
+      { "href": "#pricing", "label": "Pricing" },
+      { "href": "#faq", "label": "FAQ" },
+      { "href": "#contact-us", "label": "Contact Us" }
+    ]
+  },
+  "heroData": {
+    "backgroundImage": "https://placehold.co/1920x1080/bbb/000?text=Scenic+Hero+Background",
+    "heading": "Pristine Window Brilliance",
+    "subheading": "Enjoy windows so crystal-clear, you’ll never tire of the view!",
+    "buttonText": "Request a Free Estimate",
+    "buttonLink": "#contact-us"
+  },
+  "servicesData": [
+    {
+      "imgSrc": "https://placehold.co/600x400/4863A0/FFFFFF?text=Residential+Window+Cleaning",
+      "imgAlt": "Service technician cleaning a large residential window using top-grade tools",
+      "title": "Residential Excellence",
+      "description": "Our experts promise a streak-free shine every time. Not satisfied? We’ll happily reclean at no cost!",
+      "buttonText": "Learn More"
+    },
+    {
+      "imgSrc": "https://placehold.co/600x400/5B6290/FFFFFF?text=Commercial+Window+Cleaning",
+      "imgAlt": "Neatly washed storefront windows reflecting a bright sky",
+      "title": "Commercial Care",
+      "description": "Impress customers with spotless glass for buildings up to two stories. A professional look, guaranteed.",
+      "buttonText": "Learn More"
+    },
+    {
+      "imgSrc": "https://placehold.co/600x400/6E6C92/FFFFFF?text=Specialty+Services",
+      "imgAlt": "A professional carefully cleaning a uniquely shaped stained-glass window",
+      "title": "Specialty Solutions",
+      "description": "Post-construction projects, unique window designs—no challenge is too big or too small for our team.",
+      "buttonText": "Learn More"
+    }
+  ],
+  "whyData": {
+    "heading": "Our Mission",
+    "description": "We founded Viking Window Washing out of a passion for immaculate windows and a desire to support our educational goals. Above all, we aim to build lasting relationships with clients by infusing every job with care, integrity, and expertise.",
+    "backgroundColor": "bg-gray-900",
+    "textColor": "text-white"
+  },
+  "aboutData": {
+    "heading": "Who We Are",
+    "images": [
+      {
+        "src": "https://placehold.co/300x300/9ca3af/FFFFFF?text=Team+Member+Cleaning+Windows",
+        "alt": "Close-up of our technician using a squeegee on a window"
+      },
+      {
+        "src": "https://placehold.co/300x300/737373/FFFFFF?text=Team+Collaboration",
+        "alt": "Two professionals collaborating to clean large panes"
+      }
+    ],
+    "paragraphs": [
+      "At Viking Window Washing, we have proudly served numerous homeowners and businesses, delivering consistently streak-free results. Our trained staff utilizes modern tools and proven methods to restore brightness and clarity to every window.",
+      "From expansive residences to cozy condominiums, our commitment remains the same—exceptional care for each window and unwavering respect for our clients’ property."
+    ]
+  },
+  "galleryData": {
+    "heading": "Our Work in Pictures",
+    "images": [
+      {
+        "src": "https://placehold.co/600x400/AAAAAA/FFFFFF?text=Gallery1+-+Sparkling+Reflection",
+        "alt": "A large window reflecting the sky after a thorough cleaning"
+      },
+      {
+        "src": "https://placehold.co/600x400/BBBBBB/FFFFFF?text=Gallery2+-+Living+Room+Windows",
+        "alt": "Close-up shot of spotless living room windows with crisp reflections"
+      },
+      {
+        "src": "https://placehold.co/600x400/CCCCCC/FFFFFF?text=Gallery3+-+Commercial+Facade",
+        "alt": "Commercial glass facade shining after a detailed cleaning"
+      },
+      {
+        "src": "https://placehold.co/600x400/DDDDDD/000000?text=Gallery4+-+Architectural+Design",
+        "alt": "Modern, architecturally shaped window gleaming in the sunlight"
+      },
+      {
+        "src": "https://placehold.co/600x400/999999/FFFFFF?text=Gallery5+-+Sliding+Doors",
+        "alt": "Multiple sliding glass doors with clear reflections following service"
+      },
+      {
+        "src": "https://placehold.co/600x400/777777/FFFFFF?text=Gallery6+-+Upper+Story",
+        "alt": "Windows on a second-story level, completely free of stains or smudges"
+      },
+      {
+        "src": "https://placehold.co/600x400/EEEEEE/333333?text=Gallery7+-+Office+Skyline",
+        "alt": "Panoramic office window with a crisp reflection of the cityscape"
+      },
+      {
+        "src": "https://placehold.co/600x400/888888/FFFFFF?text=Gallery8+-+Before+After+SideBySide",
+        "alt": "Side-by-side comparison showing the difference before and after cleaning"
+      },
+      {
+        "src": "https://placehold.co/600x400/444444/FFFFFF?text=Gallery9+-+Panoramic+View",
+        "alt": "A floor-to-ceiling window providing an unobstructed outdoor view"
+      }
+    ]
+  },
+  "testimonialsData": {
+    "heading": "Customer Feedback",
+    "testimonials": [
+      {
+        "text": "“Viking Window Washing transformed our dingy windows into crystal-clear panes. The difference is incredible!”",
+        "imageSrc": "https://placehold.co/96x96/444444/FFFFFF?text=Austin",
+        "imageAlt": "Austin's headshot praising the top-notch window cleaning service",
+        "name": "Austin Carlson",
+        "role": "Satisfied Homeowner"
+      },
+      {
+        "text": "“They arrived on time and finished quickly. Our office windows have never looked better!”",
+        "imageSrc": "https://placehold.co/96x96/2c2c2c/FFFFFF?text=Khris",
+        "imageAlt": "Khris from Johnson Orthodontics noting the exceptional service",
+        "name": "Khris Johnson",
+        "role": "Johnson Orthodontics"
+      },
+      {
+        "text": "“We loved how friendly and professional the team was. Neighbors came by just to ask about the amazing results!”",
+        "imageSrc": "https://placehold.co/96x96/333333/FFFFFF?text=Taylor",
+        "imageAlt": "Taylor's portrait smiling about spotless windows at home",
+        "name": "Taylor Smith",
+        "role": "Local Resident"
+      },
+      {
+        "text": "“Our café’s post-renovation cleanup was a breeze. Viking handled the dusty mess and left our glass surfaces shining!”",
+        "imageSrc": "https://placehold.co/96x96/555555/FFFFFF?text=Jordan",
+        "imageAlt": "Jordan Love from a local café expressing gratitude for thorough cleaning",
+        "name": "Jordan Love",
+        "role": "Café Owner"
+      }
+    ]
+  },
+  "pricingData": {
+    "backgroundImage": "https://placehold.co/1920x800/12345/FFF?text=Sparkling+Glass+Parallax+Background",
+    "heading": "Window Cost Calculator",
+    "labelText": "How many windows need cleaning?",
+    "placeholder": "e.g., 10",
+    "buttonText": "Calculate",
+    "minimumFeeNote": "Use our quick estimator to get an approximate cost based on window count. Keep in mind our minimum service fee is always $100."
+  },
+  "faqData": {
+    "heading": "Common Questions",
+    "items": [
+      {
+        "question": "Which regions do you service?",
+        "answer": "We serve Meridian, Idaho, as well as nearby suburbs. Not sure if we can reach you? Just ask!"
+      },
+      {
+        "question": "What times are you available?",
+        "answer": "We operate from 8 AM to 6 PM on weekdays, with weekend appointments by arrangement."
+      },
+      {
+        "question": "Do you guarantee streak-free windows?",
+        "answer": "We do! If you notice any streaks or spots after we leave, let us know and we'll come back to fix them."
+      },
+      {
+        "question": "Are your cleaning supplies eco-friendly?",
+        "answer": "Yes, we use non-toxic, environmentally conscious products that are safe for your family and pets."
+      },
+      {
+        "question": "Is there a minimum size for a job?",
+        "answer": "All jobs are welcome, but note our minimum service fee of $100."
+      },
+      {
+        "question": "How far in advance should I schedule?",
+        "answer": "One to two weeks’ notice is ideal, but we do our best to fit in last-minute requests when possible."
+      }
+    ]
+  },
+  "contactData": {
+    "heading": "Reach Out to Us",
+    "nameLabel": "Full Name",
+    "emailLabel": "Email Address",
+    "messageLabel": "Your Message",
+    "placeholderName": "Jane Doe",
+    "placeholderEmail": "jane.doe@example.com",
+    "placeholderMessage": "How can we help you?",
+    "buttonText": "Submit"
+  },
+  "footerData": {
+    "links": [
+      { "label": "About", "href": "#about" },
+      { "label": "Services", "href": "#services" },
+      { "label": "Testimonials", "href": "#testimonials" },
+      { "label": "Pricing", "href": "#pricing" },
+      { "label": "FAQ", "href": "#faq" },
+      { "label": "Gallery", "href": "#gallery" },
+      { "label": "Contact", "href": "#contact-us" }
+    ],
+    "social": [
+      { "iconClass": "fab fa-facebook-f", "label": "Facebook", "href": "#" },
+      { "iconClass": "fab fa-instagram", "label": "Instagram", "href": "#" },
+      { "iconClass": "fab fa-twitter", "label": "X (Twitter)", "href": "#" },
+      { "iconClass": "fab fa-github", "label": "GitHub", "href": "#" },
+      { "iconClass": "fab fa-youtube", "label": "YouTube", "href": "#" }
+    ],
+    "copyright":
+      "© 2024 Viking Window Washing Company. All rights reserved."
+  }
+}
