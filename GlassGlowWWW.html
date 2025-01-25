@@ -28,7 +28,12 @@
             background-image: url('https://www.usualhouse.com/wp-content/uploads/2020/01/modern-home-with-many-windows-2-story.jpg');
             background-size: cover;
             background-position: center;
-            height: 600px;
+            height: 100vh;
+        }
+
+        /* Adjust content to start below the fixed header */
+        .content {
+            padding-top: 80px; /* Adjust based on header height */
         }
 
         @media (max-width: 767px) {
@@ -73,14 +78,11 @@
             top: 0;
             width: 100%;
             z-index: 50;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease-out;
-        }
-
-        .header.visible {
             transform: translateY(0);
+            transition: background-color 0.3s ease-out;
         }
 
         /* Mobile Menu */
@@ -116,58 +118,58 @@
     </style>
 </head>
 <body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header id="header" class="header">
+        <nav class="flex items-center justify-between px-4 py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/66341862-a6e3-4592-8cdf-f43e701f5a2a/Leonardo_Phoenix_09_Create_a_vibrant_compact_logo_for_Glass_Gl_3.jpg" alt="GlassGlow Logo" class="w-16 h-auto">
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-x-6">
+                <a href="#contact" class="text-sm font-medium leading-6 hover:text-blue-600">Contact Us</a>
+                <a href="#services" class="text-sm font-medium leading-6 hover:text-blue-600">Services</a>
+                <a href="#why" class="text-sm font-medium leading-6 hover:text-blue-600">Our Why</a>
+                <a href="#about" class="text-sm font-medium leading-6 hover:text-blue-600">About</a>
+                <a href="#gallery" class="text-sm font-medium leading-6 hover:text-blue-600">Gallery</a>
+                <a href="#testimonials" class="text-sm font-medium leading-6 hover:text-blue-600">Testimonials</a>
+                <a href="#pricing" class="text-sm font-medium leading-6 hover:text-blue-600">Pricing</a>
+                <a href="#faq" class="text-sm font-medium leading-6 hover:text-blue-600">FAQ</a>
+                <!-- Get in Touch Button -->
+                <a href="#contact" class="ml-4 inline-block bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded hover:bg-blue-700">
+                    Get in Touch
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden flex flex-col items-center justify-center gap-1">
+                <span class="block w-6 h-0.5 bg-black"></span>
+                <span class="block w-6 h-0.5 bg-black"></span>
+                <span class="block w-6 h-0.5 bg-black"></span>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden">
+            <nav class="flex flex-col gap-4 p-6 bg-white shadow-lg">
+                <a href="#contact" class="text-lg font-medium menu-link">Contact Us</a>
+                <a href="#services" class="text-lg font-medium menu-link">Services</a>
+                <a href="#why" class="text-lg font-medium menu-link">Our Why</a>
+                <a href="#about" class="text-lg font-medium menu-link">About</a>
+                <a href="#gallery" class="text-lg font-medium menu-link">Gallery</a>
+                <a href="#testimonials" class="text-lg font-medium menu-link">Testimonials</a>
+                <a href="#pricing" class="text-lg font-medium menu-link">Pricing</a>
+                <a href="#faq" class="text-lg font-medium menu-link">FAQ</a>
+                <!-- Get in Touch Button in Mobile Menu -->
+                <a href="#contact" class="mt-4 inline-block bg-blue-600 text-white text-lg font-medium py-2 px-4 rounded hover:bg-blue-700 menu-link">
+                    Get in Touch
+                </a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section id="hero" class="hero-section flex items-center">
         <!-- Overlay -->
         <div class="hero-overlay"></div>
-
-        <!-- Header -->
-        <header id="header" class="header">
-            <nav class="flex items-center justify-between px-4 py-6">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <img src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/66341862-a6e3-4592-8cdf-f43e701f5a2a/Leonardo_Phoenix_09_Create_a_vibrant_compact_logo_for_Glass_Gl_3.jpg" alt="GlassGlow Logo" class="w-16 h-auto">
-                </div>
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-x-6">
-                    <a href="#contact" class="text-sm font-medium leading-6 hover:text-blue-600">Contact Us</a>
-                    <a href="#services" class="text-sm font-medium leading-6 hover:text-blue-600">Services</a>
-                    <a href="#why" class="text-sm font-medium leading-6 hover:text-blue-600">Our Why</a>
-                    <a href="#about" class="text-sm font-medium leading-6 hover:text-blue-600">About</a>
-                    <a href="#gallery" class="text-sm font-medium leading-6 hover:text-blue-600">Gallery</a>
-                    <a href="#testimonials" class="text-sm font-medium leading-6 hover:text-blue-600">Testimonials</a>
-                    <a href="#pricing" class="text-sm font-medium leading-6 hover:text-blue-600">Pricing</a>
-                    <a href="#faq" class="text-sm font-medium leading-6 hover:text-blue-600">FAQ</a>
-                    <!-- Get in Touch Button -->
-                    <a href="#contact" class="ml-4 inline-block bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded hover:bg-blue-700">
-                        Get in Touch
-                    </a>
-                </div>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="lg:hidden flex flex-col items-center justify-center gap-1">
-                    <span class="block w-6 h-0.5 bg-black"></span>
-                    <span class="block w-6 h-0.5 bg-black"></span>
-                    <span class="block w-6 h-0.5 bg-black"></span>
-                </button>
-            </nav>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="lg:hidden hidden">
-                <nav class="flex flex-col gap-4 p-6 bg-white shadow-lg">
-                    <a href="#contact" class="text-lg font-medium">Contact Us</a>
-                    <a href="#services" class="text-lg font-medium">Services</a>
-                    <a href="#why" class="text-lg font-medium">Our Why</a>
-                    <a href="#about" class="text-lg font-medium">About</a>
-                    <a href="#gallery" class="text-lg font-medium">Gallery</a>
-                    <a href="#testimonials" class="text-lg font-medium">Testimonials</a>
-                    <a href="#pricing" class="text-lg font-medium">Pricing</a>
-                    <a href="#faq" class="text-lg font-medium">FAQ</a>
-                    <!-- Get in Touch Button in Mobile Menu -->
-                    <a href="#contact" class="mt-4 inline-block bg-blue-600 text-white text-lg font-medium py-2 px-4 rounded hover:bg-blue-700">
-                        Get in Touch
-                    </a>
-                </nav>
-            </div>
-        </header>
 
         <!-- Hero Text Content -->
         <div class="hero-text mx-auto text-center">
@@ -181,7 +183,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+      <!-- Services Section -->
     <div class="bg-gray-100">
         <!-- Services Introduction -->
         <section class="mt-12 py-12">
@@ -567,5 +569,63 @@
 </script>
 
 
+</body>
+</html>
+
+    <!-- JavaScript for Sticky Header and Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelectorAll('.menu-link');
+
+            // Toggle mobile menu visibility
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking a link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Smooth scrolling adjustment for links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent the default jump behavior
+                    const targetId = this.getAttribute('href').substring(1); // Get target ID
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        // Scroll to the target position with a 60px offset (height of the header)
+                        const offset = header.offsetHeight; // Adjust as needed
+                        const targetPosition = targetElement.offsetTop - offset;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth', // Smooth scrolling effect
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Include your JavaScript functions like calculateCost() here -->
+    <script>
+        function calculateCost() {
+            const numWindows = parseInt(document.getElementById('windowInput').value, 10);
+            if (isNaN(numWindows) || numWindows < 0) {
+                document.getElementById('result').textContent = "Please enter a valid number of windows.";
+                return;
+            }
+            const cost = Math.ceil(numWindows * 2.8) + 25;
+            const finalCost = cost < 100 ? 100 : cost; // Minimum service charge of $100
+            document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+        }
+    </script>
 </body>
 </html>
