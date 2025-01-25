@@ -37,17 +37,18 @@
             transform: translateY(0);
         }
 
-        /* Hamburger Icon */
-        .hamburger-icon {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-        }
+    /* Hamburger Icon */
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
 
         .hamburger-line {
             width: 100%;
@@ -98,11 +99,13 @@
                     <a href="#faq" class="text-sm font-semibold leading-6">FAQ</a>
                 </div>
               <!-- Mobile Menu Button -->
-<button id="mobile-menu-button" class="hamburger-icon hidden lg:block lg:hidden">
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="hamburger-icon hidden">
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
 </button>
+
 
 
             </nav>
@@ -539,6 +542,30 @@
     });
 </script>
 
+<script>
+    // Get the hamburger menu button
+    const menuButton = document.getElementById('mobile-menu-button');
+
+    // Function to check the device type and screen size
+    function checkDevice() {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const screenWidth = window.innerWidth;
+
+        if (!isTouchDevice || screenWidth >= 1024) {
+            // If it's not a touch device (computer) or screen width is desktop size, hide the button
+            menuButton.classList.add('hidden');
+        } else {
+            // Otherwise, show the button for mobile devices
+            menuButton.classList.remove('hidden');
+        }
+    }
+
+    // Initial check
+    checkDevice();
+
+    // Recheck when the window is resized
+    window.addEventListener('resize', checkDevice);
+</script>
 
 </body>
 </html>
