@@ -273,7 +273,7 @@
         </div>
     </div>
 
-    <!-- Gallery Section -->
+  <!-- Gallery Section -->
     <section id="gallery" class="py-12 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Gallery</h2>
@@ -283,42 +283,46 @@
                     <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 1" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
                 </div>
                 <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/ca93cc_4a299a9111594431aa28250fea8f5a1c~mv2.jpeg" alt="Gallery Image 2" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                    <img src="https://static.wixstatic.com/media/e6366f_6bf4bb8a21854809bf137b9eb940e303~mv2.jpeg/v1/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_344088700.jpeg" alt="Gallery Image 2" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
                 </div>
                 <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/ca93cc_fafd3c7a6c2d455e8c584e7457e35faa~mv2.jpg" alt="Gallery Image 3" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                    <img src="https://static.wixstatic.com/media/e6366f_93433d8f1d3e4aa986c51d5f6e8ed3e6~mv2.jpeg/v1/crop/x_851,y_0,w_2257,h_2644/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_352778065.jpeg" alt="Gallery Image 3" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
                 </div>
                 <div class="h-64 overflow-hidden">
                     <img src="https://www.clean-serv.co.uk/uploads/website/traditional-window-cleaning.jpg" alt="Gallery Image 4" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
                 </div>
                 <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/ca93cc_0ab2bb45fd66459eba211ff6906f4769~mv2.jpg" alt="Gallery Image 5" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                    <img src="https://i.pinimg.com/originals/b5/a0/1b/b5a01bc67287cf676bd0e9a8c552e3f8.png">
                 </div>
                 <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/ca93cc_cc16a9c46327448796f0e11719b95e1c~mv2.jpeg" alt="Gallery Image 6" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                    <img src="https://static.wixstatic.com/media/e6366f_e4b4878cc81941cea675cb930e1836c2~mv2.jpeg/v1/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_558923416.jpeg">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Us Section -->
-    <section id="contact" class="relative flex flex-wrap w-full">
+   <!-- Contact Us Section -->
+<section id="contact" class="relative w-full h-screen bg-fixed bg-center bg-cover" style="background-image: url('https://static.wixstatic.com/media/e6366f_689c160c22ff448390fc9b4ffc83d400~mv2.jpeg/v1/fill/w_1886,h_840,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e6366f_689c160c22ff448390fc9b4ffc83d400~mv2.jpeg');">
+    <!-- Content Wrapper -->
+    <div class="relative container mx-auto h-full flex items-center">
         <!-- Left Side: Contact Information -->
-        <div class="contact-text w-full md:w-1/2 bg-gray-700 text-white px-6 py-12 flex items-center">
-            <div class="max-w-md mx-auto">
+        <div class="w-full md:w-1/2 px-6">
+            <div class="text-white">
                 <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
                 <p class="text-lg mb-8">
                     Reach out to schedule an appointment, inquire about our services, or discuss your specific needs. Our team is here to assist you.
                 </p>
-                <p class="text-1xl font-semibold mb-4"><span class="font-bold">Phone:</span> (123) 456-7890</p>
-                <p class="text-1xl font-semibold"><span class="font-bold">Email:</span> info@glassglowwindowcleaning.com</p>
+                <p class="text-xl font-semibold mb-4">
+                    <span class="font-bold">Phone:</span> (123) 456-7890
+                </p>
+                <p class="text-xl font-semibold">
+                    <span class="font-bold">Email:</span> info@glassglowwindowcleaning.com
+                </p>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Right Side: Parallax Image -->
-        <div class="contact-image w-full md:w-1/2 h-64 md:h-auto bg-cover bg-fixed bg-center md:block hidden">
-        </div>
-    </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="bg-gray-900 py-12 sm:py-16">
@@ -520,86 +524,85 @@
   </div>
 </footer>
 
+<!-- JavaScript Functions -->
+<script>
+    // Window Calculator Function
+    function calculateCost() {
+        const numWindows = parseInt(document.getElementById('windowInput').value, 10);
+        if (isNaN(numWindows) || numWindows < 0) {
+            document.getElementById('result').textContent = "Please enter a valid number of windows.";
+            return;
+        }
+        const cost = Math.ceil(numWindows * 2.8) + 25;
+        const finalCost = cost < 100 ? 100 : cost;
+        document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+    }
 
-    <!-- JavaScript Functions -->
-    <script>
-        // Window Calculator Function
-        function calculateCost() {
-            const numWindows = parseInt(document.getElementById('windowInput').value, 10);
-            if (isNaN(numWindows) || numWindows < 0) {
-                document.getElementById('result').textContent = "Please enter a valid number of windows.";
-                return;
-            }
-            const cost = Math.ceil(numWindows * 2.8) + 25;
-            const finalCost = cost < 100 ? 100 : cost;
-            document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+    // Sticky Header JavaScript
+    let lastScrollTop = 0;
+    const header = document.getElementById('header');
+
+    const showHeader = () => {
+        header.classList.add('visible');
+    };
+
+    const hideHeader = () => {
+        header.classList.remove('visible');
+    };
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down: hide the header
+            hideHeader();
+        } else {
+            // Scrolling up: show the header
+            showHeader();
         }
 
-        // Sticky Header JavaScript
-        let lastScrollTop = 0;
-        const header = document.getElementById('header');
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
 
-        const showHeader = () => {
-            header.classList.add('visible');
-        };
+    // Initialize the header as visible
+    showHeader();
 
-        const hideHeader = () => {
-            header.classList.remove('visible');
-        };
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Toggle mobile menu visibility
+    menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
 
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down: hide the header
-                hideHeader();
-            } else {
-                // Scrolling up: show the header
-                showHeader();
+    // Close mobile menu when clicking a link
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Smooth scrolling adjustment for links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent the default jump behavior
+            const targetId = this.getAttribute('href').substring(1); // Get target ID
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Scroll to the target position with a 20px offset
+                const offset = 80; // Adjust as needed
+                const targetPosition = targetElement.offsetTop - offset;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth', // Smooth scrolling effect
+                });
             }
-
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
-
-        // Initialize the header as visible
-        showHeader();
-
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        // Toggle mobile menu visibility
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        const menuLinks = document.querySelectorAll('.menu-link');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Smooth scrolling adjustment for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent the default jump behavior
-                const targetId = this.getAttribute('href').substring(1); // Get target ID
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    // Scroll to the target position with a 20px offset
-                    const offset = 80; // Adjust as needed
-                    const targetPosition = targetElement.offsetTop - offset;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth', // Smooth scrolling effect
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
 
 </body>
 </html>
