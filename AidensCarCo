@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aidan's Car Co. - Premium Auto Detailing</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background-image: url('https://www.detailingwiki.org/wp-content/uploads/2017/10/luxury-car-detailing.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        /* Overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 30, 50, 0.6);
+        }
+
+        /* Hero Text */
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease-in-out;
+            transform: translateY(-100%);
+        }
+
+        .header.visible {
+            transform: translateY(0);
+        }
+
+        /* Parallax Background */
+        .parallax {
+            background-image: url('https://th.bing.com/th/id/R.5cc1fc20deaf6b06e4a4b0bb038d91f5?rik=HZ2RU7E0rkp9Xw&pid=ImgRaw&r=0');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Header -->
+    <header id="header" class="header visible">
+        <nav class="flex items-center justify-between px-4 py-4">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="https://i.imgur.com/U6l7bDq.png" alt="Aidan's Car Co. Logo" class="w-16 h-auto">
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-x-6">
+                <a href="#contact" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">Contact Us</a>
+                <a href="#services" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">Services</a>
+                <a href="#why" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">Our Why</a>
+                <a href="#about" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">About</a>
+                <a href="#gallery" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">Gallery</a>
+                <a href="#testimonials" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">Testimonials</a>
+                <a href="#pricing" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">Pricing</a>
+                <a href="#faq" class="text-sm font-medium leading-6 hover:text-blue-700 menu-link">FAQ</a>
+                <a href="#contact" class="ml-4 inline-block bg-blue-600 text-white text-sm font-medium py-2 px-4 rounded hover:bg-blue-700">
+                    Get in Touch
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1 class="text-5xl font-bold text-white mb-4">Aidan's Car Co.</h1>
+            <p class="text-xl text-gray-200 leading-8">
+                Experience premium auto detailing that brings out the best in your vehicle. Luxury. Precision. Perfection.
+            </p>
+            <a href="#contact" class="mt-8 inline-block bg-blue-600 text-white font-medium py-2 px-6 rounded hover:bg-blue-700">
+                Book an Appointment
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="mt-12 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">Our Services</h2>
+            <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+                We offer a range of detailing services to keep your vehicle looking immaculate. From deep interior cleaning to premium ceramic coatings, we do it all.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="container mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Service Cards -->
+        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
+            <img src="https://th.bing.com/th/id/R.2edeb1f8cbe2875ed6b5b47dd74fa923?rik=ZlbKHOVl8FYbdA&pid=ImgRaw&r=0" alt="Full Exterior Detailing" class="w-full h-48 object-cover rounded-t-lg">
+            <div class="p-4">
+                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Full Exterior Detailing</h3>
+                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
+                    Restore your car’s showroom shine with our comprehensive exterior wash, polish, and paint protection services.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white py-6 text-center">
+        <p>&copy; 2025 Aidan's Car Co. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
