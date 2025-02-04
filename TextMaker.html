@@ -44,14 +44,14 @@
                 return response.json();
             })
             .then(data => {
-                displayResults(data);
+                displayResults(data, urlInput);
             })
             .catch(error => {
                 resultsDiv.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}</p>`;
             });
         });
 
-        function displayResults(data) {
+        function displayResults(data, url) {
             const resultsDiv = document.getElementById('results');
             let html = `
                 <h2 class="text-2xl font-bold mb-4">Analysis Results</h2>
@@ -60,47 +60,37 @@
                 <h3 class="text-xl font-semibold mt-4">Emails:</h3>
                 <p>${data.emails.length > 0 ? data.emails.join(', ') : 'None found.'}</p>
                 <h3 class="text-xl font-semibold mt-4">Compliments:</h3>
-                <ul class="list-disc pl-5">
-                    ${data.compliments.length > 0 ? data.compliments.map(item => `<li>${item}</li>`).join('') : '<li>None.</li>'}
-                </ul>
+                <p>${data.compliments.length > 0 ? data.compliments.join(', ') : 'None.'}</p>
                 <h3 class="text-xl font-semibold mt-4">Issues Found:</h3>
-                <ul class="list-disc pl-5">
-                    ${data.issues_found.length > 0 ? data.issues_found.map(item => `<li>${item}</li>`).join('') : '<li>None.</li>'}
-                </ul>
+                <p>${data.issues_found.length > 0 ? data.issues_found.join(', ') : 'None.'}</p>
                 <h3 class="text-xl font-semibold mt-4">Message:</h3>
                 <p class="mt-2">
-                    ${generatePersonalizedMessage(data.compliments, urlInput)}
+                    ${generatePersonalizedMessage(data.compliments, data.issues_found, url)}
                 </p>
             `;
 
             resultsDiv.innerHTML = html;
         }
 
-        function generatePersonalizedMessage(compliments, url) {
-            // Start with compliments about the website
-            let message = "Your website is great! ";
+        function generatePersonalizedMessage(compliments, issues, url) {
+            // Start with a greeting
+            let message = "Hello,<br><br>";
+
+            // Admiring their website with specific compliments
+            message += "I just visited your website and I really admire ";
             if (compliments.length > 0) {
-                message += "In particular, we noticed:";
-                message += "<ul class='list-disc pl-5'>";
-                compliments.forEach(item => {
-                    message += `<li>${item}</li>`;
-                });
-                message += "</ul>";
+                message += compliments.join(', ') + ". ";
+            } else {
+                message += "the overall design and content. ";
             }
 
-            // Add the personal message
-            message += `
-                <p class="mt-4">
-                    I am 16 and working on a school project where we're trying to find business websites and help improve them. We're not trying to charge anything and would appreciate your feedback. Would you mind checking it out and answering a few questions on how we could make it better?
-                </p>
-            `;
+            // Mentioning some things that need to be worked on
+            if (issues.length > 0) {
+                message += "However, I noticed that " + issues.join(', ') + ". ";
+            }
 
-            // Encourage them to provide feedback
-            message += `
-                <p class="mt-2">
-                    If you're interested, please let us know how we can assist in enhancing your website further!
-                </p>
-            `;
+            // Adding the personal message
+            message += "I'm 16 and working on a school project where I'm trying to find business websites and help improve them. I'm not trying to charge anything and would appreciate your feedback. Would you mind checking it out and answering a few questions on how I could make it better?";
 
             return message;
         }
