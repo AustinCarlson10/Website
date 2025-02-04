@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Website Analyzer</h1>
+        <div class="max-w-md mx-auto bg-white p-8 rounded shadow">
+            <label for="urlInput" class="block text-gray-700 text-sm font-bold mb-2">Enter a URL:</label>
+            <input id="urlInput" type="text" placeholder="https://example.com" class="w-full px-3 py-2 mb-4 border rounded" />
+            <button id="analyzeButton" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Analyze Website
+            </button>
+        </div>
+        <div id="results" class="max-w-2xl mx-auto mt-8"></div>
+    </div>
+    <script>
+        document.getElementById('analyzeButton').addEventListener('click', function() {
+            console.log('Analyze button clicked');
+            const urlInput = document.getElementById('urlInput').value.trim();
+            console.log('URL entered:', urlInput);
+
+            if (!urlInput) {
+                alert('Please enter a URL.');
+                return;
+            }
+
+            // Show loading indicator
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p class="text-center text-gray-500">Analyzing...</p>';
+
+            fetch('https://f3k6axmnk3uiduupw3q75zwjxu0swdnn.lambda-url.us-west-2.on.aws/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: urlInput }),
+            })
+            .then(response => {
+                console.log('Received response:', response);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data received:', data);
+                displayResults(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultsDiv.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}</p>`;
+            });
+        });
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            console.log('Displaying results');
+            let html = `
+                <h2 class="text-2xl font-bold mb-4">Analysis Results</h2>
+                <h3 class="text-xl font-semibold mt-4">Phone Numbers:</h3>
+                <p>${data.phone_numbers.length > 0 ? data.phone_numbers.join(', ') : 'None found.'}</p>
+                <h3 class="text-xl font-semibold mt-4">Emails:</h3>
+                <p>${data.emails.length > 0 ? data.emails.join(', ') : 'None found.'}</p>
+                <h3 class="text-xl font-semibold mt-4">Compliments:</h3>
+                <ul class="list-disc pl-5">
+                    ${data.compliments.map(item => `<li>${item}</li>`).join('') || '<li>None.</li>'}
+                </ul>
+                <h3 class="text-xl font-semibold mt-4">Issues Found:</h3>
+                <ul class="list-disc pl-5">
+                    ${data.issues_found.map(item => `<li>${item}</li>`).join('') || '<li>None.</li>'}
+                </ul>
+                <h3 class="text-xl font-semibold mt-4">AI Generated Text:</h3>
+                <p class="mt-2">${data.ai_generated_text}</p>
+            `;
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
