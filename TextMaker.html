@@ -69,31 +69,58 @@
         }
 
         function generatePersonalizedMessage(compliments, issues, url) {
-            // Process compliments and issues to make them user-friendly
+            const companyName = extractCompanyName(url);
+
+            // Process compliments and issues to be user-friendly
             const friendlyCompliments = processCompliments(compliments);
             const friendlyIssues = processIssues(issues);
 
-            // Start with a greeting
-            let message = "Hello,<br><br>";
+            // Select up to 2 issues to mention
+            const issuesToMention = friendlyIssues.slice(0, 2);
 
-            // Admiring their website with specific compliments
+            // Start the message
+            let message = `Hey ${companyName},<br><br>`;
+
+            // Praise them for their amazing website and compliment it
+            message += "I just wanted to say that your website is amazing! I really appreciate ";
             if (friendlyCompliments.length > 0) {
-                message += "I just visited your website and I really admire ";
                 message += friendlyCompliments.join(', ') + ". ";
             } else {
-                message += "I just visited your website and I really admire the overall design and content. ";
+                message += "the overall quality and presentation. ";
             }
 
-            // Mentioning some things that need to be worked on
-            if (friendlyIssues.length > 0) {
-                message += "However, I noticed that ";
-                message += friendlyIssues.join(', ') + ". ";
+            // Mention there are some things that could be worked on, with 2 examples
+            if (issuesToMention.length > 0) {
+                message += "However, there are some things that could be worked on, such as ";
+                message += issuesToMention.join(' and ') + ". ";
             }
 
-            // Adding the personal message
+            // Add the personal note about being 16 and working on a school project
             message += "I'm 16 and working on a school project where I'm trying to find business websites and help improve them. I'm not trying to charge anything and would appreciate your feedback. Would you mind checking it out and answering a few questions on how I could make it better?";
 
             return message;
+        }
+
+        function extractCompanyName(url) {
+            // Extract the hostname from the URL
+            let hostname = '';
+            try {
+                hostname = new URL(url).hostname;
+            } catch (e) {
+                hostname = url;
+            }
+
+            // Remove 'www.' prefix if it exists
+            if (hostname.startsWith('www.')) {
+                hostname = hostname.slice(4);
+            }
+
+            // Remove domain extensions (.com, .net, etc.)
+            const parts = hostname.split('.');
+            const companyName = parts[0];
+
+            // Capitalize the first letter
+            return companyName.charAt(0).toUpperCase() + companyName.slice(1);
         }
 
         function processCompliments(compliments) {
@@ -107,7 +134,7 @@
                     return 'the aesthetic appeal of your website';
                 } else {
                     // General compliment
-                    return 'the website\'s content and presentation';
+                    return 'the content and presentation';
                 }
             });
             return friendlyCompliments;
@@ -117,16 +144,16 @@
             // Transform technical issues into user-friendly descriptions
             const friendlyIssues = issues.map(item => {
                 if (item.includes('broken link')) {
-                    return 'there seems to be a broken link';
+                    return 'some broken links';
                 } else if (item.includes('image not found') || item.includes('missing image')) {
-                    return 'some images are not displaying properly';
+                    return 'images that are not displaying properly';
                 } else if (item.includes('slow page load')) {
-                    return 'the page takes a while to load';
+                    return 'the page load time being a bit slow';
                 } else if (item.includes('missing alt text')) {
-                    return 'some images are missing descriptive text';
+                    return 'some images missing descriptive text';
                 } else {
-                    // General issue if the technical term is unrecognized
-                    return 'there are some areas that could be improved';
+                    // General issue
+                    return 'areas that could be improved';
                 }
             });
             return friendlyIssues;
