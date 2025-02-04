@@ -67,106 +67,42 @@
                 <ul class="list-disc pl-5">
                     ${data.issues_found.length > 0 ? data.issues_found.map(item => `<li>${item}</li>`).join('') : '<li>None.</li>'}
                 </ul>
-                <h3 class="text-xl font-semibold mt-4">AI Generated Text:</h3>
-                <p class="mt-2">${data.ai_generated_text}</p>
-            `;
-
-            // Add the text prompt for sending results
-            html += `
-                <div class="mt-8">
-                    <p class="text-lg font-semibold">How would you like to receive the results? Please type "phone" or "email":</p>
-                    <input id="methodInput" type="text" placeholder="phone or email" class="w-full px-3 py-2 mt-2 mb-4 border rounded" />
-                    <button id="submitMethod" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Submit
-                    </button>
-                    <div id="contactForm" class="mt-4"></div>
-                </div>
+                <h3 class="text-xl font-semibold mt-4">Message:</h3>
+                <p class="mt-2">
+                    ${generatePersonalizedMessage(data.compliments, urlInput)}
+                </p>
             `;
 
             resultsDiv.innerHTML = html;
-
-            // Add event listener for the submit method button
-            document.getElementById('submitMethod').addEventListener('click', function() {
-                const method = document.getElementById('methodInput').value.trim().toLowerCase();
-                if (method === 'phone' || method === 'email') {
-                    showContactForm(method, data);  // Pass the data to use later
-                } else {
-                    alert('Please enter "phone" or "email".');
-                }
-            });
         }
 
-        function showContactForm(method, data) {
-            const contactFormDiv = document.getElementById('contactForm');
-            contactFormDiv.innerHTML = '';
-
-            if (method === 'phone') {
-                contactFormDiv.innerHTML = `
-                    <label for="phoneInput" class="block text-gray-700 text-sm font-bold mb-2">Enter your Phone Number:</label>
-                    <input id="phoneInput" type="tel" placeholder="+1..." class="w-full px-3 py-2 mb-4 border rounded" />
-                    <button id="submitPhone" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Send Results</button>
-                `;
-
-                document.getElementById('submitPhone').addEventListener('click', function() {
-                    const phoneNumber = document.getElementById('phoneInput').value.trim();
-                    if (!phoneNumber) {
-                        alert('Please enter your phone number.');
-                        return;
-                    }
-                    sendResults('phone', phoneNumber, data);
+        function generatePersonalizedMessage(compliments, url) {
+            // Start with compliments about the website
+            let message = "Your website is great! ";
+            if (compliments.length > 0) {
+                message += "In particular, we noticed:";
+                message += "<ul class='list-disc pl-5'>";
+                compliments.forEach(item => {
+                    message += `<li>${item}</li>`;
                 });
-
-            } else if (method === 'email') {
-                contactFormDiv.innerHTML = `
-                    <label for="emailInput" class="block text-gray-700 text-sm font-bold mb-2">Enter your Email Address:</label>
-                    <input id="emailInput" type="email" placeholder="you@example.com" class="w-full px-3 py-2 mb-4 border rounded" />
-                    <button id="submitEmail" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Results</button>
-                `;
-
-                document.getElementById('submitEmail').addEventListener('click', function() {
-                    const emailAddress = document.getElementById('emailInput').value.trim();
-                    if (!emailAddress) {
-                        alert('Please enter your email address.');
-                        return;
-                    }
-                    sendResults('email', emailAddress, data);
-                });
+                message += "</ul>";
             }
-        }
 
-        function sendResults(method, contactInfo, data) {
-            // Simulate sending results by displaying a confirmation message
-            const contactFormDiv = document.getElementById('contactForm');
-            contactFormDiv.innerHTML = `
-                <p class="mt-4 text-green-600">Results have been sent to your ${method === 'phone' ? 'phone number' : 'email'}: ${contactInfo}</p>
+            // Add the personal message
+            message += `
+                <p class="mt-4">
+                    I am 16 and working on a school project where we're trying to find business websites and help improve them. We're not trying to charge anything and would appreciate your feedback. Would you mind checking it out and answering a few questions on how we could make it better?
+                </p>
             `;
 
-            // Prepare the payload to send
-            const payload = {
-                method: method,
-                contactInfo: contactInfo,
-                data: data
-            };
+            // Encourage them to provide feedback
+            message += `
+                <p class="mt-2">
+                    If you're interested, please let us know how we can assist in enhancing your website further!
+                </p>
+            `;
 
-            // Here, you would typically make a request to your backend server
-            // to handle sending the results via SMS or email.
-            // For example:
-            /*
-            fetch('/send-results', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-            })
-            .then(response => response.json())
-            .then(result => {
-                // Handle success
-            })
-            .catch(error => {
-                // Handle error
-            });
-            */
+            return message;
         }
     </script>
 </body>
