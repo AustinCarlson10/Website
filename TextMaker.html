@@ -61,40 +61,42 @@
                 <p>${data.emails.length > 0 ? data.emails.join(', ') : 'None found.'}</p>
                 <h3 class="text-xl font-semibold mt-4">Compliments:</h3>
                 <ul class="list-disc pl-5">
-                    ${data.compliments.map(item => `<li>${item}</li>`).join('') || '<li>None.</li>'}
+                    ${data.compliments.length > 0 ? data.compliments.map(item => `<li>${item}</li>`).join('') : '<li>None.</li>'}
                 </ul>
                 <h3 class="text-xl font-semibold mt-4">Issues Found:</h3>
                 <ul class="list-disc pl-5">
-                    ${data.issues_found.map(item => `<li>${item}</li>`).join('') || '<li>None.</li>'}
+                    ${data.issues_found.length > 0 ? data.issues_found.map(item => `<li>${item}</li>`).join('') : '<li>None.</li>'}
                 </ul>
                 <h3 class="text-xl font-semibold mt-4">AI Generated Text:</h3>
                 <p class="mt-2">${data.ai_generated_text}</p>
             `;
 
-            // Add the prompt for sending results
+            // Add the text prompt for sending results
             html += `
                 <div class="mt-8">
-                    <p class="text-lg font-semibold">Would you like to receive the results via phone or email?</p>
-                    <div class="mt-4">
-                        <button id="sendPhoneButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">Send to Phone</button>
-                        <button id="sendEmailButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send to Email</button>
-                    </div>
+                    <p class="text-lg font-semibold">How would you like to receive the results? Please type "phone" or "email":</p>
+                    <input id="methodInput" type="text" placeholder="phone or email" class="w-full px-3 py-2 mt-2 mb-4 border rounded" />
+                    <button id="submitMethod" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Submit
+                    </button>
                     <div id="contactForm" class="mt-4"></div>
                 </div>
             `;
 
             resultsDiv.innerHTML = html;
 
-            // Add event listeners for the buttons
-            document.getElementById('sendPhoneButton').addEventListener('click', function() {
-                showContactForm('phone');
-            });
-            document.getElementById('sendEmailButton').addEventListener('click', function() {
-                showContactForm('email');
+            // Add event listener for the submit method button
+            document.getElementById('submitMethod').addEventListener('click', function() {
+                const method = document.getElementById('methodInput').value.trim().toLowerCase();
+                if (method === 'phone' || method === 'email') {
+                    showContactForm(method, data);  // Pass the data to use later
+                } else {
+                    alert('Please enter "phone" or "email".');
+                }
             });
         }
 
-        function showContactForm(method) {
+        function showContactForm(method, data) {
             const contactFormDiv = document.getElementById('contactForm');
             contactFormDiv.innerHTML = '';
 
@@ -111,7 +113,7 @@
                         alert('Please enter your phone number.');
                         return;
                     }
-                    sendResults('phone', phoneNumber);
+                    sendResults('phone', phoneNumber, data);
                 });
 
             } else if (method === 'email') {
@@ -127,17 +129,24 @@
                         alert('Please enter your email address.');
                         return;
                     }
-                    sendResults('email', emailAddress);
+                    sendResults('email', emailAddress, data);
                 });
             }
         }
 
-        function sendResults(method, contactInfo) {
-            // Placeholder function to simulate sending results
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML += `
+        function sendResults(method, contactInfo, data) {
+            // Simulate sending results by displaying a confirmation message
+            const contactFormDiv = document.getElementById('contactForm');
+            contactFormDiv.innerHTML = `
                 <p class="mt-4 text-green-600">Results have been sent to your ${method === 'phone' ? 'phone number' : 'email'}: ${contactInfo}</p>
             `;
+
+            // Prepare the payload to send
+            const payload = {
+                method: method,
+                contactInfo: contactInfo,
+                data: data
+            };
 
             // Here, you would typically make a request to your backend server
             // to handle sending the results via SMS or email.
@@ -148,11 +157,7 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    method: method,
-                    contactInfo: contactInfo,
-                    data: data  // The analysis results data
-                }),
+                body: JSON.stringify(payload),
             })
             .then(response => response.json())
             .then(result => {
