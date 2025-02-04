@@ -19,9 +19,7 @@
     </div>
     <script>
         document.getElementById('analyzeButton').addEventListener('click', function() {
-            console.log('Analyze button clicked');
             const urlInput = document.getElementById('urlInput').value.trim();
-            console.log('URL entered:', urlInput);
 
             if (!urlInput) {
                 alert('Please enter a URL.');
@@ -40,25 +38,21 @@
                 body: JSON.stringify({ url: urlInput }),
             })
             .then(response => {
-                console.log('Received response:', response);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 return response.json();
             })
             .then(data => {
-                console.log('Data received:', data);
                 displayResults(data);
             })
             .catch(error => {
-                console.error('Error:', error);
                 resultsDiv.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}</p>`;
             });
         });
 
         function displayResults(data) {
             const resultsDiv = document.getElementById('results');
-            console.log('Displaying results');
             let html = `
                 <h2 class="text-2xl font-bold mb-4">Analysis Results</h2>
                 <h3 class="text-xl font-semibold mt-4">Phone Numbers:</h3>
@@ -76,7 +70,98 @@
                 <h3 class="text-xl font-semibold mt-4">AI Generated Text:</h3>
                 <p class="mt-2">${data.ai_generated_text}</p>
             `;
+
+            // Add the prompt for sending results
+            html += `
+                <div class="mt-8">
+                    <p class="text-lg font-semibold">Would you like to receive the results via phone or email?</p>
+                    <div class="mt-4">
+                        <button id="sendPhoneButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2">Send to Phone</button>
+                        <button id="sendEmailButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send to Email</button>
+                    </div>
+                    <div id="contactForm" class="mt-4"></div>
+                </div>
+            `;
+
             resultsDiv.innerHTML = html;
+
+            // Add event listeners for the buttons
+            document.getElementById('sendPhoneButton').addEventListener('click', function() {
+                showContactForm('phone');
+            });
+            document.getElementById('sendEmailButton').addEventListener('click', function() {
+                showContactForm('email');
+            });
+        }
+
+        function showContactForm(method) {
+            const contactFormDiv = document.getElementById('contactForm');
+            contactFormDiv.innerHTML = '';
+
+            if (method === 'phone') {
+                contactFormDiv.innerHTML = `
+                    <label for="phoneInput" class="block text-gray-700 text-sm font-bold mb-2">Enter your Phone Number:</label>
+                    <input id="phoneInput" type="tel" placeholder="+1..." class="w-full px-3 py-2 mb-4 border rounded" />
+                    <button id="submitPhone" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Send Results</button>
+                `;
+
+                document.getElementById('submitPhone').addEventListener('click', function() {
+                    const phoneNumber = document.getElementById('phoneInput').value.trim();
+                    if (!phoneNumber) {
+                        alert('Please enter your phone number.');
+                        return;
+                    }
+                    sendResults('phone', phoneNumber);
+                });
+
+            } else if (method === 'email') {
+                contactFormDiv.innerHTML = `
+                    <label for="emailInput" class="block text-gray-700 text-sm font-bold mb-2">Enter your Email Address:</label>
+                    <input id="emailInput" type="email" placeholder="you@example.com" class="w-full px-3 py-2 mb-4 border rounded" />
+                    <button id="submitEmail" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Results</button>
+                `;
+
+                document.getElementById('submitEmail').addEventListener('click', function() {
+                    const emailAddress = document.getElementById('emailInput').value.trim();
+                    if (!emailAddress) {
+                        alert('Please enter your email address.');
+                        return;
+                    }
+                    sendResults('email', emailAddress);
+                });
+            }
+        }
+
+        function sendResults(method, contactInfo) {
+            // Placeholder function to simulate sending results
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML += `
+                <p class="mt-4 text-green-600">Results have been sent to your ${method === 'phone' ? 'phone number' : 'email'}: ${contactInfo}</p>
+            `;
+
+            // Here, you would typically make a request to your backend server
+            // to handle sending the results via SMS or email.
+            // For example:
+            /*
+            fetch('/send-results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    method: method,
+                    contactInfo: contactInfo,
+                    data: data  // The analysis results data
+                }),
+            })
+            .then(response => response.json())
+            .then(result => {
+                // Handle success
+            })
+            .catch(error => {
+                // Handle error
+            });
+            */
         }
     </script>
 </body>
