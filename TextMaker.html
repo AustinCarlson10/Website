@@ -59,10 +59,6 @@
                 <p>${data.phone_numbers.length > 0 ? data.phone_numbers.join(', ') : 'None found.'}</p>
                 <h3 class="text-xl font-semibold mt-4">Emails:</h3>
                 <p>${data.emails.length > 0 ? data.emails.join(', ') : 'None found.'}</p>
-                <h3 class="text-xl font-semibold mt-4">Compliments:</h3>
-                <p>${data.compliments.length > 0 ? data.compliments.join(', ') : 'None.'}</p>
-                <h3 class="text-xl font-semibold mt-4">Issues Found:</h3>
-                <p>${data.issues_found.length > 0 ? data.issues_found.join(', ') : 'None.'}</p>
                 <h3 class="text-xl font-semibold mt-4">Message:</h3>
                 <p class="mt-2">
                     ${generatePersonalizedMessage(data.compliments, data.issues_found, url)}
@@ -73,26 +69,67 @@
         }
 
         function generatePersonalizedMessage(compliments, issues, url) {
+            // Process compliments and issues to make them user-friendly
+            const friendlyCompliments = processCompliments(compliments);
+            const friendlyIssues = processIssues(issues);
+
             // Start with a greeting
             let message = "Hello,<br><br>";
 
             // Admiring their website with specific compliments
-            message += "I just visited your website and I really admire ";
-            if (compliments.length > 0) {
-                message += compliments.join(', ') + ". ";
+            if (friendlyCompliments.length > 0) {
+                message += "I just visited your website and I really admire ";
+                message += friendlyCompliments.join(', ') + ". ";
             } else {
-                message += "the overall design and content. ";
+                message += "I just visited your website and I really admire the overall design and content. ";
             }
 
             // Mentioning some things that need to be worked on
-            if (issues.length > 0) {
-                message += "However, I noticed that " + issues.join(', ') + ". ";
+            if (friendlyIssues.length > 0) {
+                message += "However, I noticed that ";
+                message += friendlyIssues.join(', ') + ". ";
             }
 
             // Adding the personal message
             message += "I'm 16 and working on a school project where I'm trying to find business websites and help improve them. I'm not trying to charge anything and would appreciate your feedback. Would you mind checking it out and answering a few questions on how I could make it better?";
 
             return message;
+        }
+
+        function processCompliments(compliments) {
+            // Transform technical compliments into user-friendly phrases
+            const friendlyCompliments = compliments.map(item => {
+                if (item.includes('responsive design')) {
+                    return 'the responsive design that looks great on all devices';
+                } else if (item.includes('easy navigation')) {
+                    return 'how easy it is to navigate your site';
+                } else if (item.includes('aesthetic')) {
+                    return 'the aesthetic appeal of your website';
+                } else {
+                    // General compliment
+                    return 'the website\'s content and presentation';
+                }
+            });
+            return friendlyCompliments;
+        }
+
+        function processIssues(issues) {
+            // Transform technical issues into user-friendly descriptions
+            const friendlyIssues = issues.map(item => {
+                if (item.includes('broken link')) {
+                    return 'there seems to be a broken link';
+                } else if (item.includes('image not found') || item.includes('missing image')) {
+                    return 'some images are not displaying properly';
+                } else if (item.includes('slow page load')) {
+                    return 'the page takes a while to load';
+                } else if (item.includes('missing alt text')) {
+                    return 'some images are missing descriptive text';
+                } else {
+                    // General issue if the technical term is unrecognized
+                    return 'there are some areas that could be improved';
+                }
+            });
+            return friendlyIssues;
         }
     </script>
 </body>
