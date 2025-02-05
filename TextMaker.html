@@ -1,124 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Website Analyzer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-    <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold text-center mb-8">Website Analyzer</h1>
-        <div class="max-w-md mx-auto bg-white p-8 rounded shadow">
-            <label for="urlInput" class="block text-gray-700 text-sm font-bold mb-2">Enter a URL:</label>
-            <input id="urlInput" type="text" placeholder="https://example.com" class="w-full px-3 py-2 mb-4 border rounded" />
-            <button id="analyzeButton" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Analyze Website
-            </button>
-        </div>
-        <div id="results" class="max-w-2xl mx-auto mt-8"></div>
-    </div>
-    <script>
-        document.getElementById('analyzeButton').addEventListener('click', function() {
-            const urlInput = document.getElementById('urlInput').value.trim();
+import json
+import re
+import requests
+from openai import OpenAI
+from bs4 import BeautifulSoup
 
-            if (!urlInput) {
-                alert('Please enter a URL.');
-                return;
-            }
+def analyze_page(soup):
+    compliments = []
+    issues = []
+    
+    # Compliment if page has a main title
+    if soup.title and soup.title.string.strip():
+        compliments.append(f"Great job adding a page title: '{soup.title.string.strip()}'. It gives people a quick idea of what your page is about.")
+    else:
+        issues.append("I couldn't find a clear title for your page. Adding one helps visitors know right away what they're looking at.")
 
-            // Show loading indicator
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = '<p class="text-center text-gray-500">Analyzing...</p>';
+    # Compliment if at least some images have alt text
+    images_with_alt = [img.get('alt') for img in soup.find_all('img') if img.get('alt')]
+    if images_with_alt:
+        compliments.append(f"You've written descriptions for {len(images_with_alt)} of your images – that’s really helpful for people who can’t see them.")
 
-            fetch('https://your-api-endpoint.com/analyze', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
+    # Identify images missing alt text
+    images_without_alt = [img.get('src', '') for img in soup.find_all('img') if not img.get('alt')]
+    if images_without_alt:
+        issues.append(f"It looks like {len(images_without_alt)} of your images don’t have a description. This could make it harder for some visitors to understand your content.")
+
+    # Identify anchor tags without proper links
+    anchors_no_href = [a.text.strip() for a in soup.find_all('a') if not a.get('href')]
+    if anchors_no_href:
+        issues.append(f"I noticed {len(anchors_no_href)} piece(s) of text that look like links but don’t actually lead anywhere. You might want to update those so visitors can follow them.")
+
+    return compliments, issues
+
+def lambda_handler(event, context):
+    print("Entered lambda_handler")
+    print("Event:", event)
+    print("Context:", context)
+    
+    print("Loading event body as JSON...")
+    event_data = json.loads(event['body'])
+    print("Event data loaded:", event_data)
+
+    url = event_data.get('url')
+    print("Retrieved URL:", url)
+
+    if not url:
+        print("No URL found in the request body.")
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': 'URL is required'})
+        }
+
+    print("Making a request to the URL...")
+    response = requests.get(url)
+    print("Request completed with status code:", response.status_code)
+
+    print("Parsing the response with BeautifulSoup...")
+    soup = BeautifulSoup(response.content, 'html.parser')
+    text = soup.get_text()
+
+    print("Finding phone numbers...")
+    phone_numbers = re.findall(r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', text)
+    print("Phone numbers found:", phone_numbers)
+
+    print("Finding emails...")
+    emails = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
+    print("Emails found:", emails)
+
+    print("Analyzing the page for compliments and issues...")
+    compliments, issues_found = analyze_page(soup)
+    print("Compliments found:", compliments)
+    print("Issues found:", issues_found)
+
+    compliments_text = "\n- ".join(compliments) if compliments else "Everything seems to be in great shape!"
+    issues_text = "\n- ".join(issues_found) if issues_found else "Nothing major stands out. Nice work so far!"
+
+    client = OpenAI()
+
+    # Create a casual prompt that reflects principles from "How to Win Friends and Influence People"
+    prompt = (
+        "Imagine you're writing a friendly, uplifting message about someone’s webpage. "
+        "First, sincerely praise them for everything they're doing right. Then, highlight potential improvements gently, "
+        "using the principle of asking questions and avoiding direct criticisms. Emphasize how you’ve created a website for them, "
+        "you’re only 16, and that you would love any honest feedback or reviews they can give. "
+        "Where should I send the website? Should I send it to your phone number or your email? "
+        "Give them a fine reputation to live up to, and offer help if they need anything else. "
+        "Keep it relaxed, approachable, and easy to read. Here's what you noticed:\n\n"
+        f"Compliments:\n- {compliments_text}\n\n"
+        f"Issues:\n- {issues_text}\n\n"
+        "Make sure they feel appreciated and important, and invite them to share their thoughts."
+    )
+
+    print("Sending request to OpenAI to generate friendly text content...")
+    try:
+        ai_response = client.chat.completions.create(
+            model="o1",
+            messages=[
+                {
+                    "role": "system", 
+                    "content": (
+                        "You craft friendly, courteous messages, applying the principles of Dale Carnegie's "
+                        "'How to Win Friends and Influence People,' referencing what you found on their page. "
+                        f"Here is the site text for context: {text}"
+                    )
                 },
-                body: JSON.stringify({ url: urlInput }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                {
+                    "role": "user",
+                    "content": prompt
                 }
-                return response.json();
-            })
-            .then(data => {
-                displayResults(data, urlInput);
-            })
-            .catch(error => {
-                resultsDiv.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}</p>`;
-            });
-        });
-
-        function displayResults(data, url) {
-            const resultsDiv = document.getElementById('results');
-            let html = `
-                <h2 class="text-2xl font-bold mb-4">Analysis Results</h2>
-                <h3 class="text-xl font-semibold mt-4">Pros:</h3>
-                <ul class="list-disc pl-5">
-                    ${data.pros.length > 0 ? data.pros.map(item => `<li>${item}</li>`).join('') : '<li>No pros found.</li>'}
-                </ul>
-                <h3 class="text-xl font-semibold mt-4">Cons:</h3>
-                <ul class="list-disc pl-5">
-                    ${data.cons.length > 0 ? data.cons.map(item => `<li>${item}</li>`).join('') : '<li>No cons found.</li>'}
-                </ul>
-                <h3 class="text-xl font-semibold mt-4">Message:</h3>
-                <p class="mt-2">
-                    ${generatePersonalizedMessage(data.pros, data.cons, url)}
-                </p>
-            `;
-
-            resultsDiv.innerHTML = html;
+            ]
+        )
+        ai_generated_text = ai_response.choices[0].message.content
+        print("AI-generated text content received.")
+    except Exception as e:
+        print("Error while generating AI content:", e)
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'error': str(e)})
         }
+    
+    result = {
+        'text': text,
+        'phone_numbers': phone_numbers,
+        'emails': emails,
+        'compliments': compliments,
+        'issues_found': issues_found,
+        'ai_generated_text': ai_generated_text.strip()
+    }
+    print("Result dictionary created:", result)
 
-        function generatePersonalizedMessage(pros, cons, url) {
-            const companyName = extractCompanyName(url);
-
-            // Start the message
-            let message = `Hey ${companyName},<br><br>`;
-
-            // Praise them for their amazing website and compliment it
-            if (pros.length > 0) {
-                message += "I just wanted to say that your website is amazing! I really appreciate ";
-                message += pros.join(', ') + ". ";
-            } else {
-                message += "I just wanted to say that your website has great potential. ";
-            }
-
-            // Mention there are some things that could be worked on and give examples
-            if (cons.length > 0) {
-                message += "However, there are some things that could be worked on, such as ";
-                message += cons.join(' and ') + ". ";
-            }
-
-            // Add the personal note about being 16 and working on a school project
-            message += "I'm 16 and working on a school project where I'm trying to find business websites and help improve them. I'm not trying to charge anything and would appreciate your feedback. Would you mind checking it out and answering a few questions on how I could make it better?";
-
-            return message;
-        }
-
-        function extractCompanyName(url) {
-            // Extract the hostname from the URL
-            let hostname = '';
-            try {
-                hostname = new URL(url).hostname;
-            } catch (e) {
-                hostname = url;
-            }
-
-            // Remove 'www.' prefix if it exists
-            if (hostname.startsWith('www.')) {
-                hostname = hostname.slice(4);
-            }
-
-            // Remove domain extensions (.com, .net, etc.)
-            const parts = hostname.split('.');
-            const companyName = parts[0];
-
-            // Capitalize the first letter
-            return companyName.charAt(0).toUpperCase() + companyName.slice(1);
-        }
-    </script>
-</body>
-</html>
+    print("Returning result data...")
+    return {
+        'statusCode': 200,
+        'body': json.dumps(result)
+    }
