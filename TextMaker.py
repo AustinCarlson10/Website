@@ -1,166 +1,224 @@
-python
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Website Analyzer</h1>
+        <div class="max-w-md mx-auto bg-white p-8 rounded shadow">
+            <label for="urlInput" class="block text-gray-700 text-sm font-bold mb-2">Enter a URL:</label>
+            <input id="urlInput" type="text" placeholder="https://example.com" class="w-full px-3 py-2 mb-4 border rounded" />
+            <button id="analyzeButton" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Analyze Website
+            </button>
+        </div>
+        <div id="results" class="max-w-2xl mx-auto mt-8"></div>
+    </div>
+    <script>
+        document.getElementById('analyzeButton').addEventListener('click', function() {
+            const urlInput = document.getElementById('urlInput').value.trim();
+
+            if (!urlInput) {
+                alert('Please enter a URL.');
+                return;
+            }
+
+            // Show loading indicator
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<p class="text-center text-gray-500">Analyzing...</p>';
+
+            fetch('/analyze', { // Ensure your backend endpoint matches this URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: urlInput })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                displayResults(data);
+            })
+            .catch(error => {
+                resultsDiv.innerHTML = `<p class="text-red-500">An error occurred: ${error.message}</p>`;
+            });
+        });
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+
+            let html = `
+                <h2 class="text-2xl font-bold mb-4">Analysis Results</h2>
+                <h3 class="text-xl font-semibold mt-4">Pros:</h3>
+                <ul class="list-disc pl-5">
+                    ${data.pros.length > 0 ? data.pros.map(item => `<li>${item}</li>`).join('') : '<li>No pros found.</li>'}
+                </ul>
+                <h3 class="text-xl font-semibold mt-4">Cons:</h3>
+                <ul class="list-disc pl-5">
+                    ${data.cons.length > 0 ? data.cons.map(item => `<li>${item}</li>`).join('') : '<li>No cons found.</li>'}
+                </ul>
+                <h3 class="text-xl font-semibold mt-4">Generated Message:</h3>
+                <p class="mt-2 whitespace-pre-line">${data.ai_generated_text}</p>
+            `;
+
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+```
+
+```python
 import json
 import re
+import os
 import requests
-import openai  # Corrected import statement
+import openai
+from flask import Flask, request, jsonify
 from bs4 import BeautifulSoup
-import os  # Import os for environment variable access
+
+app = Flask(__name__)
 
 def analyze_page(soup):
-    compliments = []
-    issues = []
-    
-    # Compliment if page has a main title
-    if soup.title and soup.title.string.strip():
-        compliments.append(f"Great job adding a page title: '{soup.title.string.strip()}'. It gives people a quick idea of what your page is about.")
-    else:
-        issues.append("I couldn't find a clear title for your page. Adding one helps visitors know right away what they're looking at.")
-    
-    # Compliment if at least some images have alt text
-    images_with_alt = [img.get('alt') for img in soup.find_all('img') if img.get('alt')]
-    if images_with_alt:
-        compliments.append(f"You've written descriptions for {len(images_with_alt)} of your images – that’s really helpful for people who can’t see them.")
-    
-    # Identify images missing alt text
-    images_without_alt = [img.get('src', '') for img in soup.find_all('img') if not img.get('alt')]
-    if images_without_alt:
-        issues.append(f"It looks like {len(images_without_alt)} of your images don’t have a description. This could make it harder for some visitors to understand your content.")
-    
-    # Identify anchor tags without proper links
-    anchors_no_href = [a.text.strip() for a in soup.find_all('a') if not a.get('href')]
-    if anchors_no_href:
-        issues.append(f"I noticed {len(anchors_no_href)} piece(s) of text that look like links but don’t actually lead anywhere. You might want to update those so visitors can follow them.")
-    
-    return compliments, issues
+    pros = []
+    cons = []
 
-def lambda_handler(event, context):
-    print("Entered lambda_handler")
-    print("Event:", event)
-    print("Context:", context)
-    
-    print("Loading event body as JSON...")
+    page_text = soup.get_text(strip=True)
+    if len(page_text) < 200:
+        cons.append("Your webpage feels a bit short. Adding more content could help keep visitors interested.")
+    else:
+        pros.append("I love how your website has plenty of content to keep visitors engaged.")
+
+    nav = soup.find('nav')
+    if nav:
+        pros.append("Your navigation is clear and easy to use, making it simple for visitors to find what they need.")
+    else:
+        cons.append("Adding a navigation bar could help visitors navigate your site more easily.")
+
+    viewport = soup.find('meta', attrs={'name': 'viewport'})
+    if viewport:
+        pros.append("Great job on making your website mobile-friendly!")
+    else:
+        cons.append("Consider adding a viewport meta tag to improve mobile responsiveness.")
+
+    anchors_no_href = [a for a in soup.find_all('a') if not a.get('href')]
+    if anchors_no_href:
+        cons.append("I noticed some links that don’t go anywhere. It might confuse folks who try to click them.")
+    else:
+        pros.append("All of your links are working correctly, making navigation seamless for your visitors.")
+
+    images = soup.find_all('img')
+    if images:
+        pros.append("Nice touch with the images; they add a lot of personality to your website.")
+        images_without_alt = [img for img in images if not img.get('alt')]
+        if images_without_alt:
+            cons.append("Some of your images don’t have alt descriptions. That can make it tougher for everyone to enjoy them.")
+    else:
+        cons.append("It looks like there aren't any images. Including a few could make your site more visually appealing.")
+
+    title = soup.find('title')
+    if title and len(title.text) > 5:
+        pros.append("Your webpage has a clear and descriptive title, which is great for SEO.")
+    else:
+        cons.append("Consider adding a more descriptive title tag to improve your site's SEO.")
+
+    return pros, cons
+
+@app.route('/analyze', methods=['POST'])
+def analyze():
     try:
-        event_data = json.loads(event['body'])
-    except (KeyError, TypeError, json.JSONDecodeError) as e:
-        print("Error parsing event body:", e)
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'error': 'Invalid request body'})
-        }
-    print("Event data loaded:", event_data)
-    
+        event_data = request.get_json()
+    except Exception as e:
+        return jsonify({'error': 'Invalid JSON in request body'}), 400
+
     url = event_data.get('url')
-    print("Retrieved URL:", url)
-    
+    recipient_name = event_data.get('recipient_name', 'Valued Website Owner')
+
     if not url:
-        print("No URL found in the request body.")
-        return {
-            'statusCode': 400,
-            'body': json.dumps({'error': 'URL is required'})
-        }
-    
-    print("Making a request to the URL...")
+        return jsonify({'error': 'URL is required'}), 400
+
     try:
-        response = requests.get(url)
-        print("Request completed with status code:", response.status_code)
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
     except requests.exceptions.RequestException as e:
-        print("Error fetching the URL:", e)
-        return {
-            'statusCode': 500,
-            'body': json.dumps({'error': 'Failed to fetch the URL'})
-        }
-    
-    if response.status_code != 200:
-        print("Non-200 status code returned:", response.status_code)
-        return {
-            'statusCode': response.status_code,
-            'body': json.dumps({'error': f'Failed to fetch the URL: HTTP {response.status_code}'})
-        }
-    
-    print("Parsing the response with BeautifulSoup...")
+        return jsonify({'error': 'Failed to fetch the URL'}), 400
+
     soup = BeautifulSoup(response.content, 'html.parser')
-    text = soup.get_text(separator='\n')
-    
-    print("Finding phone numbers...")
+    text = soup.get_text()
+
     phone_numbers = re.findall(r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', text)
-    print("Phone numbers found:", phone_numbers)
-    
-    print("Finding emails...")
     emails = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
-    print("Emails found:", emails)
-    
-    print("Analyzing the page for compliments and issues...")
-    compliments, issues_found = analyze_page(soup)
-    print("Compliments found:", compliments)
-    print("Issues found:", issues_found)
-    
-    compliments_text = "\n- ".join(compliments) if compliments else "Everything seems to be in great shape!"
-    issues_text = "\n- ".join(issues_found) if issues_found else "Nothing major stands out. Nice work so far!"
-    
-    print("Preparing to call OpenAI API...")
-    
-    # Retrieve your OpenAI API key from environment variables
-    openai.api_key = os.getenv('OPENAI_API_KEY')
-    
-    if not openai.api_key:
-        print("OpenAI API key not found in environment variables.")
-        return {
-            'statusCode': 500,
-            'body': json.dumps({'error': 'OpenAI API key not configured'})
-        }
-    
-    # Create a prompt that reflects principles from "How to Win Friends and Influence People"
-    prompt = (
-        f"Compliments:\n- {compliments_text}\n\n"
-        f"Issues:\n- {issues_text}\n\n"
-        "Write a friendly, uplifting message about someone's webpage based on the compliments and issues above. "
-        "First, sincerely praise them for everything they're doing right. Then, highlight potential improvements gently, "
-        "using the principle of asking questions and avoiding direct criticisms. Emphasize how you’ve created a website for them, "
-        "you’re 16, and that you would love any honest feedback or reviews they can give. "
-        "Ask where you should send the website – to their phone number or email. "
-        "Give them a fine reputation to live up to, and offer help if they need anything else. "
-        "Keep it relaxed, approachable, and easy to read. "
-        "Make sure they feel appreciated and important, and invite them to share their thoughts."
+
+    pros, cons = analyze_page(soup)
+
+    pros_text = "\n- ".join(pros) if pros else "I couldn’t find any specific positives, but I’m sure there’s something to love!"
+    cons_text = "\n- ".join(cons) if cons else "I didn’t notice any areas that really need improvement!"
+
+    openai.api_key = os.getenv('OPENAI_API_KEY')  # Make sure to set your OpenAI API key in environment variables
+
+    user_name = os.getenv('USER_NAME', 'Austin Carlson')
+    user_age = os.getenv('USER_AGE', '16')
+
+    FIXED_CONCLUSION_TEMPLATE = (
+        f"Hi {recipient_name},\n\n"
+        f"My name is {user_name}, and I'm {user_age} years old. As part of a personal project, I recently built your website and would love to get your feedback. "
+        "My goal is to analyze business websites to identify strengths and areas for improvement. I’d really appreciate any thoughts you have on what’s working well and what could be enhanced.\n\n"
+        "Looking forward to your insights!\n\n"
+        "Thank you!\n"
+        f"{user_name}"
     )
-    
-    print("Sending request to OpenAI to generate friendly text content...")
+
+    prompt = (
+        f"**Here are some things I noticed:**\n\n"
+        f"**Pros:**\n- {pros_text}\n\n"
+        f"**Cons:**\n- {cons_text}\n"
+        "\nPlease provide any additional feedback or suggestions you might have."
+    )
+
     try:
         ai_response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {
-                    "role": "system", 
+                    "role": "system",
                     "content": (
-                        "You are a helpful assistant who crafts friendly, courteous messages, applying the principles of Dale Carnegie's "
-                        "'How to Win Friends and Influence People,' referencing what you found on their page."
+                        "You are an AI assistant that crafts friendly, courteous messages. "
+                        "Always begin the message with a personal introduction that includes the user's name and age. "
+                        "Use warm and engaging language while referencing the pros and cons provided."
                     )
                 },
                 {
                     "role": "user",
                     "content": prompt
                 }
-            ]
+            ],
+            temperature=0.7,
+            max_tokens=300,
         )
         ai_generated_text = ai_response['choices'][0]['message']['content']
-        print("AI-generated text content received.")
     except Exception as e:
-        print("Error while generating AI content:", e)
-        return {
-            'statusCode': 500,
-            'body': json.dumps({'error': 'Failed to generate AI content'})
-        }
-    
+        return jsonify({'error': str(e)}), 500
+
+    fixed_conclusion = FIXED_CONCLUSION_TEMPLATE
+
+    complete_message = f"{ai_generated_text.strip()}\n\n{fixed_conclusion}"
+
     result = {
         'phone_numbers': phone_numbers,
         'emails': emails,
-        'compliments': compliments,
-        'issues_found': issues_found,
-        'ai_generated_text': ai_generated_text.strip()
+        'pros': pros,
+        'cons': cons,
+        'ai_generated_text': complete_message
     }
-    print("Result dictionary created:", result)
-    
-    print("Returning result data...")
-    return {
-        'statusCode': 200,
-        'body': json.dumps(result)
-    }
+
+    return jsonify(result), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
