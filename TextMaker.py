@@ -1,0 +1,158 @@
+Tpython
+import json
+import re
+import requests
+import openai  # Corrected import statement
+from bs4 import BeautifulSoup
+
+def analyze_page(soup):
+    compliments = []
+    issues = []
+    
+    # Compliment if page has a main title
+    if soup.title and soup.title.string.strip():
+        compliments.append(f"Great job adding a page title: '{soup.title.string.strip()}'. It gives people a quick idea of what your page is about.")
+    else:
+        issues.append("I couldn't find a clear title for your page. Adding one helps visitors know right away what they're looking at.")
+    
+    # Compliment if at least some images have alt text
+    images_with_alt = [img.get('alt') for img in soup.find_all('img') if img.get('alt')]
+    if images_with_alt:
+        compliments.append(f"You've written descriptions for {len(images_with_alt)} of your images – that’s really helpful for people who can’t see them.")
+    
+    # Identify images missing alt text
+    images_without_alt = [img.get('src', '') for img in soup.find_all('img') if not img.get('alt')]
+    if images_without_alt:
+        issues.append(f"It looks like {len(images_without_alt)} of your images don’t have a description. This could make it harder for some visitors to understand your content.")
+    
+    # Identify anchor tags without proper links
+    anchors_no_href = [a.text.strip() for a in soup.find_all('a') if not a.get('href')]
+    if anchors_no_href:
+        issues.append(f"I noticed {len(anchors_no_href)} piece(s) of text that look like links but don’t actually lead anywhere. You might want to update those so visitors can follow them.")
+    
+    return compliments, issues
+
+def lambda_handler(event, context):
+    print("Entered lambda_handler")
+    print("Event:", event)
+    print("Context:", context)
+    
+    print("Loading event body as JSON...")
+    try:
+        event_data = json.loads(event['body'])
+    except (KeyError, TypeError, json.JSONDecodeError) as e:
+        print("Error parsing event body:", e)
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': 'Invalid request body'})
+        }
+    print("Event data loaded:", event_data)
+    
+    url = event_data.get('url')
+    print("Retrieved URL:", url)
+    
+    if not url:
+        print("No URL found in the request body.")
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': 'URL is required'})
+        }
+    
+    print("Making a request to the URL...")
+    try:
+        response = requests.get(url)
+        print("Request completed with status code:", response.status_code)
+    except requests.exceptions.RequestException as e:
+        print("Error fetching the URL:", e)
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'error': 'Failed to fetch the URL'})
+        }
+    
+    if response.status_code != 200:
+        print("Non-200 status code returned:", response.status_code)
+        return {
+            'statusCode': response.status_code,
+            'body': json.dumps({'error': f'Failed to fetch the URL: HTTP {response.status_code}'})
+        }
+    
+    print("Parsing the response with BeautifulSoup...")
+    soup = BeautifulSoup(response.content, 'html.parser')
+    text = soup.get_text(separator='\n')
+
+    print("Finding phone numbers...")
+    phone_numbers = re.findall(r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', text)
+    print("Phone numbers found:", phone_numbers)
+
+    print("Finding emails...")
+    emails = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
+    print("Emails found:", emails)
+
+    print("Analyzing the page for compliments and issues...")
+    compliments, issues_found = analyze_page(soup)
+    print("Compliments found:", compliments)
+    print("Issues found:", issues_found)
+
+    compliments_text = "\n- ".join(compliments) if compliments else "Everything seems to be in great shape!"
+    issues_text = "\n- ".join(issues_found) if issues_found else "Nothing major stands out. Nice work so far!"
+
+    print("Preparing to call OpenAI API...")
+
+    # Set your OpenAI API key
+    openai.api_key = 'YOUR_OPENAI_API_KEY'  # Replace with your API key or use environment variables
+
+    # Create a prompt that reflects principles from "How to Win Friends and Influence People"
+    prompt = (
+        f"Compliments:\n- {compliments_text}\n\n"
+        f"Issues:\n- {issues_text}\n\n"
+        "Write a friendly, uplifting message about someone's webpage based on the compliments and issues above. "
+        "First, sincerely praise them for everything they're doing right. Then, highlight potential improvements gently, "
+        "using the principle of asking questions and avoiding direct criticisms. Emphasize how you’ve created a website for them, "
+        "you’re 16, and that you would love any honest feedback or reviews they can give. "
+        "Ask where you should send the website – to their phone number or email. "
+        "Give them a fine reputation to live up to, and offer help if they need anything else. "
+        "Keep it relaxed, approachable, and easy to read. "
+        "Make sure they feel appreciated and important, and invite them to share their thoughts."
+    )
+
+    print("Sending request to OpenAI to generate friendly text content...")
+    try:
+        ai_response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "system", 
+                    "content": (
+                        "You are a helpful assistant who crafts friendly, courteous messages, applying the principles of Dale Carnegie's "
+                        "'How to Win Friends and Influence People,' referencing what you found on their page."
+                    )
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
+        ai_generated_text = ai_response['choices'][0]['message']['content']
+        print("AI-generated text content received.")
+    except Exception as e:
+        print("Error while generating AI content:", e)
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'error': 'Failed to generate AI content'})
+        }
+    
+    result = {
+        'phone_numbers': phone_numbers,
+        'emails': emails,
+        'compliments': compliments,
+        'issues_found': issues_found,
+        'ai_generated_text': ai_generated_text.strip()
+    }
+    print("Result dictionary created:", result)
+    
+    print("Returning result data...")
+    return {
+        'statusCode': 200,
+        'body': json.dumps(result)
+    }
