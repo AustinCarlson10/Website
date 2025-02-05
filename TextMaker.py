@@ -1,9 +1,10 @@
-Tpython
+python
 import json
 import re
 import requests
 import openai  # Corrected import statement
 from bs4 import BeautifulSoup
+import os  # Import os for environment variable access
 
 def analyze_page(soup):
     compliments = []
@@ -79,28 +80,35 @@ def lambda_handler(event, context):
     print("Parsing the response with BeautifulSoup...")
     soup = BeautifulSoup(response.content, 'html.parser')
     text = soup.get_text(separator='\n')
-
+    
     print("Finding phone numbers...")
     phone_numbers = re.findall(r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', text)
     print("Phone numbers found:", phone_numbers)
-
+    
     print("Finding emails...")
     emails = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
     print("Emails found:", emails)
-
+    
     print("Analyzing the page for compliments and issues...")
     compliments, issues_found = analyze_page(soup)
     print("Compliments found:", compliments)
     print("Issues found:", issues_found)
-
+    
     compliments_text = "\n- ".join(compliments) if compliments else "Everything seems to be in great shape!"
     issues_text = "\n- ".join(issues_found) if issues_found else "Nothing major stands out. Nice work so far!"
-
+    
     print("Preparing to call OpenAI API...")
-
-    # Set your OpenAI API key
-    openai.api_key = 'YOUR_OPENAI_API_KEY'  # Replace with your API key or use environment variables
-
+    
+    # Retrieve your OpenAI API key from environment variables
+    openai.api_key = os.getenv('OPENAI_API_KEY')
+    
+    if not openai.api_key:
+        print("OpenAI API key not found in environment variables.")
+        return {
+            'statusCode': 500,
+            'body': json.dumps({'error': 'OpenAI API key not configured'})
+        }
+    
     # Create a prompt that reflects principles from "How to Win Friends and Influence People"
     prompt = (
         f"Compliments:\n- {compliments_text}\n\n"
@@ -114,7 +122,7 @@ def lambda_handler(event, context):
         "Keep it relaxed, approachable, and easy to read. "
         "Make sure they feel appreciated and important, and invite them to share their thoughts."
     )
-
+    
     print("Sending request to OpenAI to generate friendly text content...")
     try:
         ai_response = openai.ChatCompletion.create(
