@@ -1,419 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlassGlow Window Cleaning</title>
-
+    <title>SEE Window Cleaning</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load the YouTube IFrame Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- Meta Tags for Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Using 'Montserrat' font family -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Custom Styles -->
+    <!-- Additional Styles for Parallax Adjustment -->
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
+        /* Smooth transition for header */
+        #header {
+            transition: transform 0.3s ease-out;
         }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            background-image: url('https://www.usualhouse.com/wp-content/uploads/2020/01/modern-home-with-many-windows-2-story.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-        }
-
-        /* Overlay */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(30, 30, 30, 0.5);
-        }
-
-        /* Hero Text */
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 1rem;
-            text-align: center;
-        }
-
-        /* Sticky Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease-in-out;
-            transform: translateY(-100%);
-        }
-
-        .header.visible {
-            transform: translateY(0);
-        }
-
-        /* Parallax Background */
-        .parallax {
-            background-image: url('https://images.squarespace-cdn.com/content/v1/540e2e30e4b0a9fac1c138ac/60225202-a71a-4b4e-af03-9475658d5e8e/Tips%20%26%20Tricks%20to%20Keeping%20Your%20Windows%20Clean%20for%20Longer%20(1).jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Contact Section Image */
-        .contact-image {
-            background-image: url('https://i.imghippo.com/files/zfe9566qP.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
+        /* Disable parallax on mobile */
         @media (max-width: 767px) {
-            .hero-section {
-                height: 100vh;
-                background-position: center;
-            }
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            .hero-text p {
-                font-size: 1rem;
-            }
-            /* Remove parallax background on mobile */
             .parallax {
-                background-image: none !important;
-                background-color: #f3f4f6;
-            }
-            /* Remove contact image on mobile */
-            .contact-image {
-                display: none;
-            }
-            /* Adjust contact text width on mobile */
-            .contact-text {
-                width: 100% !important;
+                background-attachment: scroll !important;
             }
         }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="font-sans overflow-x-hidden">
 
-    <!-- Header -->
-    <header id="header" class="header visible">
-        <nav class="flex items-center justify-between px-4 py-4">
-            <!-- Logo -->
-            <div class="flex items-center">
-                <img src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/66341862-a6e3-4592-8cdf-f43e701f5a2a/Leonardo_Phoenix_09_Create_a_vibrant_compact_logo_for_Glass_Gl_3.jpg" alt="GlassGlow Logo" class="w-16 h-auto">
-            </div>
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center gap-x-6">
-                <a href="#contact" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">Contact Us</a>
-                <a href="#services" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">Services</a>
-                <a href="#why" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">Our Why</a>
-                <a href="#about" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">About</a>
-                <a href="#gallery" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">Gallery</a>
-                <a href="#testimonials" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">Testimonials</a>
-                <a href="#pricing" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">Pricing</a>
-                <a href="#faq" class="text-sm font-medium leading-6 hover:text-orange-700 menu-link">FAQ</a>
-                <!-- Get in Touch Button -->
-                <a href="#contact" class="ml-4 inline-block bg-orange-600 text-white text-sm font-medium py-2 px-4 rounded hover:bg-orange-700 menu-link">
-                    Get in Touch
-                </a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="lg:hidden flex flex-col items-center justify-center gap-1">
-                <span class="block w-6 h-0.5 bg-black"></span>
-                <span class="block w-6 h-0.5 bg-black"></span>
-                <span class="block w-6 h-0.5 bg-black"></span>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden">
-            <nav class="flex flex-col gap-4 p-6 bg-white shadow-lg">
-                <a href="#contact" class="text-lg font-medium menu-link">Contact Us</a>
-                <a href="#services" class="text-lg font-medium menu-link">Services</a>
-                <a href="#why" class="text-lg font-medium menu-link">Our Why</a>
-                <a href="#about" class="text-lg font-medium menu-link">About</a>
-                <a href="#gallery" class="text-lg font-medium menu-link">Gallery</a>
-                <a href="#testimonials" class="text-lg font-medium menu-link">Testimonials</a>
-                <a href="#pricing" class="text-lg font-medium menu-link">Pricing</a>
-                <a href="#faq" class="text-lg font-medium menu-link">FAQ</a>
-                <!-- Get in Touch Button in Mobile Menu -->
-                <a href="#contact" class="mt-4 inline-block bg-orange-600 text-white text-lg font-medium py-2 px-4 rounded hover:bg-orange-700 menu-link">
-                    Get in Touch
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <!-- Overlay -->
-        <div class="hero-overlay"></div>
-
-        <!-- Hero Text Content -->
-        <div class="hero-text">
-            <h1 class="text-5xl font-bold text-white mb-4">GlassGlow Window Cleaning</h1>
-            <p class="text-xl text-gray-200 leading-8">
-                Transforming your view with crystal-clear, streak-free windows. Professional service you can trust.
-            </p>
-            <a href="#contact" class="mt-8 inline-block bg-orange-600 text-white font-medium py-2 px-6 rounded hover:bg-orange-700">
-                Get in Touch
+    <!-- Header section -->
+    <header id="header" class="fixed top-0 w-full bg-white flex items-center justify-between px-6 py-4 shadow-md z-50">
+        <!-- Logo -->
+        <div class="flex-1">
+            <a href="#">
+                <img src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/7a29c187-a32f-45c8-9b92-dbd8fe0b21ac/Leonardo_Phoenix_09_Create_a_modern_and_sleek_logo_for_See_Win_3.jpg" alt="SEE Window Cleaning Logo" class="h-12">
             </a>
         </div>
+
+        <!-- Navigation and buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+            <!-- Navigation menu -->
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#services" class="text-gray-800 font-semibold hover:text-blue-600">Services</a></li>
+                    <li><a href="#about" class="text-gray-800 font-semibold hover:text-blue-600">About Us</a></li>
+                    <li><a href="#testimonials" class="text-gray-800 font-semibold hover:text-blue-600">Testimonials</a></li>
+                    <li><a href="#contact" class="text-gray-800 font-semibold hover:text-blue-600">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Header buttons -->
+            <a href="tel:your-phone-number" class="bg-blue-400 text-white px-4 py-2 rounded-md font-semibold">Call Us</a>
+            <a href="#pricing" class="bg-blue-700 text-white px-4 py-2 rounded-md font-semibold">Get Quote</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+            <!-- Mobile Menu Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <title>Menu</title>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-screen bg-white z-40 flex flex-col items-center pt-24 space-y-6">
+        <a href="#services" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">Services</a>
+        <a href="#about" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">About Us</a>
+        <a href="#testimonials" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">Testimonials</a>
+        <a href="#contact" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">Contact</a>
+        <a href="tel:your-phone-number" class="bg-blue-400 text-white px-4 py-2 rounded-md font-semibold mt-4">Call Us</a>
+        <a href="#pricing" class="bg-blue-700 text-white px-4 py-2 rounded-md font-semibold mt-2">Get Quote</a>
+    </div>
+
+        <!-- Hero section -->
+    <section id="hero" class="relative bg-fixed bg-center bg-cover parallax" style="background-image: url('https://i.pinimg.com/originals/80/07/64/8007649b28236bd61103e023a0642087.png'); min-height: 600px;">
+        <div class="container mx-auto px-6 h-full flex items-start pt-48">
+            <div class="relative z-10 bg-white p-8 rounded-lg shadow-lg max-w-lg ml-4 mt-8">
+                <h1 class="text-4xl font-bold mb-4">SEE Window Cleaning</h1>
+                <p class="text-gray-700 mb-6">Brighten your world with SEE Window Cleaning! Let us refresh your space and lift your spirits—because a clear view makes life shine brighter!</p>
+                <a href="#services" class="bg-blue-700 text-white px-6 py-3 rounded-md font-semibold">Learn More</a>
+            </div>
+        </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="mt-12 py-12">
+     <!-- Video Section -->
+    <section id="video" class="py-12 bg-gray-00">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                
+                <!-- Left Side: Title and Paragraph -->
+                <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Process</h2>
+                    <p class="text-gray-700">
+                        At SEE Window Cleaning, we go above and beyond to make your windows—and your day—brighter. With top-tier tools and premium materials, we deliver a flawless, streak-free shine that transforms your view and lifts your spirits. Because when your windows sparkle, so does your world!
+                    </p>
+                </div>
+
+                <!-- Right Side: Video -->
+                <div class="md:w-1/2">
+                    <!-- Video Container with Adjusted Size -->
+                    <div class="relative" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                        <iframe id="youtubePlayer" class="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/VlfFCxP3O9g?mute=1&enablejsapi=1&controls=1&modestbranding=1"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+  <!-- Services Section -->
+    <section id="services" class="py-12">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">Our Services</h2>
-            <p class="mt-4 text-lg text-gray-700 leading-relaxed">
-                At GlassGlow Window Cleaning, we offer a comprehensive range of services to keep your home or business gleaming. Our dedicated team delivers unmatched quality and meticulous attention to detail. Discover how we can brighten your day.
-            </p>
+            <h2 class="text-3xl font-semibold text-gray-900">Our Services</h2>
+            <p class="mt-4 text-lg text-gray-700">At SEE Window Cleaning, we offer a comprehensive range of services to keep your home or business gleaming. Our dedicated team delivers unmatched quality and meticulous attention to detail. Discover how we can brighten your day.</p>
         </div>
-    </section>
 
-    <!-- Services Grid -->
-    <section id="services" class="container mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Service Cards -->
-        <!-- Screen Repair -->
-        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
-            <img src="https://static.wixstatic.com/media/ca93cc_e727db1d4cd442fba50c0cfe25e0385f~mv2.jpg" alt="Screen Repair" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Screen Repair</h3>
-                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
-                    We expertly repair and replace damaged window screens, ensuring your home stays protected and maintains its aesthetic appeal.
-                </p>
+        <!-- Services Grid -->
+        <div class="container mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Service Cards -->
+            <!-- Screen Repair -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://static.wixstatic.com/media/ca93cc_e727db1d4cd442fba50c0cfe25e0385f~mv2.jpg" alt="Screen Repair" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Screen Repair</h3>
+                    <p class="text-gray-600 mt-2">We expertly repair and replace damaged window screens, ensuring your home stays protected and maintains its aesthetic appeal.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Hard Water Removal -->
-        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
-            <img src="https://static.wixstatic.com/media/ca93cc_112ec0f2275a4e4bb3b16f2ba994ca59~mv2.jpeg" alt="Hard Water Removal" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Hard Water Removal</h3>
-                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
-                    Our team eradicates stubborn hard water stains and deposits, restoring the brilliance of your windows.
-                </p>
+            <!-- Hard Water Removal -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://static.wixstatic.com/media/ca93cc_112ec0f2275a4e4bb3b16f2ba994ca59~mv2.jpeg" alt="Hard Water Removal" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Hard Water Removal</h3>
+                    <p class="text-gray-600 mt-2">Our team eradicates stubborn hard water stains and deposits, restoring the brilliance of your windows.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Exterior Window Cleaning -->
-        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
-            <img src="https://static.wixstatic.com/media/ca93cc_516d479773be4144a100e71ad1bcac9f~mv2.jpeg" alt="Exterior Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Exterior Window Cleaning</h3>
-                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
-                    We remove dirt, grime, and environmental residues for a pristine exterior shine that enhances your property's curb appeal.
-                </p>
+            <!-- Exterior Window Cleaning -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://static.wixstatic.com/media/104d39_4c519ee6e71b4e878e3e7d5c40c169b5~mv2.jpg/v1/fill/w_374,h_660,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/104d39_4c519ee6e71b4e878e3e7d5c40c169b5~mv2.jpg" alt="Exterior Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Exterior Window Cleaning</h3>
+                    <p class="text-gray-600 mt-2">We remove dirt, grime, and environmental residues for a pristine exterior shine that enhances your property's curb appeal.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Interior Window Cleaning -->
-        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
-            <img src="https://static.wixstatic.com/media/ca93cc_97f1c296abb449ca8bb54305c13652ba~mv2.jpg" alt="Interior Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Interior Window Cleaning</h3>
-                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
-                    We meticulously clean interior glass surfaces to enhance your indoor environment and brighten your living spaces.
-                </p>
+            <!-- Interior Window Cleaning -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://static.wixstatic.com/media/104d39_2b701b3e62fe41c693c86c9efaa390e0.jpg/v1/fill/w_798,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/104d39_2b701b3e62fe41c693c86c9efaa390e0.jpg" alt="Interior Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Interior Window Cleaning</h3>
+                    <p class="text-gray-600 mt-2">We meticulously clean interior glass surfaces to enhance your indoor environment and brighten your living spaces.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Residential Window Cleaning -->
-        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
-            <img src="https://www.epichomeideas.com/wp-content/uploads/2016/08/shutterstock_248278276.jpg" alt="Residential Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Residential Window Cleaning</h3>
-                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
-                    Our personalized services make your home's windows sparkle, providing you with crystal-clear views.
-                </p>
+            <!-- Residential Window Cleaning -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://www.epichomeideas.com/wp-content/uploads/2016/08/shutterstock_248278276.jpg" alt="Residential Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Residential Window Cleaning</h3>
+                    <p class="text-gray-600 mt-2">Our personalized services make your home's windows sparkle, providing you with crystal-clear views.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Commercial Window Cleaning -->
-        <div class="group bg-white rounded-lg shadow-lg transition hover:bg-gray-200">
-            <img src="https://th.bing.com/th/id/R.725170fdda9c8c42b4898c07aeb7a491?rik=EAJcR7X4Zcz%2b9w&pid=ImgRaw&r=0&adlt=strict" alt="Commercial Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="p-4">
-                <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Commercial Window Cleaning</h3>
-                <p class="text-gray-600 group-hover:text-gray-500 mt-2">
-                    We provide professional solutions for businesses, enhancing your property's appearance and leaving a lasting impression on clients.
-                </p>
+            <!-- Commercial Window Cleaning -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+                <img src="https://th.bing.com/th/id/R.725170fdda9c8c42b4898c07aeb7a491?rik=EAJcR7X4Zcz%2b9w&pid=ImgRaw&r=0&adlt=strict" alt="Commercial Window Cleaning" class="w-full h-48 object-cover rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold text-gray-800 group-hover:text-gray-700">Commercial Window Cleaning</h3>
+                    <p class="text-gray-600 mt-2">We provide professional solutions for businesses, enhancing your property's appearance and leaving a lasting impression on clients.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Our Why Section -->
-    <div id="why" class="bg-orange-700 px-6 py-20 sm:py-28 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-            <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Our Why</h2>
-            <p class="mt-6 text-lg leading-8 text-white">
-                GlassGlow Window Cleaning was established out of a genuine passion for bringing clarity and brightness to our clients' lives through impeccably clean windows. We are more than just a window cleaning service—we are committed professionals dedicated to excellence, building lasting relationships, and pursuing our vision of superior service. Your satisfaction is our ultimate motivation.
-            </p>
+    <section id="why" class="bg-blue-700 px-6 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-white">Our Why</h2>
+            <p class="mt-6 text-lg text-white">SEE Window Cleaning was established out of a genuine passion for bringing clarity and brightness to our clients' lives through impeccably clean windows. We are more than just a window cleaning service—we are committed professionals dedicated to excellence, building lasting relationships, and pursuing our vision of superior service. Your satisfaction is our ultimate motivation.</p>
         </div>
-    </div>
+    </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-12 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Gallery</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Gallery Images -->
-                <div class="h-64 overflow-hidden">
-                    <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 1" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                <div class="overflow-hidden">
+                    <img src="https://i.postimg.cc/HjGY96QC/IMG-1584.jpg" alt="Gallery Image 1" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                 </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/e6366f_6bf4bb8a21854809bf137b9eb940e303~mv2.jpeg/v1/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_344088700.jpeg" alt="Gallery Image 2" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                <div class="overflow-hidden">
+                    <img src="https://static.wixstatic.com/media/e6366f_6bf4bb8a21854809bf137b9eb940e303~mv2.jpeg/v1/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_344088700.jpeg" alt="Gallery Image 2" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                 </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/e6366f_93433d8f1d3e4aa986c51d5f6e8ed3e6~mv2.jpeg/v1/crop/x_851,y_0,w_2257,h_2644/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_352778065.jpeg" alt="Gallery Image 3" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                <div class="overflow-hidden">
+                    <img src="https://static.wixstatic.com/media/e6366f_93433d8f1d3e4aa986c51d5f6e8ed3e6~mv2.jpeg/v1/crop/x_851,y_0,w_2257,h_2644/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_352778065.jpeg" alt="Gallery Image 3" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                 </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://www.clean-serv.co.uk/uploads/website/traditional-window-cleaning.jpg" alt="Gallery Image 4" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                <div class="overflow-hidden">
+                    <img src="https://www.clean-serv.co.uk/uploads/website/traditional-window-cleaning.jpg" alt="Gallery Image 4" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                 </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://i.pinimg.com/originals/b5/a0/1b/b5a01bc67287cf676bd0e9a8c552e3f8.png" alt="Gallery Image 5" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                <div class="overflow-hidden">
+                    <img src="https://static.wixstatic.com/media/ca93cc_0ab2bb45fd66459eba211ff6906f4769~mv2.jpg" alt="Gallery Image 5" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                 </div>
-                <div class="h-64 overflow-hidden">
-                    <img src="https://static.wixstatic.com/media/e6366f_e4b4878cc81941cea675cb930e1836c2~mv2.jpeg/v1/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_558923416.jpeg" alt="Gallery Image 6" class="w-full h-full object-cover rounded shadow-lg transition-transform transform hover:scale-105">
+                <div class="overflow-hidden">
+                    <img src="https://static.wixstatic.com/media/e6366f_e4b4878cc81941cea675cb930e1836c2~mv2.jpeg/v1/fill/w_429,h_503,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/AdobeStock_558923416.jpeg" alt="Gallery Image 6" class="w-full h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Us Section -->
-    <section id="contact" class="relative w-full h-screen bg-fixed bg-center bg-cover" style="background-image: url('https://static.wixstatic.com/media/e6366f_689c160c22ff448390fc9b4ffc83d400~mv2.jpeg/v1/fill/w_1886,h_840,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e6366f_689c160c22ff448390fc9b4ffc83d400~mv2.jpeg');">
+    <section id="contact" class="relative w-full h-screen bg-fixed bg-center bg-cover" style="background-image: url('https://static.wixstatic.com/media/e6366f_689c160c22ff448390fc9b4ffc83d400~mv2.jpeg');">
+        <div class="absolute inset-0 bg-black opacity-0"></div>
         <!-- Content Wrapper -->
-        <div class="relative container mx-auto h-full flex items-center">
+        <div class="relative container mx-auto h-full flex items-center px-6">
             <!-- Left Side: Contact Information -->
-            <div class="w-full md:w-1/2 px-6">
-                <div class="text-white">
-                    <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
-                    <p class="text-lg mb-8">
-                        Reach out to schedule an appointment, inquire about our services, or discuss your specific needs. Our team is here to assist you.
-                    </p>
-                    <p class="text-xl font-semibold mb-4">
-                        <span class="font-bold">Phone:</span> (123) 456-7890
-                    </p>
-                    <p class="text-xl font-semibold">
-                        <span class="font-bold">Email:</span> info@glassglowwindowcleaning.com
-                    </p>
-                </div>
+            <div class="w-full md:w-1/2 text-white">
+                <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+                <p class="text-lg mb-8">Reach out to schedule an appointment, inquire about our services, or discuss your specific needs. Our team is here to assist you.</p>
+                <p class="text-xl font-semibold mb-4"><span class="font-bold">Phone:</span> (801) 347-6612</p>
+                <p class="text-xl font-semibold"><span class="font-bold">Email:</span> CleanWindowsDan@Gmail.com</p>
             </div>
         </div>
     </section>
 
-  <!-- Testimonials Section -->
-    <section id="testimonials" class="bg-gray-900 py-12 sm:py-16">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <h2 class="text-4xl font-bold tracking-tight text-center text-white sm:text-5xl mb-8">Testimonials</h2>
-            <div class="mx-auto grid max-w-4xl grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="flex flex-col">
-                    <figure class="mt-6 flex flex-auto flex-col justify-between">
-                        <blockquote class="text-lg leading-8 text-white">
-                            <p>“It's been over a week, and my windows are still spotless. GlassGlow exceeded my expectations with their attention to detail.”</p>
-                        </blockquote>
-                        <figcaption class="mt-6 flex items-center gap-x-6">
-                            <img class="h-14 w-14 rounded-full bg-gray-800" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="Austin Carlson">
-                            <div class="text-base">
-                                <div class="font-semibold text-white">Austin Carlson</div>
-                                <div class="mt-1 text-gray-400">Homeowner</div>
-                            </div>
-                        </figcaption>
-                    </figure>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <blockquote class="text-white">
+                        <p>“It's been over a week, and my windows are still spotless. SEE Window Cleaning exceeded my expectations with their attention to detail.”</p>
+                    </blockquote>
+                    <div class="mt-4 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://i.imghippo.com/files/uIPS71723061825.png" alt="Austin Carlson">
+                        <div class="ml-4">
+                            <div class="text-white font-semibold">Austin Carlson</div>
+                            <div class="text-gray-400">Homeowner</div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Testimonial 2 -->
-                <div class="flex flex-col">
-                    <figure class="mt-6 flex flex-auto flex-col justify-between">
-                        <blockquote class="text-lg leading-8 text-white">
-                            <p>“We've hired GlassGlow multiple times, and they consistently deliver excellent service. The team is friendly, efficient, and professional.”</p>
-                        </blockquote>
-                        <figcaption class="mt-6 flex items-center gap-x-6">
-                            <img class="h-14 w-14 rounded-full bg-gray-800" src="https://www.stevencottonphotography.com/wp-content/uploads/2022/08/Technical_Builders_Headshots_080921-1.jpg" alt="Khris Johnson">
-                            <div class="text-base">
-                                <div class="font-semibold text-white">Khris Johnson</div>
-                                <div class="mt-1 text-gray-400">Business Owner</div>
-                            </div>
-                        </figcaption>
-                    </figure>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <blockquote class="text-white">
+                        <p>“We've hired SEE Window Cleaning multiple times, and they consistently deliver excellent service. The team is friendly, efficient, and professional.”</p>
+                    </blockquote>
+                    <div class="mt-4 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://www.stevencottonphotography.com/wp-content/uploads/2022/08/Technical_Builders_Headshots_080921-1.jpg" alt="Khris Johnson">
+                        <div class="ml-4">
+                            <div class="text-white font-semibold">Khris Johnson</div>
+                            <div class="text-gray-400">Business Owner</div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Testimonial 3 -->
-                <div class="flex flex-col">
-                    <figure class="mt-6 flex flex-auto flex-col justify-between">
-                        <blockquote class="text-lg leading-8 text-white">
-                            <p>“Their hard water removal service is outstanding. Our windows look brand new again. I highly recommend GlassGlow!”</p>
-                        </blockquote>
-                        <figcaption class="mt-6 flex items-center gap-x-6">
-                            <img class="h-14 w-14 rounded-full bg-gray-800" src="https://th.bing.com/th/id/R.ecf79badb374d330823db655b865448e?rik=8MjwslM3RbujFQ&riu=http%3a%2f%2fnourishyourmind.com%2fwp-content%2fuploads%2f2019%2f01%2fSquare-Headshot.jpg&ehk=8hc9F57BGfHy0vBmnu62Kuz2GoiliMBm34mcD3phY2A%3d&risl=&pid=ImgRaw&r=0" alt="Samantha Lee">
-                            <div class="text-base">
-                                <div class="font-semibold text-white">Samantha Lee</div>
-                                <div class="mt-1 text-gray-400">Homeowner</div>
-                            </div>
-                        </figcaption>
-                    </figure>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <blockquote class="text-white">
+                        <p>“Their hard water removal service is outstanding. Our windows look brand new again. I highly recommend SEE Window Cleaning!”</p>
+                    </blockquote>
+                    <div class="mt-4 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://th.bing.com/th/id/R.ecf79badb374d330823db655b865448e?rik=8MjwslM3RbujFQ&riu=http%3a%2f%2fnourishyourmind.com%2fwp-content%2fuploads%2f2019%2f01%2fSquare-Headshot.jpg&ehk=8hc9F57BGfHy0vBmnu62Kuz2GoiliMBm34mcD3phY2A%3d&risl=&pid=ImgRaw&r=0" alt="Samantha Lee">
+                        <div class="ml-4">
+                            <div class="text-white font-semibold">Samantha Lee</div>
+                            <div class="text-gray-400">Homeowner</div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- Testimonial 4 -->
-                <div class="flex flex-col">
-                    <figure class="mt-6 flex flex-auto flex-col justify-between">
-                        <blockquote class="text-lg leading-8 text-white">
-                            <p>“GlassGlow's team was professional and thorough. Our office windows have never looked better. Their service truly makes a difference.”</p>
-                        </blockquote>
-                        <figcaption class="mt-6 flex items-center gap-x-6">
-                            <img class="h-14 w-14 rounded-full bg-gray-800" src="https://media.licdn.com/dms/image/C5603AQHZnzMRkJ36ZQ/profile-displayphoto-shrink_800_800/0/1567011572059?e=2147483647&v=beta&t=fXFswx7i1Goz-22-51SWhPh7E_MMwJxRnxzcOnua0jA" alt="Michael Thompson">
-                            <div class="text-base">
-                                <div class="font-semibold text-white">Michael Thompson</div>
-                                <div class="mt-1 text-gray-400">Office Manager</div>
-                            </div>
-                        </figcaption>
-                    </figure>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <blockquote class="text-white">
+                        <p>“SEE Window Cleaning's team was professional and thorough. Our office windows have never looked better. Their service truly makes a difference.”</p>
+                    </blockquote>
+                    <div class="mt-4 flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://media.licdn.com/dms/image/C5603AQHZnzMRkJ36ZQ/profile-displayphoto-shrink_800_800/0/1567011572059?e=2147483647&v=beta&t=fXFswx7i1Goz-22-51SWhPh7E_MMwJxRnxzcOnua0jA" alt="Michael Thompson">
+                        <div class="ml-4">
+                            <div class="text-white font-semibold">Michael Thompson</div>
+                            <div class="text-gray-400">Office Manager</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="bg-gray-200 py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">About Us</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 flex flex-wrap p-4 bg-white rounded-lg">
-                    <div class="w-1/2 p-2">
-                        <img src="https://i.imghippo.com/files/5zBc71723061421.jpg" alt="Team Member 1" class="rounded shadow">
-                    </div>
-                    <div class="w-1/2 p-2">
-                        <img src="https://i.postimg.cc/MTmbRTq8/download.jpg" alt="Team Member 2" class="rounded shadow">
-                    </div>
+    <section id="about" class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">About Us</h2>
+            <div class="md:flex md:items-center">
+                <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://i.imghippo.com/files/5zBc71723061421.jpg" alt="Team Member 1" class="rounded-lg shadow">
+                    <img src="https://i.postimg.cc/MTmbRTq8/download.jpg" alt="Team Member 2" class="rounded-lg shadow">
                 </div>
-                <div class="md:w-1/2 p-4">
-                    <p>
-                        At GlassGlow Window Cleaning, we pride ourselves on delivering exceptional service to our valued clients. Our experienced team employs the latest techniques and equipment to ensure your windows are spotless and streak-free. We believe in building lasting relationships and consistently exceeding expectations.
+                <div class="md:w-1/2 mt-6 md:mt-0 md:pl-6">
+                    <p class="text-gray-300 leading-relaxed">
+                        At SEE Window Cleaning, we pride ourselves on delivering exceptional service to our valued clients. Our experienced team employs the latest techniques and equipment to ensure your windows are spotless and streak-free. We believe in building lasting relationships and consistently exceeding expectations.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Window Calculator Section with Parallax -->
-    <section id="pricing" class="relative flex items-center justify-center py-16 parallax">
+    <!-- Window Calculator Section -->
+    <section id="pricing" class="relative flex items-center justify-center py-16 bg-fixed bg-center bg-cover" style="background-image: url('https://images.squarespace-cdn.com/content/v1/540e2e30e4b0a9fac1c138ac/60225202-a71a-4b4e-af03-9475658d5e8e/Tips%20%26%20Tricks%20to%20Keeping%20Your%20Windows%20Clean%20for%20Longer%20(1).jpg');">
+        <div class="absolute inset-0 bg-black opacity-0"></div>
         <!-- Calculator Container -->
         <div class="relative bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
             <h1 class="text-2xl font-bold mb-4 text-center">Window Cost Calculator</h1>
@@ -425,7 +328,7 @@
                 placeholder="e.g., 10">
             <button
                 onclick="calculateCost()"
-                class="mt-4 w-full bg-orange-700 hover:bg-orange-800 text-white font-bold py-2 px-4 rounded">
+                class="mt-4 w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
                 Calculate
             </button>
             <p id="result" class="mt-4 text-lg text-center font-semibold text-gray-700"></p>
@@ -440,164 +343,220 @@
 
     <!-- FAQ Section -->
     <section id="faq" class="py-12 bg-gray-100">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Frequently Asked Questions</h2>
-            <dl class="space-y-6">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <!-- FAQs -->
                 <div>
-                    <dt class="font-semibold text-gray-900">What areas do you serve?</dt>
-                    <dd class="mt-2 text-gray-700">We proudly serve Meridian, Idaho, and the surrounding suburbs. Please contact us to confirm if we cover your specific location.</dd>
+                    <h3 class="font-semibold text-gray-900">What areas do you serve?</h3>
+                    <p class="mt-2 text-gray-700">We proudly serve Herriman, Utah, and the surrounding cities. Please contact us to confirm if we cover your specific location.</p>
                 </div>
                 <div>
-                    <dt class="font-semibold text-gray-900">What are your operating hours?</dt>
-                    <dd class="mt-2 text-gray-700">Our standard operating hours are Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment to accommodate your schedule.</dd>
+                    <h3 class="font-semibold text-gray-900">What are your operating hours?</h3>
+                    <p class="mt-2 text-gray-700">Our standard operating hours are Monday through Friday from 8 AM to 6 PM. Weekend services are available by appointment to accommodate your schedule.</p>
                 </div>
                 <div>
-                    <dt class="font-semibold text-gray-900">Do you offer any guarantees?</dt>
-                    <dd class="mt-2 text-gray-700">Yes, we stand behind our work with a streak-free guarantee. If you're not completely satisfied, we'll return promptly to address any concerns.</dd>
+                    <h3 class="font-semibold text-gray-900">Do you offer any guarantees?</h3>
+                    <p class="mt-2 text-gray-700">Yes, we stand behind our work with a streak-free guarantee. If you're not completely satisfied, we'll return promptly to address any concerns.</p>
                 </div>
                 <div>
-                    <dt class="font-semibold text-gray-900">Are your cleaning products safe?</dt>
-                    <dd class="mt-2 text-gray-700">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family, pets, and the environment.</dd>
+                    <h3 class="font-semibold text-gray-900">Are your cleaning products safe?</h3>
+                    <p class="mt-2 text-gray-700">Absolutely. We use eco-friendly and non-toxic cleaning products that are safe for your family, pets, and the environment.</p>
                 </div>
-            </dl>
+            </div>
         </div>
     </section>
 
-   
- <!-- Footer Section -->
-<footer class="bg-orange-700">
-  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
-    <nav class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm" aria-label="Footer">
-      <a href="#" class="text-white hover:text-white">About</a>
-      <a href="#" class="text-white hover:text-white">Blog</a>
-      <a href="#" class="text-white hover:text-white">Jobs</a>
-      <a href="#" class="text-white hover:text-white">Press</a>
-      <a href="#" class="text-white hover:text-white">Accessibility</a>
-      <a href="#" class="text-white hover:text-white">Partners</a>
-    </nav>
-    <div class="mt-16 flex justify-center gap-x-10">
-      <!-- Facebook Icon -->
-      <a href="#" class="text-white hover:text-white">
-        <span class="sr-only">Facebook</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <!-- Facebook Icon Path -->
-          <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <!-- Instagram Icon -->
-      <a href="#" class="text-white hover:text-white">
-        <span class="sr-only">Instagram</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <!-- Instagram Icon Path -->
-          <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <!-- Twitter/X Icon -->
-      <a href="#" class="text-white hover:text-white">
-        <span class="sr-only">Twitter</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <!-- Twitter/X Icon Path -->
-          <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
-        </svg>
-      </a>
-      <!-- GitHub Icon -->
-      <a href="#" class="text-white hover:text-white">
-        <span class="sr-only">GitHub</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <!-- GitHub Icon Path -->
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <!-- YouTube Icon -->
-      <a href="#" class="text-white hover:text-white">
-        <span class="sr-only">YouTube</span>
-        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <!-- YouTube Icon Path -->
-          <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 01-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 01-1.768-1.768C2 15.255 2 12 2 12s0-3.255.418-4.814a2.507 2.507 0 011.768-1.768C5.744 5 12 5 12 5s6.256 0 7.814.418zM15.194 12L10 15V9l5.194 3z" clip-rule="evenodd" />
-        </svg>
-      </a>
-    </div>
-    <p class="mt-10 text-center text-sm text-white">&copy; 2024 GlassGlow Window Cleaning. All rights reserved.</p>
-  </div>
-</footer>
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:justify-between">
+                <!-- Left Section: Company Info -->
+                <div class="md:w-1/2 mb-8 md:mb-0 text-center">
+                    <a href="#" class="inline-block mb-4">
+                        <img src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/7a29c187-a32f-45c8-9b92-dbd8fe0b21ac/Leonardo_Phoenix_09_Create_a_modern_and_sleek_logo_for_See_Win_3.jpg" alt="SEE Window Cleaning Logo" class="h-12 mx-auto">
+                    </a>
+                    <p class="text-gray-300">
+                        SEE Window Cleaning provides professional window cleaning services in Herriman, Utah, and surrounding areas. We are dedicated to excellence and customer satisfaction.
+                    </p>
+                </div>
+
+                <!-- Right Section: Contact Info and Social Media Icons -->
+                <div class="md:w-1/2 text-center">
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <p class="text-gray-300 mb-2">Phone: (123) 456-7890</p>
+                    <p class="text-gray-300 mb-2">Email: CleanWindowsDan@Gmail.com</p>
+                    <p class="text-gray-300 mb-4">Address: Herriman, Utah</p>
+                    <!-- Social Media Icons -->
+                    <div class="flex justify-center space-x-6">
+                        <!-- Facebook Icon -->
+                        <a href="https://www.facebook.com/See-Clear-Windows-LLC-1644340815789082/timeline/" class="text-gray-300 hover:text-white">
+                            <span class="sr-only">Facebook</span>
+                            <!-- Facebook SVG Icon -->
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <title>Facebook</title>
+                                <path d="M22.675 0h-21.35C0.6 0 0 0.6 0 1.325v21.351C0 23.4 0.6 24 1.325 
+                                24h11.495v-9.294H9.69V11.08h3.13V8.413c0-3.066 1.872 
+                                -4.75 4.605-4.75 1.31 0 2.438 0.097 2.765 0.14v3.2h-1.894c
+                                -1.486 0-1.773 0.708-1.773 1.745v2.285h3.545l-0.463 
+                                3.627h-3.082V24h6.036C23.4 24 24 23.4 24 
+                                22.676V1.325C24 0.6 23.4 0 22.675 0z"/>
+                            </svg>
+                        </a>
+                        <!-- YouTube Icon -->
+                        <a href="https://www.youtube.com/@danielfinlaymarketingresul148" class="text-gray-300 hover:text-white">
+                            <span class="sr-only">YouTube</span>
+                            <!-- YouTube SVG Icon -->
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <title>YouTube</title>
+                                <path d="M23.498 6.186c-0.275-1.6-1.703-2.843-3.466-3.008C17.356 2.6 
+                                12 2.6 12 2.6s-5.355 0-8.033 0.578c-1.763 
+                                0.165-3.19 1.408-3.466 3.008C0.5 8.1 0.5 12 0.5 
+                                12s0 3.9 0.501 5.814c0.276 1.6 1.703 2.843 
+                                3.466 3.008C6.645 21.4 12 21.4 12 21.4s5.356 0 8.033 
+                                -0.578c1.763 -0.165 3.19 -1.408 3.466 -3.008C24 
+                                15.9 24 12 24 12s0 -3.9 -0.502 -5.814zM9.545 
+                                15.568V8.432l6.036 3.568-6.036 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-8 border-t border-gray-700 pt-4 text-center">
+                <p class="text-sm text-gray-400">
+                    &copy; 2024 SEE Window Cleaning. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <!-- JavaScript Functions -->
     <script>
-        // Window Calculator Function
-        function calculateCost() {
-            const numWindows = parseInt(document.getElementById('windowInput').value, 10);
-            if (isNaN(numWindows) || numWindows < 0) {
-                document.getElementById('result').textContent = "Please enter a valid number of windows.";
-                return;
-            }
-            const cost = Math.ceil(numWindows * 2.8) + 25;
-            const finalCost = cost < 100 ? 100 : cost;
-            document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
-        }
+        // Wrap the code inside DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
 
-        // Sticky Header JavaScript
-        let lastScrollTop = 0;
-        const header = document.getElementById('header');
-
-        const showHeader = () => {
-            header.classList.add('visible');
-        };
-
-        const hideHeader = () => {
-            header.classList.remove('visible');
-        };
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > lastScrollTop) {
-                // Scrolling down: hide the header
-                hideHeader();
-            } else {
-                // Scrolling up: show the header
-                showHeader();
+            // Toggle Mobile Menu
+            function toggleMobileMenu() {
+                var menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
             }
 
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
+            // Mobile Menu Button Event
+            document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
 
-        // Initialize the header as visible
-        showHeader();
-
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        // Toggle mobile menu visibility
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        const menuLinks = document.querySelectorAll('.menu-link');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+            // Close Mobile Menu on Link Click
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    toggleMobileMenu();
+                });
             });
-        });
 
-        // Smooth scrolling adjustment for links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent the default jump behavior
-                const targetId = this.getAttribute('href').substring(1); // Get target ID
-                const targetElement = document.getElementById(targetId);
+            // Smooth Scroll Adjustment
+            function smoothScroll(targetElement) {
+                isScrolling = true; // Start of smooth scrolling
 
-                if (targetElement) {
-                    // Scroll to the target position with a 80px offset
-                    const offset = 80; // Adjust as needed
-                    const targetPosition = targetElement.offsetTop - offset;
+                const headerHeight = document.getElementById('header').offsetHeight;
 
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth', // Smooth scrolling effect
+                // Calculate target position adjusted for header height
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth',
+                });
+
+                // Detect when scrolling has finished
+                setTimeout(() => {
+                    isScrolling = false; // End of smooth scrolling
+                }, 1000); // Adjust the timeout to match the smooth scroll duration (in milliseconds)
+            }
+
+            // Event listener for smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        smoothScroll(targetElement);
+                    }
+                });
+            });
+
+            // Initialize the YouTube Player
+            window.onYouTubeIframeAPIReady = function() {
+                player = new YT.Player('youtubePlayer', {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            };
+
+            var player;
+            function onPlayerReady(event) {
+                var videoSection = document.getElementById('video');
+
+                var videoObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            // Play the video when it comes into view
+                            player.playVideo();
+                        } else {
+                            // Pause the video when it's out of view
+                            player.pauseVideo();
+                        }
                     });
+                }, {
+                    threshold: 0.5
+                });
+
+                videoObserver.observe(videoSection);
+            }
+
+            // Window Calculator Function
+            window.calculateCost = function() {
+                const numWindows = parseInt(document.getElementById('windowInput').value, 10);
+                if (isNaN(numWindows) || numWindows < 0) {
+                    document.getElementById('result').textContent = "Please enter a valid number of windows.";
+                    return;
                 }
+                const cost = Math.ceil(numWindows * 2.8) + 25;
+                const finalCost = cost < 100 ? 100 : cost;
+                document.getElementById('result').textContent = `Estimated Cost: $${finalCost}`;
+            }
+
+            // Sticky Header JavaScript
+            let lastScrollTop = 0;
+            const header = document.getElementById('header');
+            let scrollAmount = 0;
+            let isScrolling = false; // Flag to control header during smooth scrolling
+
+            window.addEventListener('scroll', () => {
+                if (isScrolling) {
+                    // Do not move the header during smooth scrolling
+                    return;
+                }
+
+                const st = window.pageYOffset || document.documentElement.scrollTop;
+                const delta = st - lastScrollTop;
+
+                // Update scrollAmount with slower rate
+                scrollAmount += delta * 0.5; // Adjust the multiplier for slower/faster movement
+
+                // Limit scrollAmount to be between 0 and headerHeight
+                const headerHeight = header.offsetHeight;
+                if (scrollAmount < 0) scrollAmount = 0;
+                if (scrollAmount > headerHeight) scrollAmount = headerHeight;
+
+                // Move the header according to scrollAmount
+                header.style.transform = `translateY(${-scrollAmount}px)`;
+
+                lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
             });
+
         });
     </script>
 
