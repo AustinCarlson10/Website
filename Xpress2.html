@@ -1,0 +1,762 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Black Header with Logo, Nav, CTA</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Optional: Font Awesome for icons -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> -->
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+  <!-- Top Bar -->
+  <div class="mt-4 container mx-auto flex justify-end px-4 text-sm space-x-6">
+    <span class="flex items-center space-x-1">
+      <i class="fa fa-phone"></i>
+      <span>(801) 996-4205</span>
+    </span>
+    <span class="flex items-center space-x-1">
+      <i class="fa fa-envelope"></i>
+      <span>ACXpressUtah@gmail.com</span>
+    </span>
+  </div>
+
+  <!-- Header Section with Logo, Nav, and CTA -->
+  <header class="bg-black py-6">
+    <div class="container mx-auto flex flex-col items-center px-4">
+      <!-- Logo -->
+      <a href="#" class="mb-6">
+        <img src="https://th.bing.com/th/id/OIP.hJgnY3xXZJwrQCTCqOhriwHaDa?w=325&h=161&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Xpress A/C Specialists Logo" class="h-20 w-auto rounded-lg" />
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="mb-6">
+        <ul class="flex space-x-8 text-lg font-semibold">
+          <li><a href="#" class="hover:text-gray-300 transition-colors">Home</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors">Services</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors">About</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors">Gallery</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- White CTA Button -->
+      <a href="#" class="bg-white text-black font-bold py-2 px-6 rounded-full hover:bg-gray-300 transition-colors">
+        Schedule Service
+      </a>
+    </div>
+    <div style="width: 100%; height: 2px; background-color: black; margin: 1em 0;"></div>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Darkened Slideshow with Tailwind CSS</title>
+      <!-- TailwindCSS CDN -->
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet" />
+      <style>
+          @keyframes slider1 {0%{opacity:1;}50%{opacity:1;}60%{opacity:0;}100%{opacity:0;}}
+          @keyframes slider2 {0%{opacity:0;}50%{opacity:0;}60%{opacity:1;}100%{opacity:1;}}
+          .fade-1{animation:slider1 10s infinite;}
+          .fade-2{animation:slider2 10s infinite;}
+      </style>
+    </head>
+    <body class="bg-gray-100">
+
+      <!-- Full-screen slideshow section -->
+      <section class="relative w-full h-screen overflow-hidden">
+          <!-- First background image with dark overlay -->
+          <div class="fade-1 absolute inset-0 bg-cover bg-center"
+               style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://axleaddict.com/.image/t_share/MTk5NDI5MTk3ODU1MjA1MzI2/shutterstock_2287564617.jpg');">
+          </div>
+
+          <!-- Second background image with dark overlay -->
+          <div class="fade-2 absolute inset-0 bg-cover bg-center"
+               style="background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&q=80');">
+          </div>
+
+          <!-- Foreground content -->
+          <div class="relative z-10 flex items-center justify-start h-full">
+              <div class="m-8 max-w-xl">
+                  <h1 class="text-5xl font-bold text-white mb-6"> Stay Cool. Let us come to you.</h1>
+                  <p class="text-xl text-white mb-4">
+                      Xpress A/C Specialists keeps you cool anywhere in Utah or Salt Lake County—complete inspections, recharges, compressor swaps, leak detection & more, delivered to your driveway.
+                  </p>
+                  <button class="mt-4 px-5 py-3 bg-white text-gray-800 font-bold rounded"
+                          onclick="window.location.href='https://calendar.google.com';">
+                      Book Now
+                  </button>
+              </div>
+          </div>
+      </section>
+
+    </body>
+    </html>
+
+
+    </div>
+  </body>
+</html>
+</header>
+
+
+<!-- First Gallery Section (Single Image + Text) -->
+<section class="bg-black py-12">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <!-- Left (Image) -->
+    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+      <img src="https://irp.cdn-website.com/8b4307b1/dms3rep/multi/auto+detailing.jpg"
+           alt="A/C Service Van" class="rounded-lg shadow-lg w-full max-w-md mx-auto object-cover"/>
+    </div>
+    <!-- Right (Text + Button) -->
+    <div class="w-full md:w-1/2 md:ml-8 text-center md:text-left">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">What We Do</h2>
+      <p class="text-gray-300 leading-relaxed mb-6">
+        From yearly A/C check-ups to full system overhauls, our mobile crew diagnoses and restores every make and model so you stay safe and comfortable on the road.
+      </p>
+      
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Nature Gallery (Title + Circular Mosaic) -->
+<section class="bg-black py-12">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+    <!-- LEFT SIDE: Text -->
+    <div class="md:w-1/2 text-center md:text-left">
+      <h2 class="text-3xl font-bold mb-4">Our Work</h2>
+      <p class="text-gray-300 leading-relaxed">
+        A glimpse at systems we’ve brought back to peak performance—compressor replacements, leak repairs, precision recharges and electronic climate-control diagnostics.
+      </p>
+    </div>
+    <!-- RIGHT SIDE: Circular Mosaic -->
+    <!-- (unchanged markup / images) -->
+    <div class="flex justify-center w-full md:w-auto">
+      <div class="relative w-[600px] h-[600px] rounded-full overflow-hidden shadow-lg">
+        <div class="grid grid-rows-4 grid-cols-4 gap-1 w-full h-full">
+          <!-- images kept exactly as in original -->
+          <div class="row-span-2 col-span-2 relative"><img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&q=80" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-1 row-span-1 col-start-3 col-span-2 relative"><img src="https://ieabp.com/wp-content/uploads/2020/07/CarDet-scaled-e1594405848203-1980x990.jpg" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-2 col-start-3 relative"><img src="https://th.bing.com/th/id/R.e8ace848f2250753ff3b3bbfebc358fc?rik=1ahDvxFN8EFZ2Q&riu=http%3a%2f%2fwordpress.rpowershower.com%2fwp-content%2fuploads%2f2015%2f05%2fauto-detailing-experts-1.jpg&ehk=Zp6erYm0eu%2fKJlnCZ4BbrM3YUP%2fPY8aCk9MYXKolf%2f0%3d&risl=&pid=ImgRaw&r=0&adlt=strict" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-2 col-start-4 relative"><img src="https://th.bing.com/th/id/OIP.mN5Tnc3Oo195o8TDGLvslwAAAA?rs=1&pid=ImgDetMain&adlt=strict" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-3 col-start-1 relative"><img src="https://images.ctfassets.net/uwf0n1j71a7j/6ihnLVbvnXPpEzduw0cvZH/81e1f68af3a77c000cf19c777324cd8c/car-detailing-guide.png" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-3 col-start-2 relative"><img src="https://cdn.luxe.digital/media/2021/04/10100621/best-luxury-car-brand-bugatti-luxe-digital%402x.jpg" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-3 col-start-3 relative"><img src="https://www.techicy.com/wp-content/uploads/2019/08/auto-detailing-5.jpg" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-3 col-start-4 relative"><img src="https://dynamicdetailingchicago.com/wp-content/uploads/2022/01/2-Auto-Detailing-Interior-Detailing-Packages-A.jpg" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-4 col-start-1 relative"><img src="https://www.garn.org/wp-content/uploads/2020/10/1-1.jpg" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-4 col-start-2 relative"><img src="https://i.pinimg.com/originals/c2/fe/dc/c2fedcef65f8ceb8cf4937c6407e6792.jpg" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-4 col-start-3 relative"><img src="https://th.bing.com/th/id/R.9f44bb906b28c7fc32e94ba5d90a98fd?rik=bMOB2jh%2brKQTRA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2f7DsFs1j.jpg&ehk=dIlh%2fLO3mHKnyyj7tfdoExjhmaV9XP4bbOdmrMGLems%3d&risl=&pid=ImgRaw&r=0" alt="" class="object-cover w-full h-full"></div>
+          <div class="row-start-4 col-start-4 relative"><img src="https://cdn.wallpapersafari.com/72/82/uxKF3l.jpg" alt="" class="object-cover w-full h-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Testimonials Section -->
+
+<div class="container mx-auto px-4 text-center">
+
+  <h2 class="text-3xl md:text-4xl font-bold text-white">What People Say</h2>
+
+</div>
+
+<section id="testimonials" class="bg-black">
+
+  <div class="container mx-auto px-6">
+
+    <!-- Hidden heading, not strictly needed but kept from original code -->
+
+    <h2 class="text-4xl font-bold text-center text-black mb-8">Testimonials</h2>
+
+
+
+    <!-- Testimonials Container with Fixed Height -->
+
+    <div class="relative" id="testimonials-container" style="overflow: hidden; height: 400px;">
+
+      <!-- First Set of Testimonials -->
+
+      <div
+
+        id="testimonial-set-1"
+
+        class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-8 opacity-100 transition-opacity duration-1000"
+
+      >
+
+        <!-- Testimonial 1 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “It's been over a week, and my windows are still spotless. Aiden's Car Detailing exceeded my expectations with their attention to detail.”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+
+              alt="Austin Carlson"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Austin Carlson</div>
+
+              <div class="text-black">Homeowner</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Testimonial 2 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “We've hired Aiden's Car Detailing multiple times for our window washing needs, and they consistently deliver superb service. The team is friendly, efficient, and professional.”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/men/65.jpg"
+
+              alt="Khris Johnson"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Khris Johnson</div>
+
+              <div class="text-black">Business Owner</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Testimonial 3 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “Their attention to detail is impeccable. I highly recommend Aiden's Car Detailing!”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+
+              alt="Samantha Lee"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Samantha Lee</div>
+
+              <div class="text-black">Homeowner</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Testimonial 4 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “Aiden's Car Detailing was professional and thorough. My car has never looked better, it looks amazing!”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/men/55.jpg"
+
+              alt="Michael Thompson"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Michael Thompson</div>
+
+              <div class="text-black">Office Manager</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Second Set of Testimonials -->
+
+      <div
+
+        id="testimonial-set-2"
+
+        class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-8 opacity-0 transition-opacity duration-1000"
+
+      >
+
+        <!-- Testimonial 5 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “Exceptional service! Aiden's Car Detailing made our windows sparkle like never before.”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/women/68.jpg"
+
+              alt="Laura Smith"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Laura Smith</div>
+
+              <div class="text-black">Restaurant Owner</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Testimonial 6 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “The team showed up on time and worked quickly. I can’t believe how clean my windows are now!”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/men/75.jpg"
+
+              alt="Mark Wilson"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Mark Wilson</div>
+
+              <div class="text-black">Homeowner</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Testimonial 7 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “Aiden's Car Detailing transformed our storefront windows. We’ve seen more foot traffic since they finished the job!”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/women/22.jpg"
+
+              alt="Emily Davis"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">Emily Davis</div>
+
+              <div class="text-black">Retail Manager</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Testimonial 8 -->
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+
+          <blockquote class="text-black">
+
+            <p>
+
+              “Professional work and fantastic results. Aiden's Car Detailing is now our go-to for window cleaning.”
+
+            </p>
+
+          </blockquote>
+
+          <div class="mt-4 flex items-center">
+
+            <img
+
+              class="h-12 w-12 rounded-full"
+
+              src="https://randomuser.me/api/portraits/men/82.jpg"
+
+              alt="David Brown"
+
+            >
+
+            <div class="ml-4">
+
+              <div class="text-black font-semibold">David Brown</div>
+
+              <div class="text-black">Building Manager</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="height-adjustment bg-black"></div>
+<style>
+  .height-adjustment{height:850px;}
+  @media (min-width:768px){.height-adjustment{height:350px;}}
+</style>
+
+<!-- JavaScript for Testimonials Fade Transition -->
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    const set1=document.getElementById('testimonial-set-1');
+    const set2=document.getElementById('testimonial-set-2');
+    let show1=true;
+    const t=8000;
+    setInterval(()=>{if(show1){set1.classList.replace('opacity-100','opacity-0');set2.classList.replace('opacity-0','opacity-100');}
+    else{set2.classList.replace('opacity-100','opacity-0');set1.classList.replace('opacity-0','opacity-100');}show1=!show1;},t);
+  });
+</script>
+
+</body>
+</html>
+
+
+
+<!-- black slant -->
+</head>
+<body class="bg-gray-100">
+  <img src="https://i.imghippo.com/files/LqI3780rs.png" alt="Decorative slant" style="margin-top: -350px;">
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-900 text-center">Our Services</h2>
+            <p class="mt-4 text-lg text-gray-500 text-center">Comprehensive mobile A/C care for every vehicle.</p>
+            
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <a href="#" class="block transform transition duration-500 hover:-translate-y-2 hover:shadow-lg">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <img class="w-full h-48 object-cover" src="https://img.freepik.com/premium-photo/car-being-washed-with-high-press_1124848-82768.jpg" alt="Complete A/C Inspection">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Complete System Inspection</h3>
+                            <p class="mt-3 text-gray-600">Thorough diagnostics to catch issues before they grow.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Service 2 -->
+                <a href="#" class="block transform transition duration-500 hover:-translate-y-2 hover:shadow-lg">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <img class="w-full h-48 object-cover" src="https://www.owensautodetailing.com/wp-content/uploads/2022/04/Owens-Auto-Detailing-Exterior-Car-Detailing.jpg" alt="Refrigerant Recharge">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Refrigerant Recharge</h3>
+                            <p class="mt-3 text-gray-600">Optimal cold air restored with precise refrigerant levels.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Service 3 -->
+                <a href="#" class="block transform transition duration-500 hover:-translate-y-2 hover:shadow-lg">
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <img class="w-full h-48 object-cover" src="https://th.bing.com/th/id/R.aa1abe2b47d6e2306647738b8b1b00dd?rik=L%2fw46iUpBGqcoA&riu=http%3a%2f%2fceramicprotricounty.com%2fwp-content%2fuploads%2f2019%2f02%2fcar-interior-detailing-near-me-2-1024x487.jpg&ehk=ke%2fPikRkKp2WHb7Jr7vr96aQOCK375ojcasdX5QsSPY%3d&risl=&pid=ImgRaw&r=0" alt="Compressor Replacement">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Compressor Replacement</h3>
+                            <p class="mt-3 text-gray-600">The heart of your system swapped with top-tier parts onsite.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Effect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .parallax-bg {
+            background-image: url('https://th.bing.com/th/id/OIP.hIo1_o5wbXbIkbLKLxwMKgHaEK?rs=1&pid=ImgDetMain');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Effect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .parallax-bg {
+      background-image: url('https://th.bing.com/th/id/OIP.hIo1_o5wbXbIkbLKLxwMKgHaEK?rs=1&pid=ImgDetMain');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body class="overflow-hidden">
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Image with Tailwind CSS</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .parallax-bg {
+      background-image: url('https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2022/08/Porsche-911-GT3-RS-Rear-Quarter-View.jpeg');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .overlay {background-color: rgba(0, 0, 0, 0.5);}
+  </style>
+</head>
+<body class="min-h-screen flex items-start justify-start overflow-x-hidden bg-gray-900">
+
+  <div class="parallax-bg h-screen w-full flex flex-col items-start justify-center text-left text-white px-16 py-8 relative">
+    <div class="overlay absolute inset-0"></div>
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Stay Cool—Let Us Come to You</h1>
+      <p class="max-w-md mb-8">
+        Mobile A/C experts with 20 years of experience, serving Utah & Salt Lake counties wherever you’re parked.
+      </p>
+      <button class="bg-white text-gray-900 font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-gray-300 transition duration-300">
+        Contact Us
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Footer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <div class="flex-grow"><!-- Main content of the page --></div>
+
+  <footer class="bg-black text-white py-6">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="text-sm">
+        &copy; 2024 Xpress A/C Specialists. All rights reserved.
+      </div>
+      <div>
+        <a href="#" class="text-gray-400 hover:text-white mx-2">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
