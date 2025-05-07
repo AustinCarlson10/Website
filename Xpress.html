@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xpress A/C Specialists</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load the YouTube IFrame Player API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- Meta Tags for Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font: Anton -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <!-- Additional Styles -->
+    <style>
+        /* Smooth transition for header */
+        #header {
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Disable parallax on mobile */
+        @media (max-width: 767px) {
+            .parallax {
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+            }
+        }
+
+        /* Masonry Layout for Gallery */
+        .masonry {
+            column-count: 1;
+        }
+
+        @media (min-width: 640px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry {
+                column-count: 3;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem; /* Adjust spacing between items */
+        }
+
+        /* Prevent horizontal scrolling on mobile */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Slide-in Animation Styles */
+        .slide-in-section {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .slide-in-section.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Fade-in Animation Styles */
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+
+        /* Use Anton font for the hero headline words */
+        .font-anton {
+            font-family: 'Anton', sans-serif;
+        }
+    </style>
+</head>
+<body class="font-sans overflow-x-hidden">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full bg-white flex h-20 shadow-md z-50">
+        <div class="flex-1 flex items-center pl-6">
+            <a href="#">
+                <!-- Logo could be a generic car part or A/C icon instead -->
+                <img 
+                    src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/700993f7-78d3-403e-bae8-8bcf9a38963f/Leonardo_Phoenix_09_Design_a_modern_logo_for_Xpress_a_Mobil_Au_3.jpg" 
+                    alt="Xpress A/C Specialists Logo" 
+                    class="h-16"
+                    onerror="this.onerror=null;this.src='https://placehold.co/80x80?text=Logo';"
+                >
+            </a>
+        </div>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center h-full">
+            <nav class="h-full">
+                <ul class="flex items-center h-full">
+                    <li>
+                        <a href="#services" class="text-gray-800 font-semibold hover:text-blue-600 px-4 h-full flex items-center">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about" class="text-gray-800 font-semibold hover:text-blue-600 px-4 h-full flex items-center">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#testimonials" class="text-gray-800 font-semibold hover:text-blue-600 px-4 h-full flex items-center">
+                            Testimonials
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-gray-800 font-semibold hover:text-blue-600 px-4 h-full flex items-center">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Desktop Buttons (Hidden on Mobile) -->
+        <div class="hidden md:flex h-full">
+            <a href="tel:801-996-4205" class="h-full">
+                <button class="h-full px-6 bg-blue-300 text-white font-semibold">Call Us</button>
+            </a>
+            <a href="#pricing" class="h-full">
+                <button class="h-full px-6 bg-blue-800 text-white font-semibold">Get Quote</button>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none pr-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <title>Menu</title>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center pt-24 space-y-6 transform -translate-x-full transition-transform duration-300 md:hidden">
+        <a href="#services" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">Services</a>
+        <a href="#about" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">About Us</a>
+        <a href="#testimonials" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">Testimonials</a>
+        <a href="#contact" class="text-gray-800 font-semibold text-lg hover:text-blue-600 menu-link">Contact</a>
+        <a href="tel:801-996-4205" class="bg-blue-300 text-white px-4 py-2 rounded-md font-semibold mt-4">Call Us</a>
+        <a href="#pricing" class="bg-blue-800 text-white px-4 py-2 rounded-md font-semibold mt-2">Get Quote</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+        id="hero"
+        class="relative bg-fixed bg-top bg-cover parallax md:bg-fixed"
+        style="background-image: url('https://www.miscw.com/wp-content/uploads/2016/06/Car-Air-Condition.jpg'); min-height: 600px;"
+    >
+        <!-- Grey Overlay -->
+        <div class="absolute inset-0 bg-gray-700 opacity-50"></div>
+
+        <!-- Content Container -->
+        <div class="container mx-auto px-6 h-full flex items-center pt-24">
+            <div class="relative z-10 max-w-lg ml-4 mt-8 fade-in-section">
+                <!-- Hero Text with Anton Font -->
+                <h1 class="font-anton text-4xl md:text-5xl text-white mb-6">
+                    Stay Cool. Let s come to you.
+                </h1>
+                <p class="text-white mb-8">
+                    Keep your vehicle comfortable year-round with Xpress A/C Specialists! We offer comprehensive automotive A/C repairs and maintenance to help you beat the heat and the cold.
+                </p>
+                <!-- White button with black text, fades darker on hover -->
+                <a href="#services"
+                   class="bg-white text-black font-semibold px-6 py-3 rounded-md hover:bg-gray-300 transition-colors"
+                >
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="py-12 bg-gray-0">
+        <div class="container mx-auto px-6 fade-in-section">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Left Side: Title and Paragraph -->
+                <div class="w-full md:w-1/2 mb-6 md:mb-0 md:pr-6 fade-in-section">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Our Craftsmanship</h2>
+                    <p class="text-gray-700">
+                        At Xpress A/C Specialists, we take pride in restoring your car's climate control to peak performance. Using top-tier parts and trusted techniques, we'll make sure your vehicle’s A/C runs like new.
+                    </p>
+                </div>
+
+                <!-- Right Side: Image -->
+                <div class="w-full md:w-1/2 fade-in-section">
+                    <div class="relative" style="padding-top: 56.25%;"> <!-- 16:9 aspect ratio -->
+                        <img
+                            src="https://ictire.com/wp-content/uploads/2022/10/Car-Air-Conditioning-Repair-1024x643.webp"
+                            alt="Inspecting Car A/C"
+                            class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg"
+                            onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Auto+A%2FC';"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Services Section (Fades linearly into same color as Our Commitment) -->
+    <section
+        id="services"
+        class="py-12 bg-gradient-to-b from-white to-blue-800"
+    >
+        <div class="container mx-auto px-6 text-center fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900">Our Services</h2>
+            <p class="mt-4 text-base md:text-lg text-gray-700">
+                Xpress A/C Specialists offers a full range of automotive A/C services to keep you comfortable on the road. We handle cars, trucks, and SUVs of all makes and models.
+            </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="container mx-auto px-6 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in-section">
+            <!-- Service Cards -->
+            <!-- A/C Inspection -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 fade-in-section">
+                <img
+                    src="https://th.bing.com/th/id/OIP.MatlhIQF7b1Kl2kfJP11VwHaEo?rs=1&pid=ImgDetMain"
+                    alt="A/C Inspection"
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=A%2FC+Check';"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-gray-700">A/C Inspection</h3>
+                    <p class="text-gray-600 mt-2">
+                        Our thorough system check diagnoses any underlying issues so we can fix them before they become major problems.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Refrigerant Recharge -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 fade-in-section">
+                <img
+                    src="https://diy.sndimg.com/content/dam/images/diy/editorial/blogs/Deanne/unsized/Dylan-MR-Images/DSC_0044.JPG"
+                    alt="Refrigerant Recharge"
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Recharge';"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-gray-700">Refrigerant Recharge</h3>
+                    <p class="text-gray-600 mt-2">
+                        We restore your system’s cooling power by recharging refrigerant levels, ensuring optimal cold air output.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Compressor Replacement -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 fade-in-section">
+                <img
+                    src="https://resources.servicemycar.com/upimages/service-content/ac-compressor-1-20230516014555.png"
+                    alt="Compressor Replacement"
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Compressor';"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-gray-700">Compressor Replacement</h3>
+                    <p class="text-gray-600 mt-2">
+                        We replace faulty compressors, the heart of your A/C system, to get your car climate control back on track.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Leak Detection & Repair -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 fade-in-section">
+                <img
+                    src="https://th.bing.com/th/id/OIP.yzV3xmhMFlUz1luZ8VgkFQHaEo?w=289&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                    alt="Leak Detection & Repair"
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Leak';"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-gray-700">Leak Detection &amp; Repair</h3>
+                    <p class="text-gray-600 mt-2">
+                        With specialized tools, we pinpoint leaks in hoses or seals and fix them before they cause major damage.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Evaporator & Condenser Service -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 fade-in-section">
+                <img
+                    src="https://th.bing.com/th/id/R.ddd891d0ab0ce28c4fc244375b01e081?rik=doHBFd9sVIRiIQ&pid=ImgRaw&r=0"
+                    alt="Evaporator & Condenser Service"
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Evaporator';"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-gray-700">Evaporator &amp; Condenser</h3>
+                    <p class="text-gray-600 mt-2">
+                        Proper care for evaporators and condensers keeps your system running efficiently, prolonging component lifespan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Climate Control Diagnostics -->
+            <div class="group bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 fade-in-section">
+                <img
+                    src="https://th.bing.com/th/id/OIP.S4gDjtgM1Y7n-bb4rLQm8wHaE9?w=261&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                    alt="Climate Control Diagnostics"
+                    class="w-full h-48 object-cover rounded-t-lg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Diagnostics';"
+                >
+                <div class="p-4">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-gray-700">Climate Control Diagnostics</h3>
+                    <p class="text-gray-600 mt-2">
+                        We troubleshoot electronic climate control issues to ensure precise temperature regulation in any weather.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Commitment Section -->
+    <section id="why" class="bg-blue-800 px-6 py-20">
+        <div class="container mx-auto text-center slide-in-section">
+            <h2 class="text-2xl md:text-4xl font-bold text-white">Our Commitment</h2>
+            <p class="mt-6 text-base md:text-lg text-white">
+                Xpress A/C Specialists stands for quality, integrity, and unparalleled customer care. We believe that a dependable A/C system is essential for a safe and comfortable drive.
+            </p>
+        </div>
+    </section>
+
+    <!-- Include this script at the end of your body or in your JS file -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slideElements = document.querySelectorAll('.slide-in-left');
+
+            function elementInView(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+            }
+
+            function checkElements() {
+                slideElements.forEach(el => {
+                    if (elementInView(el)) {
+                        el.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkElements);
+            checkElements(); // Initial check
+        });
+    </script>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-12 bg-white">
+        <div class="container mx-auto px-6 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-flow-row-dense gap-6">
+                <!-- Left Column (2 images stacked) -->
+                <div class="overflow-hidden fade-in-section">
+                    <img
+                        src="https://th.bing.com/th/id/OIP.nZZ14XD1kZwZM0py6viB-AHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                        alt="A/C Repair Gallery 1"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Repair1';"
+                    >
+                </div>
+                <div class="overflow-hidden fade-in-section">
+                    <img
+                        src="https://th.bing.com/th/id/OIP.X8yUUu4RT2oQ7KDv9GYyhgHaE7?w=250&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                        alt="A/C Repair Gallery 2"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Repair2';"
+                    >
+                </div>
+
+                <!-- Tall Vertical Image (Middle Column, spans 2 rows) -->
+                <div class="overflow-hidden lg:row-span-2 fade-in-section">
+                    <img
+                        src="https://www.telletire.com/wp-content/uploads/2022/02/TT_HowDoesACWork_FeaturedImage-scaled.jpeg"
+                        alt="Tall A/C Repair"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x800?text=TallCar';"
+                    >
+                </div>
+
+                <!-- Right Column (2 images stacked) -->
+                <div class="overflow-hidden fade-in-section">
+                    <img
+                        src="https://th.bing.com/th/id/OIP.S3hlmJvN5pNt4zot42y2mQHaE6?w=265&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                        alt="A/C Repair Gallery 4"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Repair3';"
+                    >
+                </div>
+                <div class="overflow-hidden fade-in-section">
+                    <img
+                        src="https://th.bing.com/th/id/OIP.VcHBUPTWXDnuqTWtmqg3sAHaDg?w=322&h=165&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                        alt="A/C Repair Gallery 5"
+                        class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Repair4';"
+                    >
+                </div>
+
+                <!-- Bottom Row (2 images spanning all columns) -->
+                <div class="overflow-hidden sm:col-span-3 fade-in-section">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <img
+                                src="https://th.bing.com/th/id/OIP.S3hlmJvN5pNt4zot42y2mQHaE6?w=265&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                                alt="Service Bay"
+                                class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                                onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Service1';"
+                            >
+                        </div>
+                        <div>
+                            <img
+                                src="https://th.bing.com/th/id/OIP.ReKIayOFc4QRmjgs8aPbzgHaE8?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+                                alt="Team Working on A/C"
+                                class="w-full h-full object-cover rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
+                                onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Service2';"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section
+        id="contact"
+        class="relative w-full h-screen bg-fixed bg-center bg-cover parallax"
+        style="background-image: url('https://daveandraysauto.com/wp-content/uploads/2020/05/car-air-conditioner.jpg');"
+    >
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <!-- Content Wrapper -->
+        <div class="relative container mx-auto h-full flex items-center px-6 fade-in-section">
+            <!-- Left Side: Contact Information -->
+            <div class="w-full md:w-1/2 text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
+                <p class="text-base md:text-lg mb-8">
+                    Need a cooler ride? Reach out to Xpress A/C Specialists for fast and reliable automotive A/C repair. We’re here to diagnose and fix any climate control issues you may have.
+                </p>
+                <p class="text-lg md:text-xl font-semibold mb-4">
+                    <span class="font-bold">Phone:</span> (801) 996-4205
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Testimonials</h2>
+            <!-- Testimonials Container with Fixed Height -->
+            <div
+                class="relative"
+                id="testimonials-container"
+                style="overflow: hidden; height: 400px;"
+            >
+                <!-- First Set of Testimonials -->
+                <div
+                    id="testimonial-set-1"
+                    class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-8 opacity-100 transition-opacity duration-1000"
+                >
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“I had no cold air, and Xpress A/C Specialists fixed it in no time. Now my daily commute is so comfortable!”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/men/68.jpg"
+                                alt="Kevin Thompson"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Kevin Thompson</div>
+                                <div class="text-gray-400">Local Driver</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“Their team was incredible! My SUV’s A/C never worked better. Friendly service and fair pricing.”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/women/75.jpg"
+                                alt="Ashley Brown"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Ashley Brown</div>
+                                <div class="text-gray-400">SUV Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“They found a leak in my system that others missed. Highly recommend them for top-notch diagnostics!”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/men/44.jpg"
+                                alt="Daniel Roberts"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Daniel Roberts</div>
+                                <div class="text-gray-400">Car Enthusiast</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 4 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“I never realized how important a working A/C was until it stopped. Xpress A/C Specialists brought my sedan’s comfort back!”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/women/32.jpg"
+                                alt="Rachel Scott"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Rachel Scott</div>
+                                <div class="text-gray-400">Daily Commuter</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Set of Testimonials -->
+                <div
+                    id="testimonial-set-2"
+                    class="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-8 opacity-0 transition-opacity duration-1000"
+                >
+                    <!-- Testimonial 5 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“My car’s compressor was shot. They replaced it quickly and at a great price. Highly recommend!”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/men/65.jpg"
+                                alt="Robert Smith"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Robert Smith</div>
+                                <div class="text-gray-400">Business Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 6 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“This crew knows their stuff! My van’s A/C is absolutely chill now. Impressive workmanship.”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/women/82.jpg"
+                                alt="Laura Williams"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Laura Williams</div>
+                                <div class="text-gray-400">Van Owner</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 7 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“Our fleet needed servicing, and Xpress A/C Specialists took care of each vehicle swiftly. Top-tier service!”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/men/55.jpg"
+                                alt="David Brown"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">David Brown</div>
+                                <div class="text-gray-400">Fleet Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 8 -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <blockquote class="text-white">
+                            <p>“Really impressed by how quickly they diagnosed and fixed my car’s cooling problem. Worth every penny!”</p>
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <img
+                                class="h-12 w-12 rounded-full"
+                                src="https://randomuser.me/api/portraits/women/22.jpg"
+                                alt="Sophia Martinez"
+                            >
+                            <div class="ml-4">
+                                <div class="text-white font-semibold">Sophia Martinez</div>
+                                <div class="text-gray-400">City Driver</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-white mb-8">About Us</h2>
+            <div class="md:flex md:items-center">
+                <div class="md:w-1/2 grid grid-cols- gap-4">
+                    <img
+                        src="https://www.carcility.com/blog/wp-content/uploads/2022/08/BLog3-2.jpg"
+                        alt="Team Member 1"
+                        class="rounded-lg shadow fade-in-section"
+                        onerror="this.onerror=null;this.src='https://placehold.co/300x300?text=Tech1';"
+                    >
+            
+                </div>
+                <div class="md:w-1/2 mt-6 md:mt-0 md:pl-6 fade-in-section">
+                    <p class="text-gray-300 leading-relaxed">
+                        Were a small company local who believes in making sure your able to receive honest work and information on automotive ac. We have a background on cars for 20 years. We know keeping your car to keep you moving is necessity and allowing us to come to you allows your schedule to continue.  Being mobile we can come to you at home, work, anywhere you need for the most part.  Thank you for looking into us.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- FAQ Section -->
+    <section id="faq" class="py-12 bg-gray-100 fade-in-section">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <!-- FAQs -->
+                <div class="fade-in-section">
+                    <h3 class="font-semibold text-gray-900">What areas do you serve?</h3>
+                    <p class="mt-2 text-gray-700">
+                        We proudly serve Utah County, and Salt lake County and the surrounding areas. Feel free to call us to confirm if we can assist with your location.
+                    </p>
+                </div>
+                <div class="fade-in-section">
+                    <h3 class="font-semibold text-gray-900">How often should I service my car’s A/C system?</h3>
+                    <p class="mt-2 text-gray-700">
+                        Most manufacturers recommend checking your A/C system at least once a year. We suggest springtime inspections before hot weather arrives.
+                    </p>
+                </div>
+                <div
+                </div>
+                <div class="fade-in-section">
+                    <h3 class="font-semibold text-gray-900">How long will the service take?</h3>
+                    <p class="mt-2 text-gray-700">
+                       The service time frame can be as little as 15 min - 2 hrs depending on the work
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Guarantee Section -->
+    <section
+        class="relative w-full bg-center bg-cover parallax"
+        style="background-image: url('https://th.bing.com/th/id/R.ad3b75b18d747a0d400b7605a1023d3a?rik=AVPHfB7i7hLzJw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fAmerican-Flag-iphone-Background-Images.jpg&ehk=KUdla5Mg0djSGpHuwDYvWDJyzaDkbzx9efBxHWXF0uA%3d&risl=&pid=ImgRaw&r=0F');"
+    >
+        <!-- Darker Overlay -->
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+
+        <!-- Content Wrapper -->
+        <div class="relative container mx-auto py-24 flex flex-col items-center justify-center px-6 text-center fade-in-section">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                Quality You Can Trust
+            </h2>
+            <p class="text-base md:text-xl text-white max-w-2xl">
+                We guarantee top-tier workmanship and attentive customer service. Your satisfaction is our priority, and we won’t consider the job complete until you’re back on the road in comfort.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:justify-between">
+                <!-- Left Section: Company Info -->
+                <div class="md:w-1/2 mb-8 md:mb-0 text-center fade-in-section">
+                    <a href="#" class="inline-block mb-4">
+                        <img 
+                            src="https://cdn.leonardo.ai/users/f8044bea-a295-484d-8ba3-09fd5c51a274/generations/700993f7-78d3-403e-bae8-8bcf9a38963f/Leonardo_Phoenix_09_Design_a_modern_logo_for_Xpress_a_Mobil_Au_3.jpg" 
+                            alt="Xpress A/C Specialists Logo" 
+                            class="h-12 mx-auto"
+                            onerror="this.onerror=null;this.src='https://placehold.co/80x80?text=AC';"
+                        >
+                    </a>
+                    <p class="text-gray-100">
+                        Xpress A/C Specialists provides professional automotive A/C services in Utah County and Salt Lake County and surrounding areas. We keep you cool and comfortable wherever you drive.
+                    </p>
+                </div>
+
+                <!-- Right Section: Contact Info and Social Media Icons -->
+                <div class="md:w-1/2 text-center fade-in-section">
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <p class="text-gray-300 mb-2">(801) 996-4205</p>
+                    <p class="text-gray-300 mb-2">ACXpressUtah@gmail.com</p>
+                 
+                    <!-- Social Media Icons -->
+                    <div class="flex justify-center space-x-6">
+                       
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-8 border-t border-gray-100 pt-4 text-center">
+                <p class="text-sm text-gray-100">
+                    &copy; 2024 Xpress A/C Specialists. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Functions -->
+    <script>
+        // Wrap the code inside DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Toggle Mobile Menu
+            function toggleMobileMenu() {
+                var menu = document.getElementById('mobile-menu');
+                // Toggle the transform class to show/hide the menu
+                if (menu.classList.contains('-translate-x-full')) {
+                    menu.classList.remove('-translate-x-full');
+                } else {
+                    menu.classList.add('-translate-x-full');
+                }
+            }
+
+            // Mobile Menu Button Event
+            document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+            // Close Mobile Menu on Link Click
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    toggleMobileMenu();
+                });
+            });
+
+            // Smooth Scroll Adjustment
+            function smoothScroll(targetElement) {
+                isScrolling = true; // Start of smooth scrolling
+
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth',
+                });
+
+                setTimeout(() => {
+                    isScrolling = false; // End of smooth scrolling
+                }, 1000);
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        smoothScroll(targetElement);
+                    }
+                });
+            });
+
+            // Initialize the YouTube Player (if needed)
+            window.onYouTubeIframeAPIReady = function() {
+                player = new YT.Player('youtubePlayer', {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+            };
+
+            var player;
+            function onPlayerReady(event) {
+                var videoSection = document.getElementById('video');
+
+                var videoObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            player.playVideo();
+                        } else {
+                            player.pauseVideo();
+                        }
+                    });
+                }, {
+                    threshold: 0.5
+                });
+
+                videoObserver.observe(videoSection);
+            }
+
+            // Fence Calculator Function (repurposed for A/C estimate)
+            window.calculateCost = function() {
+                const hours = parseFloat(document.getElementById('lengthInput').value);
+                if (isNaN(hours) || hours <= 0) {
+                    document.getElementById('result').textContent = "Please enter valid labor hours.";
+                    return;
+                }
+                const ratePerHour = 80; // Example labor rate per hour
+                let cost = hours * ratePerHour;
+                cost = Math.round(cost * 100) / 100; // Round to two decimal places
+                document.getElementById('result').textContent = `Estimated Labor Cost: $${cost}`;
+            }
+
+            // Sticky Header JavaScript
+            let lastScrollTop = 0;
+            const header = document.getElementById('header');
+            let scrollAmount = 0;
+            let isScrolling = false;
+
+            window.addEventListener('scroll', () => {
+                if (isScrolling) {
+                    return;
+                }
+
+                const st = window.pageYOffset || document.documentElement.scrollTop;
+                const delta = st - lastScrollTop;
+
+                scrollAmount += delta * 0.5;
+                const headerHeight = header.offsetHeight;
+                if (scrollAmount < 0) scrollAmount = 0;
+                if (scrollAmount > headerHeight) scrollAmount = headerHeight;
+
+                header.style.transform = `translateY(${-scrollAmount}px)`;
+                lastScrollTop = st <= 0 ? 0 : st;
+            });
+
+            // Fade-in and Slide-in Animations
+            const fadeInSections = document.querySelectorAll('.fade-in-section');
+            const slideInSections = document.querySelectorAll('.slide-in-section');
+            const options = { threshold: 0.1 };
+
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, options);
+
+            fadeInSections.forEach(section => {
+                fadeInObserver.observe(section);
+            });
+
+            const slideInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, options);
+
+            slideInSections.forEach(section => {
+                slideInObserver.observe(section);
+            });
+
+            // Testimonials Slider
+            const testimonialSet1 = document.getElementById('testimonial-set-1');
+            const testimonialSet2 = document.getElementById('testimonial-set-2');
+
+            let isSet1Visible = true;
+            const intervalTime = 8000;
+
+            function switchTestimonials() {
+                if (isSet1Visible) {
+                    testimonialSet1.classList.replace('opacity-100', 'opacity-0');
+                    testimonialSet2.classList.replace('opacity-0', 'opacity-100');
+                } else {
+                    testimonialSet2.classList.replace('opacity-100', 'opacity-0');
+                    testimonialSet1.classList.replace('opacity-0', 'opacity-100');
+                }
+                isSet1Visible = !isSet1Visible;
+            }
+
+            setInterval(switchTestimonials, intervalTime);
+        });
+    </script>
+</body>
+</html>
