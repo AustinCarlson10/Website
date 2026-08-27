@@ -1,0 +1,6 @@
+Flask>=3.0,<4.0
+requests>=2.31,<3.0
+beautifulsoup4>=4.12,<5.0
+# The analyzer in TextMaker.py uses the legacy openai.ChatCompletion API,
+# which was removed in openai>=1.0. Pin to the last 0.x release.
+openai>=0.28,<1.0

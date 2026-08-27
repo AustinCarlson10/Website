@@ -1,0 +1,17 @@
+{
+  "name": "Website Templates",
+  "install": "pip install --user -r requirements.txt",
+  "terminals": [
+    {
+      "name": "static-server",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Serves the static HTML website templates at http://localhost:8000 for previewing."
+    }
+  ],
+  "ports": [
+    {
+      "name": "static-server",
+      "port": 8000
+    }
+  ]
+}
